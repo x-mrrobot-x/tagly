@@ -7,8 +7,8 @@ const { DEFAULT_SETTINGS, DEFAULT_STATS } = Defaults;
 const TASKER = {
   MAIN_SCENE: "TG - MAIN SCENE",
   TASKS: {
-    DISPATCH_QUEUE: "TG 06 - DISPATCH QUEUE",
-    ABORT_QUEUE: "TG 07 - ABORT QUEUE",
+    QUEUE_WORKER: "TG 06 - RUN QUEUE WORKER",
+    ABORT_WORKER: "TG 07 - ABORT QUEUE WORKER",
     NOTIFY: "TG 08 - NOTIFY"
   }
 };
@@ -218,7 +218,7 @@ function WebEnvironment() {
   }
 
   function runTask(taskName, priority, ...params) {
-    if (taskName !== TASKER.TASKS.DISPATCH_QUEUE) return;
+    if (taskName !== TASKER.TASKS.QUEUE_WORKER) return;
     try {
       const { id, realCommand, taskParams, type } = parseTaskParams(params);
       processMockTask(id, realCommand, taskParams, type);

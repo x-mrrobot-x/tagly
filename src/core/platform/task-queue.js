@@ -59,7 +59,7 @@ function checkHeartbeat(task, checks, interval) {
     clearInterval(interval);
     return;
   }
-  if (!ENV.isTaskRunning(ENV.TASKER.TASKS.DISPATCH_QUEUE)) {
+  if (!ENV.isTaskRunning(ENV.TASKER.TASKS.QUEUE_WORKER)) {
     clearInterval(interval);
     resolveTask(task.id, "error", "Worker task disappeared.");
   } else if (checks >= MAX_CHECKS) {
@@ -97,7 +97,7 @@ function dispatchTask(task) {
   pending[task.id] = task;
   const taskerParams = buildTaskerParams(task);
   ENV.runTask(
-    ENV.TASKER.TASKS.DISPATCH_QUEUE,
+    ENV.TASKER.TASKS.QUEUE_WORKER,
     WORKER_TASK_PRIORITY,
     JSON.stringify(taskerParams)
   );
@@ -142,9 +142,9 @@ function add(action, params = [], type = "default") {
 
 function stopRunningTasks() {
   ENV.runTask(
-    ENV.TASKER.TASKS.ABORT_QUEUE,
+    ENV.TASKER.TASKS.ABORT_WORKER,
     STOPPER_TASK_PRIORITY,
-    ENV.TASKER.TASKS.DISPATCH_QUEUE
+    ENV.TASKER.TASKS.QUEUE_WORKER
   );
 }
 
