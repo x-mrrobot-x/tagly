@@ -126,3 +126,24 @@
   color: hsl(var(--muted-foreground));
   margin-top: var(--space-xxs);
 }
+
+.chart-offline-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  height: 100%;
+  color: hsl(var(--muted-foreground));
+  opacity: 0.6;
+}
+
+.chart-offline-message svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.chart-offline-message p {
+  font-size: var(--font-sm);
+  text-align: center;
+}

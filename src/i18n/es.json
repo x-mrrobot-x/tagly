@@ -98,7 +98,8 @@
     "chart_recordings": "Grabaciones Organizadas por Día",
     "page_subtitle": "Sigue capturas, grabaciones y ahorro de espacio",
     "chart_folders_title": "Top Apps Organizados",
-    "recent_activity_title": "Actividad Reciente"
+    "recent_activity_title": "Actividad Reciente",
+    "chart_offline": "Gráficos no disponibles sin conexión"
   },
   "process": {
     "label_starting": "Iniciando...",

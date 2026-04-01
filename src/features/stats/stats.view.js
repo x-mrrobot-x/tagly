@@ -27,6 +27,25 @@ const CHART_CONFIG = {
   ]
 };
 
+function isChartAvailable() {
+  return typeof Chart !== "undefined";
+}
+
+function showChartFallback(canvas) {
+  const container = canvas.closest(".stats-chart-container");
+  if (!container) return;
+  canvas.style.display = "none";
+  if (!container.querySelector(".chart-offline-message")) {
+    const el = document.createElement("div");
+    el.className = "chart-offline-message";
+    el.innerHTML = `
+      ${Icons.getSvg("wifi-off")}
+      <p>${I18n.t("stats.chart_offline")}</p>
+    `;
+    container.appendChild(el);
+  }
+}
+
 function queryElements() {
   elements = {
     tabContent: DOM.qs("#tab-stats"),
@@ -86,6 +105,10 @@ const render = {
 
   weeklyChart: data => {
     charts.weekly?.destroy();
+    if (!isChartAvailable()) {
+      showChartFallback(elements.weeklyChart);
+      return;
+    }
     const colors = getThemeColors();
     charts.weekly = new Chart(elements.weeklyChart, {
       type: "bar",
@@ -131,6 +154,10 @@ const render = {
 
   foldersChart: data => {
     charts.folders?.destroy();
+    if (!isChartAvailable()) {
+      showChartFallback(elements.foldersChart);
+      return;
+    }
     const colors = getThemeColors();
     const topFolders = data.topFolders.map(({ name, count }, index) => ({
       name,
@@ -202,6 +229,12 @@ const update = {
 
 function destroyCharts() {
   Object.values(charts).forEach(chart => chart?.destroy());
+  document
+    .querySelectorAll(".chart-offline-message")
+    .forEach(el => el.remove());
+  document.querySelectorAll("#weekly-chart, #folders-chart").forEach(canvas => {
+    canvas.style.display = "";
+  });
 }
 
 function init() {

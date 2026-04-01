@@ -121,7 +121,8 @@
     "chart_recordings": "Organized Recordings per Day",
     "page_subtitle": "Track screenshots, recordings and space savings",
     "chart_folders_title": "Top Organized Apps",
-    "recent_activity_title": "Recent Activity"
+    "recent_activity_title": "Recent Activity",
+    "chart_offline": "Charts unavailable offline"
   },
   "process": {
     "label_starting": "Starting...",
