@@ -50,6 +50,7 @@ scan_media_app_packages() {
     | sed -n "s/.*_\(.*\).${file_type}/\1/p" \
     | sed 's/\[[^]]*\]//g' \
     | sed 's/[[:space:]]*$//' \
+    | sed 's/-[a-z][a-z0-9]*$//' \
     | sort -u)
 
   if [ -z "$package_list" ]; then

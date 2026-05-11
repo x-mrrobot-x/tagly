@@ -33,9 +33,14 @@ function buildMoveEntries(resolvedNames, destPath, extension) {
   const patterns = [];
   const moveStatements = [];
   for (const [pkgName, appName] of Object.entries(resolvedNames)) {
-    const pattern = `*"_${pkgName}.${extension}"`;
-    patterns.push(pattern);
-    moveStatements.push(`mv ${pattern} "${destPath}/${appName.trim()}/"`);
+    const exactPattern = `*"_${pkgName}.${extension}"`;
+    const suffixPattern = `*"_${pkgName}-*.${extension}"`;
+    const dest = `"${destPath}/${appName.trim()}/"`;
+    patterns.push(exactPattern, suffixPattern);
+    moveStatements.push(
+      `mv ${exactPattern} ${dest} 2>/dev/null`,
+      `mv ${suffixPattern} ${dest} 2>/dev/null`
+    );
   }
   return { patterns, moveStatements };
 }
