@@ -30,29 +30,44 @@ function buildEmptyCommands() {
 }
 
 function buildMoveEntries(resolvedNames, destPath, extension) {
-  const patterns = [];
+  const findPatterns = [];
   const moveStatements = [];
+
   for (const [pkgName, appName] of Object.entries(resolvedNames)) {
-    const pattern = `*"_${pkgName}.${extension}"`;
-    patterns.push(pattern);
-    moveStatements.push(`mv ${pattern} "${destPath}/${appName.trim()}/"`);
+    const exactPattern = `*_${pkgName}.${extension}`;
+    const suffixPattern = `*_${pkgName}-*.${extension}`;
+    const dest = `"${destPath}/${appName.trim()}/"`;
+
+    findPatterns.push(
+      `-name '${exactPattern}'`,
+      `-o`,
+      `-name '${suffixPattern}'`
+    );
+
+    moveStatements.push(
+      `mv ${exactPattern} ${dest} 2>/dev/null`,
+      `mv ${suffixPattern} ${dest} 2>/dev/null`
+    );
   }
-  return { patterns, moveStatements };
+
+  return { findPatterns, moveStatements };
 }
 
 function buildMoveCommands(resolvedNames, sourcePath, destPath, extension) {
-  const { patterns, moveStatements } = buildMoveEntries(
+  const { findPatterns, moveStatements } = buildMoveEntries(
     resolvedNames,
     destPath,
     extension
   );
-  if (patterns.length === 0) return buildEmptyCommands();
+
+  if (findPatterns.length === 0) return buildEmptyCommands();
 
   const cdCommand = `cd "${sourcePath}"`;
+
   return {
-    countCommand: `${cdCommand} && ls -1 ${patterns.join(
+    countCommand: `find "${sourcePath}" -maxdepth 1 -type f \\( ${findPatterns.join(
       " "
-    )} 2>/dev/null | wc -l`,
+    )} \\) | wc -l`,
     moveCommand: [cdCommand, ...moveStatements].join(" ; ")
   };
 }
