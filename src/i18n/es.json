@@ -48,6 +48,7 @@
     "quick_actions_title": "Acciones Rápidas",
     "action_organize": "Organizar",
     "action_execute": "Ejecutar",
+    "action_generate_tags": "Generar Etiquetas",
     "triggers_title": "Disparadores",
     "trigger_scheduled_name": "Ejecución Programada",
     "trigger_scheduled_desc": "Organiza y limpia archivos diariamente a la 01:00, si está configurado",

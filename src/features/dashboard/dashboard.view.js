@@ -36,7 +36,8 @@ function queryElements() {
     },
     triggers: {
       section: DOM.qs("#triggers")
-    }
+    },
+    generateTagsBtn: DOM.qs("#dashboard-action-generate-tags")
   };
 }
 

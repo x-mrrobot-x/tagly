@@ -22,7 +22,10 @@
     <link rel="stylesheet" href="/src/assets/css/base/globals.css" />
 
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js" onerror="window.chartUnavailable = true"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js"
+      onerror="window.chartUnavailable = true"
+    ></script>
     <script type="module" src="/src/main.js" defer></script>
   </head>
   <body>
@@ -344,6 +347,21 @@
                 <div class="dashboard-action-label">
                   <span data-i18n="dashboard.action_execute">Executar</span>
                   <span data-i18n="common.cleanup">Limpeza</span>
+                </div>
+              </button>
+
+              <button
+                id="dashboard-action-generate-tags"
+                class="dashboard-action-card card tap-scale animate-fade-in-up"
+                style="animation-delay: 0.55s"
+              >
+                <div class="dashboard-action-icon icon-ai" aria-hidden="true">
+                  <i data-icon="wand-magic-sparkles"></i>
+                </div>
+                <div class="dashboard-action-label">
+                  <span data-i18n="dashboard.action_generate_tags"
+                    >Gerar Tags</span
+                  >
                 </div>
               </button>
             </div>

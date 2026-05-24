@@ -48,6 +48,7 @@
     "quick_actions_title": "Quick Actions",
     "action_organize": "Organize",
     "action_execute": "Run",
+    "action_generate_tags": "Generate Tags",
     "triggers_title": "Triggers",
     "trigger_scheduled_name": "Scheduled Run",
     "trigger_scheduled_desc": "Organizes and cleans files daily at 01:00, if configured",

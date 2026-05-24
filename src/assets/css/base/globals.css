@@ -182,6 +182,11 @@ input::placeholder {
   color: #fff;
 }
 
+.icon-ai {
+  background: var(--accent-gradient);
+  color: #fff;
+}
+
 div.ui-spinner {
   display: inline-block;
   border: 0.2rem solid hsl(var(--muted-foreground) / 0.25);

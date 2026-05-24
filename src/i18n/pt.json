@@ -48,6 +48,7 @@
     "quick_actions_title": "Ações Rápidas",
     "action_organize": "Organizar",
     "action_execute": "Executar",
+    "action_generate_tags": "Gerar Tags",
     "triggers_title": "Gatilhos",
     "trigger_scheduled_name": "Execução Agendada",
     "trigger_scheduled_desc": "Organiza e limpa arquivos diariamente às 01:00, se configurado",
