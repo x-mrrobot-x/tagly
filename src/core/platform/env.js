@@ -15,8 +15,18 @@ const TASKER = {
 
 const PATHS = {
   DESTINATION_BASE: "/storage/emulated/0/OrganizedMedia",
-  SOURCE_SCREENSHOTS: "/storage/emulated/0/DCIM/Screenshots",
-  SOURCE_RECORDINGS: "/storage/emulated/0/DCIM/ScreenRecorder",
+  get SOURCE_SCREENSHOTS() {
+    return (
+      (getVariableFn && getVariableFn("screenshots_path")) ||
+      "/storage/emulated/0/DCIM/Screenshots"
+    );
+  },
+  get SOURCE_RECORDINGS() {
+    return (
+      (getVariableFn && getVariableFn("recordings_path")) ||
+      "/storage/emulated/0/DCIM/ScreenRecorder"
+    );
+  },
   get ORGANIZED_SCREENSHOTS() {
     return resolveDestination("Screenshots");
   },
@@ -103,6 +113,7 @@ const STORAGE = {
 const isWeb = typeof tk === "undefined";
 const USE_MOCK = import.meta.env.DEV || import.meta.env.MODE === "pages";
 let settingsGetter = null;
+let getVariableFn = null;
 
 function setSettingsGetter(fn) {
   settingsGetter = fn;
@@ -163,6 +174,8 @@ function WebEnvironment() {
     if (cfg?.type === "localStorage") return readFromLocalStorage(cfg, key);
     return null;
   }
+
+  getVariableFn = getVariable;
 
   async function readFile(key, params = {}) {
     try {
@@ -328,6 +341,8 @@ function TaskerEnvironment() {
     return STORAGE[key] ? getDefault(key) : null;
   }
 
+  getVariableFn = getVariable;
+
   async function readFile(key, params = {}) {
     try {
       const result = await execute({
@@ -381,7 +396,7 @@ function TaskerEnvironment() {
   }
 
   function getSystemLanguage() {
-    return (tk.local("%system_language") || "en").split("-")[0];
+    return (tk.local("system_language") || "en").split("-")[0];
   }
 
   function exit() {
