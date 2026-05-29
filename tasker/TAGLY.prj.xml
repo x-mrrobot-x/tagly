@@ -1,28 +1,28 @@
-<TaskerData sr="" dvi="1" tv="6.7.0-beta">
+<TaskerData sr="" dvi="1" tv="6.7.3-beta">
 	<dmetric>1080.0,2307.0</dmetric>
-	<Profile sr="prof2175" ve="2">
-		<cdate>1774527066337</cdate>
+	<Profile sr="prof1955" ve="2">
+		<cdate>1780092838143</cdate>
 		<clp>true</clp>
-		<edate>1774475598754</edate>
+		<edate>1780090972737</edate>
 		<flags>40</flags>
-		<id>2175</id>
-		<mid0>2173</mid0>
-		<nme>TG 02 - RENAME SCREEN RECORDING</nme>
+		<id>1955</id>
+		<mid0>1927</mid0>
+		<nme>TG 02 - STAMP SCREEN RECORDING</nme>
 		<Event sr="con0" ve="2">
 			<code>222</code>
 			<pri>0</pri>
-			<Str sr="arg0" ve="3">/storage/emulated/0/DCIM/ScreenRecorder</Str>
+			<Str sr="arg0" ve="3">%recordings_path</Str>
 			<Str sr="arg1" ve="3">MovedTo</Str>
 		</Event>
 	</Profile>
-	<Profile sr="prof2176" ve="2">
-		<cdate>1774527066346</cdate>
+	<Profile sr="prof1956" ve="2">
+		<cdate>1780092838145</cdate>
 		<clp>true</clp>
-		<edate>1774475610805</edate>
+		<edate>1780090989637</edate>
 		<flags>8</flags>
-		<id>2176</id>
-		<mid0>2165</mid0>
-		<nme>TG 01 - ORGANIZE</nme>
+		<id>1956</id>
+		<mid0>1905</mid0>
+		<nme>TG 01 - SCHEDULED RUN</nme>
 		<Time sr="con0">
 			<fh>1</fh>
 			<fm>0</fm>
@@ -33,10 +33,11 @@
 	<Project sr="proj0" ve="2">
 		<cdate>1716309952758</cdate>
 		<name>TAGLY</name>
-		<pids>2176,2175</pids>
+		<pids>1956,1955</pids>
 		<psort>Alpha</psort>
-		<scenes>TG - MATRIX LOADER,TG - OVERLAY,TG - TAGLY</scenes>
-		<tids>2162,2163,2164,2161,2172,2174,2170,2169,2166,2160,2168,2173,2171,2165,2167</tids>
+		<scenes>TG - SETUP SPLASH,TG - MAIN SCENE,TG - SHIELD SCENE</scenes>
+		<ssort>Alpha</ssort>
+		<tids>1925,1931,1926,1916,1923,1922,1920,1879,999,1880,1914,1915,1927,1905,1924</tids>
 		<tsort>Alpha</tsort>
 		<Share sr="Share">
 			<b>false</b>
@@ -91,58 +92,120 @@
 		</Share>
 		<ProfileVariable sr="pv0">
 			<clearout>false</clearout>
-			<exportval>v1.8.0</exportval>
+			<exportval>v1.25.0</exportval>
 			<immutable>false</immutable>
 			<pvci>false</pvci>
 			<pvd></pvd>
 			<pvdn></pvdn>
-			<pvid>136</pvid>
+			<pvid>138</pvid>
 			<pvit>pj</pvit>
 			<pvn>%tg_project_version</pvn>
 			<pvt>t</pvt>
-			<pvv>v1.8.0</pvv>
+			<pvv>v1.25.0</pvv>
 			<strout>false</strout>
 		</ProfileVariable>
 		<ProfileVariable sr="pv1">
-			<clearout>false</clearout>
-			<exportval></exportval>
-			<immutable>false</immutable>
-			<pvci>false</pvci>
-			<pvd></pvd>
-			<pvdn></pvdn>
-			<pvid>136</pvid>
-			<pvit>pj</pvit>
-			<pvn>%current_app_name</pvn>
-			<pvt>t</pvt>
-			<strout>false</strout>
-		</ProfileVariable>
-		<ProfileVariable sr="pv2">
 			<clearout>true</clearout>
 			<exportval></exportval>
 			<immutable>true</immutable>
 			<pvci>false</pvci>
 			<pvd></pvd>
 			<pvdn></pvdn>
-			<pvid>136</pvid>
+			<pvid>138</pvid>
 			<pvit>pj</pvit>
 			<pvn>%tg_work_dir</pvn>
 			<pvt>d</pvt>
 			<pvv>/sdcard/Tasker/data/Tagly</pvv>
 			<strout>false</strout>
 		</ProfileVariable>
+		<ProfileVariable sr="pv2">
+			<clearout>false</clearout>
+			<exportval></exportval>
+			<immutable>false</immutable>
+			<pvci>false</pvci>
+			<pvd></pvd>
+			<pvdn></pvdn>
+			<pvid>138</pvid>
+			<pvit>pj</pvit>
+			<pvn>%screenshots_path</pvn>
+			<pvt>d</pvt>
+			<strout>false</strout>
+		</ProfileVariable>
+		<ProfileVariable sr="pv3">
+			<clearout>false</clearout>
+			<exportval></exportval>
+			<immutable>false</immutable>
+			<pvci>false</pvci>
+			<pvd></pvd>
+			<pvdn></pvdn>
+			<pvid>138</pvid>
+			<pvit>pj</pvit>
+			<pvn>%recordings_path</pvn>
+			<pvt>d</pvt>
+			<strout>false</strout>
+		</ProfileVariable>
 	</Project>
-	<Scene sr="sceneTG - MATRIX LOADER">
-		<cdate>1755704584025</cdate>
-		<edate>1774382319831</edate>
+	<Scene sr="sceneTG - MAIN SCENE">
+		<cdate>1768824274907</cdate>
+		<edate>1775080791115</edate>
 		<heightLand>1080</heightLand>
 		<heightPort>2400</heightPort>
-		<nme>TG - MATRIX LOADER</nme>
+		<nme>TG - MAIN SCENE</nme>
+		<widthLand>2307</widthLand>
+		<widthPort>1080</widthPort>
+		<WebElement sr="elements0" ve="2">
+			<flags>6</flags>
+			<geom>0,0,1080,2400,0,0,2306,1080</geom>
+			<Str sr="arg0" ve="3">APP</Str>
+			<Int sr="arg1" val="2"/>
+			<Str sr="arg2" ve="3">%html</Str>
+			<Int sr="arg3" val="1"/>
+			<Int sr="arg4" val="1"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="1"/>
+			<Int sr="arg7" val="1"/>
+			<Str sr="arg8" ve="3"/>
+			<RectElement sr="background">
+				<flags>4</flags>
+				<geom>-1,-1,-1,-1,-1,-1,-1,-1</geom>
+				<Str sr="arg0" ve="3"/>
+				<Int sr="arg1" val="0"/>
+				<Str sr="arg2" ve="3"/>
+				<Str sr="arg3" ve="3"/>
+				<Int sr="arg4" val="0"/>
+				<Str sr="arg5" ve="3">#FF000000</Str>
+				<Int sr="arg6" val="0"/>
+				<Int sr="arg7" val="0"/>
+			</RectElement>
+		</WebElement>
+		<PropertiesElement sr="props">
+			<keyTask>1923</keyTask>
+			<Int sr="arg0" val="1"/>
+			<Int sr="arg1" val="2"/>
+			<Str sr="arg2" ve="3">#00FFFFFF</Str>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3">TG - SCREENSHOTS ORGANIZER</Str>
+			<Str sr="arg5" ve="3"/>
+			<Img sr="arg6" ve="2"/>
+			<Str sr="arg7" ve="3"/>
+			<LinkClickFilter sr="filter0">
+				<stopEvent>true</stopEvent>
+				<urlMatch>back</urlMatch>
+			</LinkClickFilter>
+		</PropertiesElement>
+	</Scene>
+	<Scene sr="sceneTG - SETUP SPLASH">
+		<cdate>1755704584025</cdate>
+		<edate>1774639099851</edate>
+		<heightLand>1080</heightLand>
+		<heightPort>2400</heightPort>
+		<nme>TG - SETUP SPLASH</nme>
 		<widthLand>2307</widthLand>
 		<widthPort>1080</widthPort>
 		<WebElement sr="elements0" ve="2">
 			<flags>6</flags>
 			<geom>0,0,1080,2400,-1,-1,-1,-1</geom>
-			<linkclickTask>2160</linkclickTask>
+			<linkclickTask>999</linkclickTask>
 			<Str sr="arg0" ve="3">MATRIX LOADER</Str>
 			<Int sr="arg1" val="2"/>
 			<Str sr="arg2" ve="3">&lt;!doctype html&gt;
@@ -458,7 +521,7 @@
 			</LinkClickFilter>
 		</WebElement>
 		<PropertiesElement sr="props">
-			<keyTask>2164</keyTask>
+			<keyTask>1915</keyTask>
 			<Int sr="arg0" val="1"/>
 			<Int sr="arg1" val="0"/>
 			<Str sr="arg2" ve="3">#00FFFFFF</Str>
@@ -473,16 +536,16 @@
 			</LinkClickFilter>
 		</PropertiesElement>
 	</Scene>
-	<Scene sr="sceneTG - OVERLAY">
+	<Scene sr="sceneTG - SHIELD SCENE">
 		<cdate>1773159153710</cdate>
-		<edate>1774187447823</edate>
+		<edate>1774639031947</edate>
 		<heightLand>-1</heightLand>
 		<heightPort>2400</heightPort>
-		<nme>TG - OVERLAY</nme>
+		<nme>TG - SHIELD SCENE</nme>
 		<widthLand>-1</widthLand>
 		<widthPort>1080</widthPort>
 		<PropertiesElement sr="props">
-			<keyTask>2172</keyTask>
+			<keyTask>1926</keyTask>
 			<Int sr="arg0" val="1"/>
 			<Int sr="arg1" val="0"/>
 			<Str sr="arg2" ve="3">#00FFFFFF</Str>
@@ -497,99 +560,11 @@
 			</LinkClickFilter>
 		</PropertiesElement>
 	</Scene>
-	<Scene sr="sceneTG - TAGLY">
-		<cdate>1768824274907</cdate>
-		<edate>1774466657205</edate>
-		<heightLand>1080</heightLand>
-		<heightPort>2400</heightPort>
-		<nme>TG - TAGLY</nme>
-		<widthLand>2307</widthLand>
-		<widthPort>1080</widthPort>
-		<WebElement sr="elements0" ve="2">
-			<flags>6</flags>
-			<geom>0,0,1080,2400,0,0,2306,1080</geom>
-			<Str sr="arg0" ve="3">APP</Str>
-			<Int sr="arg1" val="2"/>
-			<Str sr="arg2" ve="3">%html</Str>
-			<Int sr="arg3" val="1"/>
-			<Int sr="arg4" val="1"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="1"/>
-			<Int sr="arg7" val="1"/>
-			<Str sr="arg8" ve="3"/>
-			<RectElement sr="background">
-				<flags>4</flags>
-				<geom>-1,-1,-1,-1,-1,-1,-1,-1</geom>
-				<Str sr="arg0" ve="3"/>
-				<Int sr="arg1" val="0"/>
-				<Str sr="arg2" ve="3"/>
-				<Str sr="arg3" ve="3"/>
-				<Int sr="arg4" val="0"/>
-				<Str sr="arg5" ve="3">#FF000000</Str>
-				<Int sr="arg6" val="0"/>
-				<Int sr="arg7" val="0"/>
-			</RectElement>
-		</WebElement>
-		<PropertiesElement sr="props">
-			<keyTask>2169</keyTask>
-			<Int sr="arg0" val="1"/>
-			<Int sr="arg1" val="2"/>
-			<Str sr="arg2" ve="3">#00FFFFFF</Str>
-			<Int sr="arg3" val="0"/>
-			<Str sr="arg4" ve="3">TG - SCREENSHOTS ORGANIZER</Str>
-			<Str sr="arg5" ve="3"/>
-			<Img sr="arg6" ve="2"/>
-			<Str sr="arg7" ve="3"/>
-			<LinkClickFilter sr="filter0">
-				<stopEvent>true</stopEvent>
-				<urlMatch>back</urlMatch>
-			</LinkClickFilter>
-		</PropertiesElement>
-	</Scene>
-	<Task sr="task2160">
-		<cdate>1755705635405</cdate>
-		<edate>1755705635405</edate>
-		<id>2160</id>
-		<pri>103</pri>
-		<Action sr="act0" ve="7">
-			<code>37</code>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%url</lhs>
-					<op>2</op>
-					<rhs>*continue</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>49</code>
-			<Str sr="arg0" ve="3">TG - MATRIX LOADER</Str>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>130</code>
-			<Str sr="arg0" ve="3">TG 00 - LAUNCH APP</Str>
-			<Int sr="arg1">
-				<var>%priority</var>
-			</Int>
-			<Int sr="arg10" val="1"/>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Int sr="arg5" val="1"/>
-			<Int sr="arg6" val="0"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>38</code>
-		</Action>
-	</Task>
-	<Task sr="task2161">
+	<Task sr="task1879">
 		<cdate>1770004814122</cdate>
-		<edate>1774527452351</edate>
-		<id>2161</id>
-		<nme>TG 08 - KILL TASK QUEUE</nme>
+		<edate>1780074987080</edate>
+		<id>1879</id>
+		<nme>TG 07 - ABORT QUEUE WORKER</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>137</code>
@@ -606,7 +581,7 @@
 		<Action sr="act1" ve="7">
 			<code>137</code>
 			<Int sr="arg0" val="1"/>
-			<Str sr="arg1" ve="3">TG 06 - HANDLE TASK QUEUE</Str>
+			<Str sr="arg1" ve="3">TG 06 - RUN QUEUE WORKER</Str>
 		</Action>
 		<Action sr="act2" ve="7">
 			<code>548</code>
@@ -628,11 +603,11 @@
 			<Int sr="arg9" val="1"/>
 		</Action>
 	</Task>
-	<Task sr="task2162">
+	<Task sr="task1880">
 		<cdate>1772855289103</cdate>
-		<edate>1774527414911</edate>
-		<id>2162</id>
-		<nme>TG 05 - CHECK SCENE VISIBILITY</nme>
+		<edate>1780091123331</edate>
+		<id>1880</id>
+		<nme>TG 05 - MOUNT SCENE</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>137</code>
@@ -648,13 +623,13 @@
 		</Action>
 		<Action sr="act1" ve="7">
 			<code>194</code>
-			<Str sr="arg0" ve="3">TG - TAGLY</Str>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
 			<Int sr="arg1" val="0"/>
 			<Str sr="arg2" ve="3">%scene_visibility</Str>
 		</Action>
 		<Action sr="act2" ve="7">
 			<code>49</code>
-			<Str sr="arg0" ve="3">TG - TAGLY</Str>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
 			<ConditionList sr="if">
 				<Condition sr="c0" ve="3">
 					<lhs>%scene_visibility</lhs>
@@ -663,12 +638,91 @@
 				</Condition>
 			</ConditionList>
 		</Action>
+		<Action sr="act3" ve="7">
+			<code>417</code>
+			<Str sr="arg0" ve="3">%tg_work_dir/index.html</Str>
+			<Str sr="arg1" ve="3">%html</Str>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>47</code>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+			<Int sr="arg1" val="10"/>
+			<Int sr="arg10" val="1"/>
+			<Int sr="arg2" val="100"/>
+			<Int sr="arg3" val="100"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="1"/>
+			<Int sr="arg7" val="1"/>
+			<Int sr="arg8" val="1"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
 	</Task>
-	<Task sr="task2163">
+	<Task sr="task1905">
+		<cdate>1774727756263</cdate>
+		<edate>1780090989637</edate>
+		<id>1905</id>
+		<pri>6</pri>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">TG 04 - LOAD DATA</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>417</code>
+			<Str sr="arg0" ve="3">%tg_work_dir/tasker/auto-process/index.html</Str>
+			<Str sr="arg1" ve="3">%html</Str>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>49</code>
+			<se>false</se>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>47</code>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg10" val="1"/>
+			<Int sr="arg2" val="200"/>
+			<Int sr="arg3" val="200"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="1"/>
+			<Int sr="arg7" val="1"/>
+			<Int sr="arg8" val="1"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task1914">
 		<cdate>1772847711394</cdate>
-		<edate>1774526822347</edate>
-		<id>2163</id>
-		<nme>TG 03 - BUILD DEPENDENCIES</nme>
+		<edate>1780074998447</edate>
+		<id>1914</id>
+		<nme>TG 03 - SYNC DEPENDENCIES</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>300</code>
@@ -743,21 +797,21 @@ These Files Are Required To Setup The Webview Interface&lt;/h6&gt;</label>
 		</Action>
 		<Action sr="act14" ve="7">
 			<code>548</code>
-			<Str sr="arg0" ve="3">Downloading webview interface dependencies. Internet needed. (One-time)</Str>
+			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#7Db3f9"&gt;Downloading project dependencies, wait...</Str>
 			<Int sr="arg1" val="0"/>
-			<Str sr="arg10" ve="3">#cc00ffff</Str>
+			<Str sr="arg10" ve="3"/>
 			<Int sr="arg11" val="1"/>
 			<Int sr="arg12" val="0"/>
 			<Str sr="arg13" ve="3">1</Str>
-			<Int sr="arg14" val="0"/>
+			<Int sr="arg14" val="1"/>
 			<Str sr="arg15" ve="3">1</Str>
 			<Int sr="arg2" val="1"/>
 			<Str sr="arg3" ve="3"/>
 			<Str sr="arg4" ve="3"/>
 			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3">#ee242424</Str>
+			<Str sr="arg6" ve="3">#aa2C4C94</Str>
 			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3">10000</Str>
+			<Str sr="arg8" ve="3">3000</Str>
 			<Int sr="arg9" val="1"/>
 		</Action>
 		<Action sr="act15" ve="7">
@@ -916,37 +970,53 @@ echo "success"</Str>
 			</ConditionList>
 		</Action>
 		<Action sr="act25" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act26" ve="7">
-			<code>779</code>
-			<Str sr="arg0" ve="3">Tagly • Update</Str>
-			<Int sr="arg1" val="0"/>
-		</Action>
-		<Action sr="act27" ve="7">
-			<code>43</code>
-		</Action>
-		<Action sr="act28" ve="7">
 			<code>548</code>
-			<Str sr="arg0" ve="3">An error occurred while downloading webview interface dependencies!</Str>
+			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#7Db3f9"&gt;Project updated</Str>
 			<Int sr="arg1" val="0"/>
 			<Str sr="arg10" ve="3"/>
 			<Int sr="arg11" val="1"/>
 			<Int sr="arg12" val="0"/>
 			<Str sr="arg13" ve="3">1</Str>
-			<Int sr="arg14" val="0"/>
+			<Int sr="arg14" val="1"/>
 			<Str sr="arg15" ve="3">1</Str>
 			<Int sr="arg2" val="1"/>
 			<Str sr="arg3" ve="3"/>
 			<Str sr="arg4" ve="3"/>
 			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3">#ddb91c1c</Str>
+			<Str sr="arg6" ve="3">#aa2C4C94</Str>
 			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3">15000</Str>
+			<Str sr="arg8" ve="3">3000</Str>
 			<Int sr="arg9" val="1"/>
 		</Action>
-		<Action sr="act29" ve="7">
+		<Action sr="act26" ve="7">
 			<code>38</code>
+		</Action>
+		<Action sr="act27" ve="7">
+			<code>779</code>
+			<Str sr="arg0" ve="3">Tagly • Update</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act28" ve="7">
+			<code>43</code>
+		</Action>
+		<Action sr="act29" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#ffdddd"&gt;An error occurred while downloading project dependencies!</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3">1</Str>
+			<Int sr="arg14" val="1"/>
+			<Str sr="arg15" ve="3">1</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3">#aaff3b5e</Str>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3">3000</Str>
+			<Int sr="arg9" val="1"/>
 		</Action>
 		<Action sr="act3" ve="7">
 			<code>339</code>
@@ -983,6 +1053,9 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 			<Int sr="arg9" val="0"/>
 		</Action>
 		<Action sr="act30" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act31" ve="7">
 			<code>40</code>
 		</Action>
 		<Action sr="act4" ve="7">
@@ -998,21 +1071,21 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 		</Action>
 		<Action sr="act5" ve="7">
 			<code>548</code>
-			<Str sr="arg0" ve="3">Error! No Connection</Str>
-			<Int sr="arg1" val="1"/>
+			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#ffdddd"&gt;Error! No Connection</Str>
+			<Int sr="arg1" val="0"/>
 			<Str sr="arg10" ve="3"/>
 			<Int sr="arg11" val="1"/>
 			<Int sr="arg12" val="0"/>
-			<Str sr="arg13" ve="3"/>
-			<Int sr="arg14" val="0"/>
-			<Str sr="arg15" ve="3"/>
-			<Int sr="arg2" val="0"/>
+			<Str sr="arg13" ve="3">1</Str>
+			<Int sr="arg14" val="1"/>
+			<Str sr="arg15" ve="3">1</Str>
+			<Int sr="arg2" val="1"/>
 			<Str sr="arg3" ve="3"/>
 			<Str sr="arg4" ve="3"/>
 			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3"/>
+			<Str sr="arg6" ve="3">#aaff3b5e</Str>
 			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3"/>
+			<Str sr="arg8" ve="3">3000</Str>
 			<Int sr="arg9" val="1"/>
 		</Action>
 		<Action sr="act6" ve="7">
@@ -1093,89 +1166,21 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 			<Str sr="arg4" ve="3"/>
 		</Action>
 	</Task>
-	<Task sr="task2164">
+	<Task sr="task1915">
 		<cdate>1755704601605</cdate>
 		<edate>1755704601605</edate>
-		<id>2164</id>
+		<id>1915</id>
 		<pri>103</pri>
 		<Action sr="act0" ve="7">
 			<code>49</code>
-			<Str sr="arg0" ve="3">TG - MATRIX LOADER</Str>
+			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
 		</Action>
 	</Task>
-	<Task sr="task2165">
-		<cdate>1772730773966</cdate>
-		<edate>1774527339368</edate>
-		<id>2165</id>
-		<nme>TG 01 - RUN PROCESS</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>130</code>
-			<Str sr="arg0" ve="3">TG 04 - LOAD APP DATA</Str>
-			<Int sr="arg1">
-				<var>%priority+1</var>
-			</Int>
-			<Int sr="arg10" val="1"/>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="0"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>417</code>
-			<Str sr="arg0" ve="3">%tg_work_dir/tasker/auto-process/index.html</Str>
-			<Str sr="arg1" ve="3">%html</Str>
-			<Int sr="arg2" val="1"/>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>417</code>
-			<label>[DEV]</label>
-			<on>false</on>
-			<Str sr="arg0" ve="3">/storage/0BF9-13F1/1 - Dev/1 - Projetos/1 - Tasker/Tagly/dist/tasker/auto-process/index.html</Str>
-			<Str sr="arg1" ve="3">%html</Str>
-			<Int sr="arg2" val="1"/>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>49</code>
-			<se>false</se>
-			<Str sr="arg0" ve="3">TG - TAGLY</Str>
-		</Action>
-		<Action sr="act5" ve="7">
-			<code>47</code>
-			<Str sr="arg0" ve="3">TG - TAGLY</Str>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg10" val="1"/>
-			<Int sr="arg2" val="200"/>
-			<Int sr="arg3" val="200"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="1"/>
-			<Int sr="arg7" val="1"/>
-			<Int sr="arg8" val="1"/>
-			<Int sr="arg9" val="1"/>
-		</Action>
-	</Task>
-	<Task sr="task2166">
+	<Task sr="task1916">
 		<cdate>1772851580867</cdate>
-		<edate>1774527392585</edate>
-		<id>2166</id>
-		<nme>TG 02 - VERIFY DEPENDENCIES</nme>
+		<edate>1780075001862</edate>
+		<id>1916</id>
+		<nme>TG 02 - ENSURE DEPENDENCIES</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>137</code>
@@ -1210,7 +1215,7 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 		<Action sr="act10" ve="7">
 			<code>47</code>
 			<se>false</se>
-			<Str sr="arg0" ve="3">TG - MATRIX LOADER</Str>
+			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
 			<Int sr="arg1" val="10"/>
 			<Int sr="arg10" val="1"/>
 			<Int sr="arg2" val="100"/>
@@ -1224,7 +1229,7 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 		</Action>
 		<Action sr="act11" ve="7">
 			<code>130</code>
-			<Str sr="arg0" ve="3">TG 03 - BUILD DEPENDENCIES</Str>
+			<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
 			<Int sr="arg1">
 				<var>%priority+1</var>
 			</Int>
@@ -1248,7 +1253,7 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 		</Action>
 		<Action sr="act13" ve="7">
 			<code>53</code>
-			<Str sr="arg0" ve="3">TG - MATRIX LOADER</Str>
+			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
 			<Str sr="arg1" ve="3">MATRIX LOADER</Str>
 			<Int sr="arg2" val="6"/>
 			<Str sr="arg3" ve="3">javascript:(MatrixLoader.complete)()</Str>
@@ -1347,14 +1352,14 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 		<Action sr="act9" ve="7">
 			<code>137</code>
 			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3">TG 00 - LAUNCH APP</Str>
+			<Str sr="arg1" ve="3">TG 01 - MAIN</Str>
 		</Action>
 	</Task>
-	<Task sr="task2167">
+	<Task sr="task1920">
 		<cdate>1772273455368</cdate>
-		<edate>1774527411482</edate>
-		<id>2167</id>
-		<nme>TG 04 - LOAD APP DATA</nme>
+		<edate>1780074983192</edate>
+		<id>1920</id>
+		<nme>TG 04 - LOAD DATA</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>137</code>
@@ -1458,11 +1463,11 @@ if (langCode != null) {
 			<Str sr="arg4" ve="3">%apps/%folders/%stats/%activities/%settings/%translations</Str>
 		</Action>
 	</Task>
-	<Task sr="task2168">
+	<Task sr="task1922">
 		<cdate>1769973317306</cdate>
-		<edate>1774527435090</edate>
-		<id>2168</id>
-		<nme>TG 06 - HANDLE TASK QUEUE</nme>
+		<edate>1780090641958</edate>
+		<id>1922</id>
+		<nme>TG 06 - RUN QUEUE WORKER</nme>
 		<pri>100</pri>
 		<rty>2</rty>
 		<Action sr="act0" ve="7">
@@ -1500,6 +1505,20 @@ if (langCode != null) {
 			<Int sr="arg8" val="1"/>
 		</Action>
 		<Action sr="act10" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%result</Str>
+			<Str sr="arg1" ve="3">{
+  "id": %task_id,
+  "status": "success",
+  "payload": [%apps_data(+,)]
+}</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+		</Action>
+		<Action sr="act11" ve="7">
 			<code>43</code>
 			<ConditionList sr="if">
 				<Condition sr="c0" ve="3">
@@ -1509,7 +1528,7 @@ if (langCode != null) {
 				</Condition>
 			</ConditionList>
 		</Action>
-		<Action sr="act11" ve="7">
+		<Action sr="act12" ve="7">
 			<code>547</code>
 			<Str sr="arg0" ve="3">%command</Str>
 			<Str sr="arg1" ve="3">%config.fullCommand</Str>
@@ -1519,7 +1538,7 @@ if (langCode != null) {
 			<Int sr="arg5" val="3"/>
 			<Int sr="arg6" val="1"/>
 		</Action>
-		<Action sr="act12" ve="7">
+		<Action sr="act13" ve="7">
 			<code>123</code>
 			<se>false</se>
 			<Str sr="arg0" ve="3">%command</Str>
@@ -1532,7 +1551,7 @@ if (langCode != null) {
 			<Int sr="arg7" val="0"/>
 			<Int sr="arg8" val="0"/>
 		</Action>
-		<Action sr="act13" ve="7">
+		<Action sr="act14" ve="7">
 			<code>392</code>
 			<se>false</se>
 			<Bundle sr="arg0">
@@ -1545,7 +1564,7 @@ if (langCode != null) {
 			<Str sr="arg2" ve="3">JSON</Str>
 			<Int sr="arg3" val="0"/>
 		</Action>
-		<Action sr="act14" ve="7">
+		<Action sr="act15" ve="7">
 			<code>37</code>
 			<ConditionList sr="if">
 				<Condition sr="c0" ve="3">
@@ -1555,7 +1574,7 @@ if (langCode != null) {
 				</Condition>
 			</ConditionList>
 		</Action>
-		<Action sr="act15" ve="7">
+		<Action sr="act16" ve="7">
 			<code>547</code>
 			<Str sr="arg0" ve="3">%result</Str>
 			<Str sr="arg1" ve="3">{
@@ -1569,10 +1588,10 @@ if (langCode != null) {
 			<Int sr="arg5" val="3"/>
 			<Int sr="arg6" val="1"/>
 		</Action>
-		<Action sr="act16" ve="7">
+		<Action sr="act17" ve="7">
 			<code>43</code>
 		</Action>
-		<Action sr="act17" ve="7">
+		<Action sr="act18" ve="7">
 			<code>547</code>
 			<Str sr="arg0" ve="3">%result</Str>
 			<Str sr="arg1" ve="3">{
@@ -1589,33 +1608,13 @@ if (langCode != null) {
 			<Int sr="arg5" val="3"/>
 			<Int sr="arg6" val="1"/>
 		</Action>
-		<Action sr="act18" ve="7">
+		<Action sr="act19" ve="7">
 			<code>38</code>
 		</Action>
-		<Action sr="act19" ve="7">
-			<code>43</code>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%task</lhs>
-					<op>2</op>
-					<rhs>select_directory</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
 		<Action sr="act2" ve="7">
-			<code>37</code>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%task</lhs>
-					<op>2</op>
-					<rhs>check_installed_apps</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act20" ve="7">
 			<code>47</code>
 			<se>false</se>
-			<Str sr="arg0" ve="3">TG - OVERLAY</Str>
+			<Str sr="arg0" ve="3">TG - SHIELD SCENE</Str>
 			<Int sr="arg1" val="6"/>
 			<Int sr="arg10" val="1"/>
 			<Int sr="arg2" val="100"/>
@@ -1626,9 +1625,27 @@ if (langCode != null) {
 			<Int sr="arg7" val="1"/>
 			<Int sr="arg8" val="1"/>
 			<Int sr="arg9" val="1"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%task</lhs>
+					<op>2</op>
+					<rhs>select_directory/export_data/import_data</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act20" ve="7">
+			<code>43</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%task</lhs>
+					<op>2</op>
+					<rhs>select_directory</rhs>
+				</Condition>
+			</ConditionList>
 		</Action>
 		<Action sr="act21" ve="7">
 			<code>390</code>
+			<se>false</se>
 			<Bundle sr="arg0">
 				<Vals sr="val">
 					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%input
@@ -1644,9 +1661,14 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			<Int sr="arg5" val="30"/>
 		</Action>
 		<Action sr="act22" ve="7">
-			<code>49</code>
-			<se>false</se>
-			<Str sr="arg0" ve="3">TG - OVERLAY</Str>
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%input</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
 		</Action>
 		<Action sr="act23" ve="7">
 			<code>547</code>
@@ -1666,6 +1688,153 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			<code>38</code>
 		</Action>
 		<Action sr="act25" ve="7">
+			<code>43</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%task</lhs>
+					<op>2</op>
+					<rhs>import_data</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act26" ve="7">
+			<code>390</code>
+			<se>false</se>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%input
+Input
+The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">FileSystemPicker</Str>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="30"/>
+		</Action>
+		<Action sr="act27" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%input</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act28" ve="7">
+			<code>417</code>
+			<Str sr="arg0" ve="3">%input</Str>
+			<Str sr="arg1" ve="3">%content</Str>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act29" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%result</Str>
+			<Str sr="arg1" ve="3">{
+  "id": %task_id,
+  "status": "success",
+  "payload": { "content": %content }
+}</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%task</lhs>
+					<op>2</op>
+					<rhs>check_installed_apps</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act30" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act31" ve="7">
+			<code>43</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%task</lhs>
+					<op>2</op>
+					<rhs>export_data</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act32" ve="7">
+			<code>390</code>
+			<se>false</se>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%input
+Input
+The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">DirectorySystemPicker</Str>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="30"/>
+		</Action>
+		<Action sr="act33" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%input</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act34" ve="7">
+			<code>410</code>
+			<Str sr="arg0" ve="3">%input/%config.filename</Str>
+			<Str sr="arg1" ve="3">%config.data</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="1"/>
+		</Action>
+		<Action sr="act35" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%result</Str>
+			<Str sr="arg1" ve="3">{
+  "id": %task_id,
+  "status": "success",
+  "payload": { "success": true }
+}</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+		</Action>
+		<Action sr="act36" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act37" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act38" ve="7">
+			<code>49</code>
+			<se>false</se>
+			<Str sr="arg0" ve="3">TG - SHIELD SCENE</Str>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%task</lhs>
+					<op>2</op>
+					<rhs>select_directory/export_data/import_data</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act39" ve="7">
 			<code>548</code>
 			<on>false</on>
 			<Str sr="arg0" ve="3">%config</Str>
@@ -1685,15 +1854,7 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			<Str sr="arg8" ve="3">99999</Str>
 			<Int sr="arg9" val="1"/>
 		</Action>
-		<Action sr="act26" ve="7">
-			<code>53</code>
-			<se>false</se>
-			<Str sr="arg0" ve="3">TG - TAGLY</Str>
-			<Str sr="arg1" ve="3">APP</Str>
-			<Int sr="arg2" val="6"/>
-			<Str sr="arg3" ve="3">javascript:( () =&gt; App.handleTaskResult(%result)  )()</Str>
-		</Action>
-		<Action sr="act3" ve="7">
+		<Action sr="act4" ve="7">
 			<code>547</code>
 			<Str sr="arg0" ve="3">%apps_path</Str>
 			<Str sr="arg1" ve="3">%config.appsPath</Str>
@@ -1703,7 +1864,15 @@ The text that was retrieved from the dialog&lt;/_array_net.dinglisch.android.tas
 			<Int sr="arg5" val="3"/>
 			<Int sr="arg6" val="1"/>
 		</Action>
-		<Action sr="act4" ve="7">
+		<Action sr="act40" ve="7">
+			<code>53</code>
+			<se>false</se>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+			<Str sr="arg1" ve="3">APP</Str>
+			<Int sr="arg2" val="6"/>
+			<Str sr="arg3" ve="3">javascript:( () =&gt; App.handleTaskResult(%result)  )()</Str>
+		</Action>
+		<Action sr="act5" ve="7">
 			<code>474</code>
 			<Str sr="arg0" ve="3">import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -1805,7 +1974,7 @@ return "{\"id\": " + taskId + ", \"status\": \"success\", \"payload\": " + paylo
 			<Str sr="arg1" ve="3">%result</Str>
 			<Int sr="arg2" val="1"/>
 		</Action>
-		<Action sr="act5" ve="7">
+		<Action sr="act6" ve="7">
 			<code>43</code>
 			<ConditionList sr="if">
 				<Condition sr="c0" ve="3">
@@ -1815,13 +1984,13 @@ return "{\"id\": " + taskId + ", \"status\": \"success\", \"payload\": " + paylo
 				</Condition>
 			</ConditionList>
 		</Action>
-		<Action sr="act6" ve="7">
+		<Action sr="act7" ve="7">
 			<code>354</code>
 			<Str sr="arg0" ve="3">%pkgs_to_get</Str>
 			<Str sr="arg1" ve="3">%config.params()</Str>
 			<Str sr="arg2" ve="3">,</Str>
 		</Action>
-		<Action sr="act7" ve="7">
+		<Action sr="act8" ve="7">
 			<code>335</code>
 			<Bundle sr="arg0">
 				<Vals sr="val">
@@ -1840,7 +2009,7 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
 		</Action>
-		<Action sr="act8" ve="7">
+		<Action sr="act9" ve="7">
 			<code>393</code>
 			<Bundle sr="arg0">
 				<Vals sr="val">
@@ -1860,43 +2029,42 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Str sr="arg6" ve="3"/>
 			<Int sr="arg7" val="0"/>
 		</Action>
-		<Action sr="act9" ve="7">
-			<code>547</code>
-			<Str sr="arg0" ve="3">%result</Str>
-			<Str sr="arg1" ve="3">{
-  "id": %task_id,
-  "status": "success",
-  "payload": [%apps_data(+,)]
-}</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-		</Action>
+		<ProfileVariable sr="pv0">
+			<clearout>false</clearout>
+			<exportval></exportval>
+			<immutable>false</immutable>
+			<pvci>false</pvci>
+			<pvd></pvd>
+			<pvdn></pvdn>
+			<pvid>2253</pvid>
+			<pvit>t</pvit>
+			<pvn>%pkgs_hash</pvn>
+			<pvt>t</pvt>
+			<strout>false</strout>
+		</ProfileVariable>
 	</Task>
-	<Task sr="task2169">
+	<Task sr="task1923">
 		<cdate>1768957162196</cdate>
 		<edate>1768957162196</edate>
-		<id>2169</id>
-		<pri>102</pri>
+		<id>1923</id>
+		<pri>103</pri>
 		<Action sr="act0" ve="7">
 			<code>53</code>
-			<Str sr="arg0" ve="3">TG - TAGLY</Str>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
 			<Str sr="arg1" ve="3">APP</Str>
 			<Int sr="arg2" val="6"/>
 			<Str sr="arg3" ve="3">javascript:(() =&gt; {
   var key = "%TIMES";
   if(!App.goBack()) {
-  tk.destroyScene("TG - TAGLY");   }
+  tk.destroyScene("TG - MAIN SCENE");   }
 })();</Str>
 		</Action>
 	</Task>
-	<Task sr="task2170">
+	<Task sr="task1924">
 		<cdate>1772798386569</cdate>
-		<edate>1774527462526</edate>
-		<id>2170</id>
-		<nme>TG 09 - SEND NOTIFICATION</nme>
+		<edate>1774638244615</edate>
+		<id>1924</id>
+		<nme>TG 08 - NOTIFY</nme>
 		<pri>100</pri>
 		<rty>2</rty>
 		<Action sr="act0" ve="7">
@@ -1952,15 +2120,15 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Str sr="arg9" ve="3"/>
 		</Action>
 	</Task>
-	<Task sr="task2171">
+	<Task sr="task1925">
 		<cdate>1768825217743</cdate>
-		<edate>1774527572883</edate>
-		<id>2171</id>
-		<nme>TG 00 - LAUNCH APP</nme>
+		<edate>1780092942837</edate>
+		<id>1925</id>
+		<nme>TG 01 - MAIN</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>130</code>
-			<Str sr="arg0" ve="3">TG 02 - VERIFY DEPENDENCIES</Str>
+			<Str sr="arg0" ve="3">TG 02 - ENSURE DEPENDENCIES</Str>
 			<Int sr="arg1">
 				<var>%priority+1</var>
 			</Int>
@@ -1976,7 +2144,7 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 		</Action>
 		<Action sr="act1" ve="7">
 			<code>130</code>
-			<Str sr="arg0" ve="3">TG 04 - LOAD APP DATA</Str>
+			<Str sr="arg0" ve="3">TG 04 - LOAD DATA</Str>
 			<Int sr="arg1">
 				<var>%priority+1</var>
 			</Int>
@@ -1991,8 +2159,73 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Int sr="arg9" val="0"/>
 		</Action>
 		<Action sr="act2" ve="7">
+			<code>235</code>
+			<se>false</se>
+			<Int sr="arg0" val="2"/>
+			<Str sr="arg1" ve="3">system_locales</Str>
+			<Str sr="arg2" ve="3"/>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3">%system_language</Str>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">import android.os.Environment;
+import java.io.File;
+
+base = Environment.getExternalStorageDirectory().getAbsolutePath();
+
+screenshotCandidates = new String[]{
+    base + "/DCIM/Screenshots",
+    base + "/Pictures/Screenshots",
+    base + "/Pictures/ScreenShots",
+    base + "/MIUI/Gallery/Pictures/Screenshots",
+    base + "/Screenshots",
+};
+screenshotPath = base + "/DCIM/Screenshots";
+for (int i = 0; i &lt; screenshotCandidates.length; i++) {
+    dir = new File(screenshotCandidates[i]);
+    if (dir.exists() &amp;&amp; dir.isDirectory()) { screenshotPath = screenshotCandidates[i]; break; }
+}
+
+recordingCandidates = new String[]{
+    base + "/DCIM/ScreenRecorder",
+    base + "/DCIM/ScreenRecordings",
+    base + "/DCIM/Screen recordings",
+    base + "/Movies/ScreenRecorder",
+    base + "/Movies/ScreenRecordings",
+    base + "/Movies/Screen recordings",
+    base + "/Movies",
+    base + "/Videos/ScreenRecordings",
+    base + "/MIUI/Gallery/Videos/ScreenRecordings",
+    base + "/ScreenRecordings",
+};
+screenRecordingPath = base + "/DCIM/ScreenRecorder";
+for (int i = 0; i &lt; recordingCandidates.length; i++) {
+    dir = new File(recordingCandidates[i]);
+    if (dir.exists() &amp;&amp; dir.isDirectory()) { screenRecordingPath = recordingCandidates[i]; break; }
+}
+
+tasker.setVariable("screenshots_path", screenshotPath);
+tasker.setVariable("recordings_path", screenRecordingPath);</Str>
+			<Str sr="arg1" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<ConditionList sr="if">
+				<bool0>And</bool0>
+				<Condition sr="c0" ve="3">
+					<lhs>%screenshots_path</lhs>
+					<op>13</op>
+					<rhs></rhs>
+				</Condition>
+				<Condition sr="c1" ve="3">
+					<lhs>%recordings_path</lhs>
+					<op>13</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act4" ve="7">
 			<code>130</code>
-			<Str sr="arg0" ve="3">TG 05 - CHECK SCENE VISIBILITY</Str>
+			<Str sr="arg0" ve="3">TG 05 - MOUNT SCENE</Str>
 			<Int sr="arg1">
 				<var>%priority+1</var>
 			</Int>
@@ -2001,42 +2234,14 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Str sr="arg3" ve="3"/>
 			<Str sr="arg4" ve="3"/>
 			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="0"/>
-			<Str sr="arg7" ve="3"/>
+			<Int sr="arg6" val="1"/>
+			<Str sr="arg7" ve="3">%apps/%folders/%stats/%activities/%settings/%translations/%system_language</Str>
 			<Int sr="arg8" val="0"/>
 			<Int sr="arg9" val="0"/>
 		</Action>
-		<Action sr="act3" ve="7">
-			<code>417</code>
-			<Str sr="arg0" ve="3">%tg_work_dir/index.html</Str>
-			<Str sr="arg1" ve="3">%html</Str>
-			<Int sr="arg2" val="1"/>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>417</code>
-			<label>[DEV]</label>
-			<on>false</on>
-			<Str sr="arg0" ve="3">/storage/0BF9-13F1/1 - Dev/1 - Projetos/1 - Tasker/Tagly/dist/index.html</Str>
-			<Str sr="arg1" ve="3">%html</Str>
-			<Int sr="arg2" val="1"/>
-		</Action>
 		<Action sr="act5" ve="7">
-			<code>47</code>
-			<Str sr="arg0" ve="3">TG - TAGLY</Str>
-			<Int sr="arg1" val="10"/>
-			<Int sr="arg10" val="1"/>
-			<Int sr="arg2" val="100"/>
-			<Int sr="arg3" val="100"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="1"/>
-			<Int sr="arg7" val="1"/>
-			<Int sr="arg8" val="1"/>
-			<Int sr="arg9" val="1"/>
-		</Action>
-		<Action sr="act6" ve="7">
 			<code>130</code>
-			<Str sr="arg0" ve="3">TG 10 - CHECK FOR UPDATES</Str>
+			<Str sr="arg0" ve="3">TG 09 - CHECK UPDATES</Str>
 			<Int sr="arg1">
 				<var>%priority</var>
 			</Int>
@@ -2044,7 +2249,7 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Str sr="arg2" ve="3"/>
 			<Str sr="arg3" ve="3"/>
 			<Str sr="arg4" ve="3"/>
-			<Int sr="arg5" val="0"/>
+			<Int sr="arg5" val="1"/>
 			<Int sr="arg6" val="0"/>
 			<Str sr="arg7" ve="3"/>
 			<Int sr="arg8" val="0"/>
@@ -2055,21 +2260,34 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<tint>-1</tint>
 		</Img>
 	</Task>
-	<Task sr="task2172">
+	<Task sr="task1926">
 		<cdate>1773159164732</cdate>
 		<edate>1773159164732</edate>
-		<id>2172</id>
+		<id>1926</id>
+		<pri>11</pri>
 		<Action sr="act0" ve="7">
 			<code>49</code>
-			<Str sr="arg0" ve="3">TG - OVERLAY</Str>
+			<Str sr="arg0" ve="3">TG - SHIELD SCENE</Str>
 		</Action>
 	</Task>
-	<Task sr="task2173">
+	<Task sr="task1927">
 		<cdate>1746808569929</cdate>
-		<edate>1771543015285</edate>
-		<id>2173</id>
-		<pri>6</pri>
+		<edate>1780090972737</edate>
+		<id>1927</id>
+		<pri>100</pri>
 		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
 			<code>342</code>
 			<Int sr="arg0" val="1"/>
 			<Str sr="arg1" ve="3">%evtprm1</Str>
@@ -2077,18 +2295,14 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="1"/>
 		</Action>
-		<Action sr="act1" ve="7">
-			<code>547</code>
-			<label>Calcular tempo decorrido</label>
-			<Str sr="arg0" ve="3">%seconds_elapsed</Str>
-			<Str sr="arg1" ve="3">%TIMES - %time</Str>
+		<Action sr="act10" ve="7">
+			<code>400</code>
+			<Str sr="arg0" ve="3">%evtprm1</Str>
+			<Str sr="arg1" ve="3">%new_file</Str>
 			<Int sr="arg2" val="0"/>
 			<Int sr="arg3" val="1"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
 		</Action>
-		<Action sr="act10" ve="7">
+		<Action sr="act11" ve="7">
 			<code>548</code>
 			<Str sr="arg0" ve="3">Gravação de tela renomeada:
 
@@ -2111,10 +2325,21 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Str sr="arg8" ve="3">10000</Str>
 			<Int sr="arg9" val="1"/>
 		</Action>
-		<Action sr="act11" ve="7">
+		<Action sr="act12" ve="7">
 			<code>38</code>
 		</Action>
 		<Action sr="act2" ve="7">
+			<code>547</code>
+			<label>Calcular tempo decorrido</label>
+			<Str sr="arg0" ve="3">%seconds_elapsed</Str>
+			<Str sr="arg1" ve="3">%TIMES - %time</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="1"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
 			<code>37</code>
 			<ConditionList sr="if">
 				<bool0>And</bool0>
@@ -2130,7 +2355,7 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 				</Condition>
 			</ConditionList>
 		</Action>
-		<Action sr="act3" ve="7">
+		<Action sr="act4" ve="7">
 			<code>335</code>
 			<se>false</se>
 			<Bundle sr="arg0">
@@ -2150,7 +2375,7 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
 		</Action>
-		<Action sr="act4" ve="7">
+		<Action sr="act5" ve="7">
 			<code>547</code>
 			<Str sr="arg0" ve="3">%current_app_name</Str>
 			<Str sr="arg1" ve="3">%app_name</Str>
@@ -2167,7 +2392,7 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 				</Condition>
 			</ConditionList>
 		</Action>
-		<Action sr="act5" ve="7">
+		<Action sr="act6" ve="7">
 			<code>547</code>
 			<Str sr="arg0" ve="3">%current_app_name</Str>
 			<Str sr="arg1" ve="3">UnknownApp</Str>
@@ -2184,7 +2409,7 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 				</Condition>
 			</ConditionList>
 		</Action>
-		<Action sr="act6" ve="7">
+		<Action sr="act7" ve="7">
 			<code>547</code>
 			<Str sr="arg0" ve="3">%new_file</Str>
 			<Str sr="arg1" ve="3">%evtprm1</Str>
@@ -2194,7 +2419,7 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Int sr="arg5" val="3"/>
 			<Int sr="arg6" val="1"/>
 		</Action>
-		<Action sr="act7" ve="7">
+		<Action sr="act8" ve="7">
 			<code>598</code>
 			<Str sr="arg0" ve="3">%new_file</Str>
 			<Str sr="arg1" ve="3">\.(?!.*\.)</Str>
@@ -2205,7 +2430,7 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Int sr="arg6" val="1"/>
 			<Str sr="arg7" ve="3">_%current_app_name.</Str>
 		</Action>
-		<Action sr="act8" ve="7">
+		<Action sr="act9" ve="7">
 			<code>547</code>
 			<Str sr="arg0" ve="3">%last_file</Str>
 			<Str sr="arg1" ve="3">%new_file</Str>
@@ -2214,13 +2439,6 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Int sr="arg4" val="0"/>
 			<Int sr="arg5" val="3"/>
 			<Int sr="arg6" val="0"/>
-		</Action>
-		<Action sr="act9" ve="7">
-			<code>400</code>
-			<Str sr="arg0" ve="3">%evtprm1</Str>
-			<Str sr="arg1" ve="3">%new_file</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="1"/>
 		</Action>
 		<ProfileVariable sr="pv0">
 			<clearout>false</clearout>
@@ -2236,11 +2454,11 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<strout>false</strout>
 		</ProfileVariable>
 	</Task>
-	<Task sr="task2174">
+	<Task sr="task1931">
 		<cdate>1774169776173</cdate>
-		<edate>1774527476711</edate>
-		<id>2174</id>
-		<nme>TG 10 - CHECK FOR UPDATES</nme>
+		<edate>1780074991429</edate>
+		<id>1931</id>
+		<nme>TG 09 - CHECK UPDATES</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>137</code>
@@ -2284,7 +2502,9 @@ The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVA
 			<Str sr="arg5" ve="3"/>
 			<Str sr="arg6" ve="3"/>
 			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8" val="60"/>
+			<Int sr="arg8">
+				<var>3</var>
+			</Int>
 			<Int sr="arg9" val="0"/>
 		</Action>
 		<Action sr="act2" ve="7">
@@ -2370,7 +2590,7 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 				<label>Update Interface</label>
 				<Action sr="action" ve="7">
 					<code>130</code>
-					<Str sr="arg0" ve="3">TG 03 - BUILD DEPENDENCIES</Str>
+					<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
 					<Int sr="arg1">
 						<var>%priority</var>
 					</Int>
@@ -2421,7 +2641,7 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 				<label>Update Project</label>
 				<Action sr="action" ve="7">
 					<code>130</code>
-					<Str sr="arg0" ve="3">TG 03 - BUILD DEPENDENCIES</Str>
+					<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
 					<Int sr="arg1">
 						<var>%priority</var>
 					</Int>
@@ -2442,6 +2662,45 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 			</ListElementItem>
 		</Action>
 		<Action sr="act7" ve="7">
+			<code>38</code>
+		</Action>
+	</Task>
+	<Task sr="task999">
+		<cdate>1755705635405</cdate>
+		<edate>1755705635405</edate>
+		<id>999</id>
+		<pri>103</pri>
+		<Action sr="act0" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%url</lhs>
+					<op>2</op>
+					<rhs>*continue</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>49</code>
+			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">TG 01 - MAIN</Str>
+			<Int sr="arg1">
+				<var>%priority</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="1"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
 			<code>38</code>
 		</Action>
 	</Task>
