@@ -8,6 +8,7 @@ import Toast from "../../../core/ui/toast.js";
 import I18n from "../../../core/services/i18n.js";
 import ImageUtils from "../../../lib/image-utils.js";
 import { GeminiError } from "../../../lib/gemini.js";
+import EventBus from "../../../core/platform/event-bus.js";
 
 let taggingQueue = [];
 let taggingIndex = 0;
@@ -310,6 +311,8 @@ function attachEvents() {
     ]
   ];
   events.forEach(([el, evt, fn]) => el.addEventListener(evt, fn));
+
+  EventBus.on("tagging:open-dialog", openTaggingDialog);
 }
 
 function init() {

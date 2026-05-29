@@ -5,7 +5,7 @@ import ENV from "../../core/platform/env.js";
 import Logger from "../../core/platform/logger.js";
 import Utils from "../../lib/utils.js";
 import Navigation from "../../core/ui/navigation.js";
-import TaggingController from "../organizer/tagging/tagging.controller.js";
+
 
 let isInitialized = false;
 
@@ -34,7 +34,7 @@ const handlers = {
   },
   onGenerateTagsClick: () => {
     Navigation.navigateTo("organizer");
-    TaggingController.openTaggingDialog();
+    EventBus.emit("tagging:open-dialog");
   },
   onTriggersClick: e => {
     const card = e.target.closest("[data-trigger]");
