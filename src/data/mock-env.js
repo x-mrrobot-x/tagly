@@ -253,7 +253,8 @@ const MOCK_COMMANDS = {
           notifyCleanupResult: true,
           notifyPendingFiles: false,
           animationsEnabled: true,
-          customDestination: null,
+          customDestinationScreenshots: null,
+          customDestinationRecordings: null,
           language: "en"
         },
         folders: [],

@@ -181,7 +181,6 @@
     "notify_pending_title": "Pending Files",
     "notify_pending_desc": "Periodically notifies when there are screenshots or screen recordings awaiting organization",
     "section_files": "Files",
-    "destination_title": "Destination Folder",
     "destination_error": "Failed to select destination directory.",
     "section_language": "Language",
     "language_title": "App Language",
@@ -201,7 +200,11 @@
     "reset_btn": "Restore",
     "delete_all_title": "Delete All Data",
     "delete_all_desc": "Permanently removes settings, activity history and statistics. Media files on the device will not be affected.",
-    "delete_all_btn": "Delete"
+    "delete_all_btn": "Delete",
+    "destination_screenshots_title": "Screenshots Destination",
+    "destination_screenshots_desc": "Folder where organized screenshots will be saved",
+    "destination_recordings_title": "Recordings Destination",
+    "destination_recordings_desc": "Folder where organized screen recordings will be saved"
   },
   "monitor": {
     "apps_updated": "App list updated.",

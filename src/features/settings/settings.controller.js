@@ -71,16 +71,31 @@ const handlers = {
       }
     );
   },
-  onDestinationClick: async () => {
+  onDestinationScreenshotsClick: async () => {
     try {
       const result = await TaskQueue.add("select_directory", [], "default");
       const path = result?.path ?? null;
       if (!path) return;
-      SettingsModel.setSetting("customDestination", path);
+      SettingsModel.setSetting("customDestinationScreenshots", path);
+      SettingsView.update.destinationPath("screenshots", path);
       EventBus.emit("dashboard:reload-stats");
       SubfolderMonitor.runScan();
     } catch (error) {
-      Logger.error("[Settings] Failed to select directory:", error);
+      Logger.error("[Settings] Failed to select screenshots directory:", error);
+      Toast.error(I18n.t("settings.destination_error"));
+    }
+  },
+  onDestinationRecordingsClick: async () => {
+    try {
+      const result = await TaskQueue.add("select_directory", [], "default");
+      const path = result?.path ?? null;
+      if (!path) return;
+      SettingsModel.setSetting("customDestinationRecordings", path);
+      SettingsView.update.destinationPath("recordings", path);
+      EventBus.emit("dashboard:reload-stats");
+      SubfolderMonitor.runScan();
+    } catch (error) {
+      Logger.error("[Settings] Failed to select recordings directory:", error);
       Toast.error(I18n.t("settings.destination_error"));
     }
   },
@@ -141,7 +156,8 @@ function attachEvents() {
     resetBtn,
     deleteBtn,
     languageSelect,
-    destinationBtn,
+    destinationScreenshotsBtn,
+    destinationRecordingsBtn,
     geminiConfigBtn,
     exportBtn,
     importBtn
@@ -153,7 +169,12 @@ function attachEvents() {
     [languageSelect, "change", handlers.onLanguageChange],
     [resetBtn, "click", handlers.onReset],
     [deleteBtn, "click", handlers.onDelete],
-    [destinationBtn, "click", handlers.onDestinationClick],
+    [
+      destinationScreenshotsBtn,
+      "click",
+      handlers.onDestinationScreenshotsClick
+    ],
+    [destinationRecordingsBtn, "click", handlers.onDestinationRecordingsClick],
     [geminiConfigBtn, "click", handlers.onGeminiConfigClick],
     [exportBtn, "click", handlers.onExport],
     [importBtn, "click", handlers.onImport]

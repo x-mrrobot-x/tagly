@@ -14,7 +14,6 @@ const TASKER = {
 };
 
 const PATHS = {
-  DESTINATION_BASE: "/storage/emulated/0/OrganizedMedia",
   get SOURCE_SCREENSHOTS() {
     return (
       (getVariableFn && getVariableFn("screenshots_path")) ||
@@ -28,10 +27,10 @@ const PATHS = {
     );
   },
   get ORGANIZED_SCREENSHOTS() {
-    return resolveDestination("Screenshots");
+    return resolveDestination("screenshots");
   },
   get ORGANIZED_RECORDINGS() {
-    return resolveDestination("ScreenRecordings");
+    return resolveDestination("recordings");
   }
 };
 
@@ -119,10 +118,16 @@ function setSettingsGetter(fn) {
   settingsGetter = fn;
 }
 
-function resolveDestination(subfolder) {
-  const custom = settingsGetter ? settingsGetter("customDestination") : null;
-  const base = custom || PATHS.DESTINATION_BASE;
-  return `${base}/${subfolder}`;
+function resolveDestination(type) {
+  const settingKey =
+    type === "screenshots"
+      ? "customDestinationScreenshots"
+      : "customDestinationRecordings";
+  const custom = settingsGetter ? settingsGetter(settingKey) : null;
+  if (custom) return `${custom}/Tagly`;
+  const sourceBase =
+    type === "screenshots" ? PATHS.SOURCE_SCREENSHOTS : PATHS.SOURCE_RECORDINGS;
+  return `${sourceBase}/Tagly`;
 }
 
 function resolvePath(path, params = {}) {

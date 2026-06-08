@@ -12,8 +12,10 @@ function queryElements() {
     deleteBtn: DOM.qs("#delete-all-btn"),
     languageSelect: DOM.qs("#language-select"),
     languageLabel: DOM.qs("#current-language-label"),
-    destinationBtn: DOM.qs("#setting-custom-destination"),
-    destinationPathEl: DOM.qs("#custom-destination-path"),
+    destinationScreenshotsBtn: DOM.qs("#setting-destination-screenshots"),
+    destinationScreenshotsPathEl: DOM.qs("#destination-screenshots-path"),
+    destinationRecordingsBtn: DOM.qs("#setting-destination-recordings"),
+    destinationRecordingsPathEl: DOM.qs("#destination-recordings-path"),
     geminiConfigBtn: DOM.qs("#setting-gemini-config"),
     exportBtn: DOM.qs("#setting-export-data"),
     importBtn: DOM.qs("#setting-import-data")
@@ -42,7 +44,11 @@ const render = {
     render.theme(settings.theme, themes);
     update.themeSelector(settings.theme);
     update.languageLabel(settings.language || "en");
-    update.destinationPath(settings.customDestination);
+    update.destinationPath(
+      "screenshots",
+      settings.customDestinationScreenshots
+    );
+    update.destinationPath("recordings", settings.customDestinationRecordings);
   }
 };
 
@@ -56,11 +62,18 @@ const update = {
     if (elements.languageLabel) elements.languageLabel.textContent = label;
     if (elements.languageSelect) elements.languageSelect.value = lang;
   },
-  destinationPath: path => {
-    const el = elements.destinationPathEl;
+  destinationPath: (type, path) => {
+    const el =
+      type === "screenshots"
+        ? elements.destinationScreenshotsPathEl
+        : elements.destinationRecordingsPathEl;
     if (!el) return;
     el.removeAttribute("data-i18n");
-    el.textContent = path || ENV.PATHS.DESTINATION_BASE;
+    el.textContent = path
+      ? `${path}/Tagly`
+      : type === "screenshots"
+      ? `${ENV.PATHS.SOURCE_SCREENSHOTS}/Tagly`
+      : `${ENV.PATHS.SOURCE_RECORDINGS}/Tagly`;
   },
   setting: (key, value) => {
     const switchEl = DOM.qs(

@@ -158,7 +158,6 @@
     "notify_pending_title": "Archivos Pendientes",
     "notify_pending_desc": "Notifica periódicamente cuando hay capturas o grabaciones de pantalla esperando organización",
     "section_files": "Archivos",
-    "destination_title": "Carpeta de Destino",
     "destination_error": "Error al seleccionar la carpeta de destino.",
     "section_language": "Idioma",
     "language_title": "Idioma de la Aplicación",
@@ -178,7 +177,11 @@
     "reset_btn": "Restaurar",
     "delete_all_title": "Eliminar Todos los Datos",
     "delete_all_desc": "Elimina permanentemente configuraciones, historial de actividades y estadísticas. Los archivos de medios en el dispositivo no se verán afectados.",
-    "delete_all_btn": "Eliminar"
+    "delete_all_btn": "Eliminar",
+    "destination_screenshots_title": "Destino de Capturas",
+    "destination_screenshots_desc": "Carpeta donde se guardarán las capturas organizadas",
+    "destination_recordings_title": "Destino de Grabaciones",
+    "destination_recordings_desc": "Carpeta donde se guardarán las grabaciones organizadas"
   },
   "monitor": {
     "apps_updated": "Lista de aplicaciones actualizada.",

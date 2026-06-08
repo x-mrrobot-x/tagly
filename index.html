@@ -977,21 +977,46 @@
             <div class="settings-card card">
               <div
                 class="settings-row settings-row--action"
-                id="setting-custom-destination"
+                id="setting-destination-screenshots"
                 role="button"
                 tabindex="0"
-                aria-label="Configurar pasta de destino"
+                aria-label="Configurar pasta de destino das capturas de tela"
+              >
+                <div class="settings-info">
+                  <div class="settings-icon icon-blue" aria-hidden="true">
+                    <i data-icon="image"></i>
+                  </div>
+                  <div class="settings-text">
+                    <h4 data-i18n="settings.destination_screenshots_title">
+                      Destino das Capturas
+                    </h4>
+                    <p id="destination-screenshots-path">
+                      /storage/emulated/0/DCIM/Screenshots/Tagly
+                    </p>
+                  </div>
+                </div>
+                <div class="settings-chevron" aria-hidden="true">
+                  <i data-icon="chevron-right"></i>
+                </div>
+              </div>
+              <div class="settings-divider"></div>
+              <div
+                class="settings-row settings-row--action"
+                id="setting-destination-recordings"
+                role="button"
+                tabindex="0"
+                aria-label="Configurar pasta de destino das gravações de tela"
               >
                 <div class="settings-info">
                   <div class="settings-icon icon-green" aria-hidden="true">
-                    <i data-icon="folder-open"></i>
+                    <i data-icon="video"></i>
                   </div>
                   <div class="settings-text">
-                    <h4 data-i18n="settings.destination_title">
-                      Pasta de Destino
+                    <h4 data-i18n="settings.destination_recordings_title">
+                      Destino das Gravações
                     </h4>
-                    <p id="custom-destination-path">
-                      /storage/emulated/0/OrganizedMedia
+                    <p id="destination-recordings-path">
+                      /storage/emulated/0/DCIM/ScreenRecorder/Tagly
                     </p>
                   </div>
                 </div>

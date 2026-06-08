@@ -31,7 +31,8 @@ const DEFAULT_SETTINGS = {
   notifyCleanupResult: true,
   notifyPendingFiles: false,
   animationsEnabled: true,
-  customDestination: null,
+  customDestinationScreenshots: null,
+  customDestinationRecordings: null,
   language: null
 };
 
