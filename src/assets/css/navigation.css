@@ -22,8 +22,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-xs);
-  padding: var(--space-sm);
+  gap: 0;
+  padding: var(--space-sm) var(--space-xs);
   border-radius: var(--radius-md);
   background: transparent;
   transition: all 0.3s var(--transition-spring);
@@ -68,6 +68,7 @@
 }
 
 .nav-label {
+  display: none;
   font-size: var(--font-xs);
   font-weight: 600;
   color: hsl(var(--muted-foreground));
@@ -78,10 +79,4 @@
 
 .nav-button.active .nav-label {
   color: hsl(var(--primary));
-}
-
-@media (max-width: 36rem) {
-  .nav-label {
-    display: none;
-  }
 }

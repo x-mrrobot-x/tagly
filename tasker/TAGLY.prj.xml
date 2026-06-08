@@ -1,27 +1,12 @@
 <TaskerData sr="" dvi="1" tv="6.7.4-beta">
 	<dmetric>1080.0,2307.0</dmetric>
-	<Profile sr="prof2249" ve="2">
-		<cdate>1780230003495</cdate>
-		<clp>true</clp>
-		<edate>1780936078622</edate>
-		<flags>40</flags>
-		<id>2249</id>
-		<mid0>2239</mid0>
-		<nme>TG 02 - STAMP SCREEN RECORDING</nme>
-		<Event sr="con0" ve="2">
-			<code>222</code>
-			<pri>0</pri>
-			<Str sr="arg0" ve="3">%recordings_path</Str>
-			<Str sr="arg1" ve="3">MovedTo</Str>
-		</Event>
-	</Profile>
-	<Profile sr="prof2250" ve="2">
-		<cdate>1780230003495</cdate>
+	<Profile sr="prof1931" ve="2">
+		<cdate>1780938544292</cdate>
 		<clp>true</clp>
 		<edate>1780936107239</edate>
 		<flags>8</flags>
-		<id>2250</id>
-		<mid0>2242</mid0>
+		<id>1931</id>
+		<mid0>1878</mid0>
 		<nme>TG 01 - SCHEDULED RUN</nme>
 		<Time sr="con0">
 			<fh>1</fh>
@@ -30,15 +15,30 @@
 			<tm>0</tm>
 		</Time>
 	</Profile>
+	<Profile sr="prof1955" ve="2">
+		<cdate>1780938544292</cdate>
+		<clp>true</clp>
+		<edate>1780936078622</edate>
+		<flags>40</flags>
+		<id>1955</id>
+		<mid0>1928</mid0>
+		<nme>TG 02 - STAMP SCREEN RECORDING</nme>
+		<Event sr="con0" ve="2">
+			<code>222</code>
+			<pri>0</pri>
+			<Str sr="arg0" ve="3">%recordings_path</Str>
+			<Str sr="arg1" ve="3">MovedTo</Str>
+		</Event>
+	</Profile>
 	<Project sr="proj0" ve="2">
 		<cdate>1716309952758</cdate>
 		<id>b9f4022c-dce4-46e4-9de1-1da75e7dc1c0</id>
 		<name>TAGLY</name>
-		<pids>2249,2250</pids>
+		<pids>1955,1931</pids>
 		<psort>Alpha</psort>
-		<scenes>TG - SETUP SPLASH,TG - MAIN SCENE,TG - SHIELD SCENE</scenes>
+		<scenes>TG - SHIELD SCENE,TG - MAIN SCENE,TG - SETUP SPLASH</scenes>
 		<ssort>Alpha</ssort>
-		<tids>2245,2238,2234,2240,2237,2244,2248,2246,2235,2247,2236,2233,2243,2239,2242</tids>
+		<tids>1925,1914,1877,1915,1926,1880,1920,1923,1916,1927,1879,1922,1928,1878,1905</tids>
 		<tsort>Alpha</tsort>
 		<Share sr="Share">
 			<b>false</b>
@@ -93,16 +93,16 @@
 		</Share>
 		<ProfileVariable sr="pv0">
 			<clearout>false</clearout>
-			<exportval>v1.26.0</exportval>
+			<exportval>v1.27.0</exportval>
 			<immutable>false</immutable>
 			<pvci>false</pvci>
 			<pvd></pvd>
 			<pvdn></pvdn>
-			<pvid>137</pvid>
+			<pvid>138</pvid>
 			<pvit>pj</pvit>
 			<pvn>%tg_project_version</pvn>
 			<pvt>t</pvt>
-			<pvv>v1.26.0</pvv>
+			<pvv>v1.27.0</pvv>
 			<strout>false</strout>
 		</ProfileVariable>
 		<ProfileVariable sr="pv1">
@@ -112,7 +112,7 @@
 			<pvci>false</pvci>
 			<pvd></pvd>
 			<pvdn></pvdn>
-			<pvid>137</pvid>
+			<pvid>138</pvid>
 			<pvit>pj</pvit>
 			<pvn>%tg_work_dir</pvn>
 			<pvt>d</pvt>
@@ -126,7 +126,7 @@
 			<pvci>false</pvci>
 			<pvd></pvd>
 			<pvdn></pvdn>
-			<pvid>137</pvid>
+			<pvid>138</pvid>
 			<pvit>pj</pvit>
 			<pvn>%screenshots_path</pvn>
 			<pvt>d</pvt>
@@ -139,7 +139,7 @@
 			<pvci>false</pvci>
 			<pvd></pvd>
 			<pvdn></pvdn>
-			<pvid>137</pvid>
+			<pvid>138</pvid>
 			<pvit>pj</pvit>
 			<pvn>%recordings_path</pvn>
 			<pvt>d</pvt>
@@ -180,7 +180,7 @@
 			</RectElement>
 		</WebElement>
 		<PropertiesElement sr="props">
-			<keyTask>2234</keyTask>
+			<keyTask>1922</keyTask>
 			<Int sr="arg0" val="1"/>
 			<Int sr="arg1" val="2"/>
 			<Str sr="arg2" ve="3">#00FFFFFF</Str>
@@ -206,7 +206,7 @@
 		<WebElement sr="elements0" ve="2">
 			<flags>6</flags>
 			<geom>0,0,1080,2400,-1,-1,-1,-1</geom>
-			<linkclickTask>2238</linkclickTask>
+			<linkclickTask>1927</linkclickTask>
 			<Str sr="arg0" ve="3">MATRIX LOADER</Str>
 			<Int sr="arg1" val="2"/>
 			<Str sr="arg2" ve="3">&lt;!doctype html&gt;
@@ -522,7 +522,7 @@
 			</LinkClickFilter>
 		</WebElement>
 		<PropertiesElement sr="props">
-			<keyTask>2246</keyTask>
+			<keyTask>1914</keyTask>
 			<Int sr="arg0" val="1"/>
 			<Int sr="arg1" val="0"/>
 			<Str sr="arg2" ve="3">#00FFFFFF</Str>
@@ -546,7 +546,7 @@
 		<widthLand>-1</widthLand>
 		<widthPort>1080</widthPort>
 		<PropertiesElement sr="props">
-			<keyTask>2237</keyTask>
+			<keyTask>1926</keyTask>
 			<Int sr="arg0" val="1"/>
 			<Int sr="arg1" val="0"/>
 			<Str sr="arg2" ve="3">#00FFFFFF</Str>
@@ -561,10 +561,1124 @@
 			</LinkClickFilter>
 		</PropertiesElement>
 	</Scene>
-	<Task sr="task2233">
+	<Task sr="task1877">
+		<cdate>1774169776173</cdate>
+		<edate>1780074991429</edate>
+		<id>1877</id>
+		<nme>TG 09 - CHECK UPDATES</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>339</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
+Cookies
+The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_data
+Data
+Data that the server responded from the HTTP request.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_file_output
+File Output
+Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_response_code
+Response Code
+The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_headers()
+Response Headers
+The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_response_length
+Response Length
+The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg10" val="1"/>
+			<Int sr="arg11" val="0"/>
+			<Int sr="arg12" val="1"/>
+			<Str sr="arg2" ve="3">https://api.github.com/repos/x-mrrobot-x/tagly/releases/latest</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8">
+				<var>3</var>
+			</Int>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>389</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""/&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">%release_name
+%release_tag</Str>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3">%http_data[name]
+%http_data[tag_name]</Str>
+			<Str sr="arg4" ve="3">
+</Str>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="3"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="1"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%tg_project_version</lhs>
+					<op>3</op>
+					<rhs>%release_tag</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>396</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%release_type
+0. Release type
+Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%mt_groups()
+Groups
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%mt_match_found
+Is Match
+true if there was a match, false otherwise&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%mt_match
+Match
+Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="1"/>
+			<Str sr="arg2" ve="3">%release_name</Str>
+			<Str sr="arg3" ve="3">(?&lt;release_type&gt;\[\w+\])</Str>
+			<Str sr="arg4" ve="3"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Tagly • Update</Str>
+			<Str sr="arg1" ve="3">New interface update available: %release_tag</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">super_tasker_notifications_created_by_me_the_developer</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">tagly</Str>
+			<Img sr="arg2" ve="2">
+				<nme>mw_navigation_arrow_downward</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%release_type</lhs>
+					<op>2</op>
+					<rhs>[UI]</rhs>
+				</Condition>
+			</ConditionList>
+			<ListElementItem sr="item0">
+				<label>Update Interface</label>
+				<Action sr="action" ve="7">
+					<code>130</code>
+					<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
+					<Int sr="arg1">
+						<var>%priority</var>
+					</Int>
+					<Int sr="arg10" val="1"/>
+					<Str sr="arg2" ve="3"/>
+					<Str sr="arg3" ve="3"/>
+					<Str sr="arg4" ve="3"/>
+					<Int sr="arg5" val="1"/>
+					<Int sr="arg6" val="0"/>
+					<Str sr="arg7" ve="3"/>
+					<Int sr="arg8" val="0"/>
+					<Int sr="arg9" val="0"/>
+				</Action>
+				<Img sr="icon" ve="2">
+					<nme>mw_action_autorenew</nme>
+					<tint>-1</tint>
+				</Img>
+			</ListElementItem>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Tagly • Update</Str>
+			<Str sr="arg1" ve="3">New project update available: %release_tag</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">super_tasker_notifications_created_by_me_the_developer</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">tagly</Str>
+			<Img sr="arg2" ve="2">
+				<nme>mw_navigation_arrow_downward</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%release_type</lhs>
+					<op>2</op>
+					<rhs>[CORE]</rhs>
+				</Condition>
+			</ConditionList>
+			<ListElementItem sr="item0">
+				<label>Update Project</label>
+				<Action sr="action" ve="7">
+					<code>130</code>
+					<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
+					<Int sr="arg1">
+						<var>%priority</var>
+					</Int>
+					<Int sr="arg10" val="1"/>
+					<Str sr="arg2" ve="3"/>
+					<Str sr="arg3" ve="3"/>
+					<Str sr="arg4" ve="3"/>
+					<Int sr="arg5" val="1"/>
+					<Int sr="arg6" val="0"/>
+					<Str sr="arg7" ve="3"/>
+					<Int sr="arg8" val="0"/>
+					<Int sr="arg9" val="0"/>
+				</Action>
+				<Img sr="icon" ve="2">
+					<nme>mw_action_autorenew</nme>
+					<tint>-1</tint>
+				</Img>
+			</ListElementItem>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>38</code>
+		</Action>
+	</Task>
+	<Task sr="task1878">
+		<cdate>1774727756263</cdate>
+		<edate>1780936107239</edate>
+		<id>1878</id>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">TG 04 - LOAD DATA</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>417</code>
+			<Str sr="arg0" ve="3">%tg_work_dir/tasker/auto-process/index.html</Str>
+			<Str sr="arg1" ve="3">%html</Str>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>49</code>
+			<se>false</se>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>47</code>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg10" val="1"/>
+			<Int sr="arg2" val="200"/>
+			<Int sr="arg3" val="200"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="1"/>
+			<Int sr="arg7" val="1"/>
+			<Int sr="arg8" val="1"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task1879">
+		<cdate>1770004814122</cdate>
+		<edate>1780074987080</edate>
+		<id>1879</id>
+		<nme>TG 07 - ABORT QUEUE WORKER</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="1"/>
+			<Str sr="arg1" ve="3">TG 06 - RUN QUEUE WORKER</Str>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Stoping %par1</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3">99999</Str>
+			<Int sr="arg9" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task1880">
+		<cdate>1772855289103</cdate>
+		<edate>1780947326354</edate>
+		<id>1880</id>
+		<nme>TG 05 - MOUNT SCENE</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>194</code>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg2" ve="3">%scene_visibility</Str>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>49</code>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%scene_visibility</lhs>
+					<op>3</op>
+					<rhs>uncreated</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>417</code>
+			<Str sr="arg0" ve="3">%tg_work_dir/index.html</Str>
+			<Str sr="arg1" ve="3">%html</Str>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>47</code>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+			<Int sr="arg1" val="10"/>
+			<Int sr="arg10" val="1"/>
+			<Int sr="arg2" val="100"/>
+			<Int sr="arg3" val="100"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="1"/>
+			<Int sr="arg7" val="1"/>
+			<Int sr="arg8" val="1"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task1905">
+		<cdate>1772847711394</cdate>
+		<edate>1780937836634</edate>
+		<id>1905</id>
+		<nme>TG 03 - SYNC DEPENDENCIES</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>300</code>
+			<label>&lt;h5&gt;Note -&lt;/h5&gt;
+&lt;h6&gt;This Task Is Necessary To Download Interface Codes From GitHub.&lt;br&gt;
+These Files Are Required To Setup The Webview Interface&lt;/h6&gt;</label>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>245</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>*anon</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>354</code>
+			<Str sr="arg0" ve="3">%assets_exts</Str>
+			<Str sr="arg1" ve="3">zip,xml</Str>
+			<Str sr="arg2" ve="3">,</Str>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>39</code>
+			<Str sr="arg0" ve="3">%assests_ext</Str>
+			<Str sr="arg1" ve="3">%assets_exts()</Str>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>135</code>
+			<Int sr="arg0" val="3"/>
+			<Int sr="arg1" val="1"/>
+			<Str sr="arg2" ve="3"/>
+			<ConditionList sr="if">
+				<bool0>And</bool0>
+				<Condition sr="c0" ve="3">
+					<lhs>%assests_ext</lhs>
+					<op>2</op>
+					<rhs>xml</rhs>
+				</Condition>
+				<Condition sr="c1" ve="3">
+					<lhs>%release_type</lhs>
+					<op>2</op>
+					<rhs>[UI]</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act13" ve="7">
+			<code>389</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""/&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">%file_index
+%file_download_url
+%tag_name
+%file_dest_path</Str>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3">%http_data[assets.name](#?*.%assests_ext)
+%http_data[assets.browser_download_url](%file_index)
+%http_data[tag_name]
+%tg_work_dir/%http_data[assets.name](%file_index)</Str>
+			<Str sr="arg4" ve="3">
+</Str>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="3"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="1"/>
+		</Action>
+		<Action sr="act14" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#7Db3f9"&gt;Downloading project dependencies, wait...</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3">1</Str>
+			<Int sr="arg14" val="1"/>
+			<Str sr="arg15" ve="3">1</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3">#aa2C4C94</Str>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3">3000</Str>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act15" ve="7">
+			<code>339</code>
+			<se>false</se>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
+Cookies
+The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_file_output
+File Output
+Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_response_code
+Response Code
+The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_headers()
+Response Headers
+The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_response_length
+Response Length
+The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg10" val="1"/>
+			<Int sr="arg11" val="0"/>
+			<Int sr="arg12" val="1"/>
+			<Str sr="arg2" ve="3">%file_download_url</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3">%file_dest_path</Str>
+			<Int sr="arg8">
+				<var>1000</var>
+			</Int>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act16" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%http_response_code</lhs>
+					<op>8</op>
+					<rhs>200</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act17" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%assests_ext</lhs>
+					<op>2</op>
+					<rhs>xml</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act18" ve="7">
+			<code>365</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%content_uri
+Content URI
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">FilePathToContentUri(%file_dest_path)</Str>
+		</Action>
+		<Action sr="act19" ve="7">
+			<code>20</code>
+			<App sr="arg0">
+				<appClass>com.joaomgcd.taskerm.datashare.import.ActivityImportTaskerDataFromXml</appClass>
+				<appPkg>net.dinglisch.android.taskerm</appPkg>
+				<label>Tasker:com.joaomgcd.taskerm.datashare.import.ActivityImportTaskerDataFromXml</label>
+			</App>
+			<Str sr="arg1" ve="3">%content_uri</Str>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="1"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act20" ve="7">
+			<code>43</code>
+		</Action>
+		<Action sr="act21" ve="7">
+			<code>422</code>
+			<Str sr="arg0" ve="3">%file_dest_path</Str>
+			<Int sr="arg1" val="1"/>
+		</Action>
+		<Action sr="act22" ve="7">
+			<code>547</code>
+			<Str sr="arg0" ve="3">%tg_project_version</Str>
+			<Str sr="arg1" ve="3">%tag_name</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+		</Action>
+		<Action sr="act23" ve="7">
+			<code>123</code>
+			<Str sr="arg0" ve="3">set -euo pipefail
+
+WORK_DIR="%tg_work_dir"
+SRC_DIR="$WORK_DIR/src"
+TASKER_DIR="$WORK_DIR/tasker"
+DATA_DIR="$SRC_DIR/data"
+TMP_DIR="$WORK_DIR/tmp_data_backup"
+FILE_DEST_PATH="%file_dest_path"
+
+
+# 0. Recriar pasta de dados
+mkdir -p "$DATA_DIR"
+
+# 1. Restaurar arquivos
+if [ "$(ls -A "$TMP_DIR" 2&gt;/dev/null)" ]; then
+  mv "$TMP_DIR"/* "$DATA_DIR"/
+fi
+
+# 2. Limpar TMP
+rm -rf "$TMP_DIR"
+
+echo "success"</Str>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg2" val="0"/>
+			<Str sr="arg3" ve="3">%stdout</Str>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Int sr="arg6" val="1"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Action sr="act24" ve="7">
+			<code>410</code>
+			<Str sr="arg0" ve="3">%tg_work_dir/version</Str>
+			<Str sr="arg1" ve="3">%tag_name</Str>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%stdout</lhs>
+					<op>4</op>
+					<rhs>success</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act25" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#7Db3f9"&gt;Project updated</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3">1</Str>
+			<Int sr="arg14" val="1"/>
+			<Str sr="arg15" ve="3">1</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3">#aa2C4C94</Str>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3">3000</Str>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act26" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act27" ve="7">
+			<code>779</code>
+			<Str sr="arg0" ve="3">Tagly • Update</Str>
+			<Int sr="arg1" val="0"/>
+		</Action>
+		<Action sr="act28" ve="7">
+			<code>43</code>
+		</Action>
+		<Action sr="act29" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#ffdddd"&gt;An error occurred while downloading project dependencies!</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3">1</Str>
+			<Int sr="arg14" val="1"/>
+			<Str sr="arg15" ve="3">1</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3">#aaff3b5e</Str>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3">3000</Str>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>339</code>
+			<se>false</se>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
+Cookies
+The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_data
+Data
+Data that the server responded from the HTTP request.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_file_output
+File Output
+Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_response_code
+Response Code
+The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_headers()
+Response Headers
+The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_response_length
+Response Length
+The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg10" val="1"/>
+			<Int sr="arg11" val="0"/>
+			<Int sr="arg12" val="1"/>
+			<Str sr="arg2" ve="3">https://api.github.com/repos/x-mrrobot-x/tagly/releases/latest</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="60"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act30" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act31" ve="7">
+			<code>40</code>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%err</lhs>
+					<op>12</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#ffdddd"&gt;Error! No Connection</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3">1</Str>
+			<Int sr="arg14" val="1"/>
+			<Str sr="arg15" ve="3">1</Str>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3">#aaff3b5e</Str>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3">3000</Str>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>123</code>
+			<Str sr="arg0" ve="3">set -euo pipefail
+
+WORK_DIR="%tg_work_dir"
+SRC_DIR="$WORK_DIR/src"
+TASKER_DIR="$WORK_DIR/tasker"
+DATA_DIR="$SRC_DIR/data"
+TMP_DIR="$WORK_DIR/tmp_data_backup"
+
+# 0. Garantir diretório base
+if [ ! -d "$WORK_DIR" ]; then
+  mkdir -p "$WORK_DIR"
+fi
+
+# 1. Preparar TMP
+if [ -d "$TMP_DIR" ]; then
+  rm -rf "$TMP_DIR"
+fi
+mkdir -p "$TMP_DIR"
+
+# 2. Mover arquivos para TMP (se houver)
+if [ "$(ls -A "$DATA_DIR" 2&gt;/dev/null)" ]; then
+  mv "$DATA_DIR"/* "$TMP_DIR"/
+else
+  echo "Nenhum arquivo para mover"
+fi
+
+# 3. Remover src
+rm -rf "$SRC_DIR"
+
+# 4. Remover codigo tasker
+rm -rf "$TASKER_DIR"
+
+# 5. Remover html
+rm -rf "$WORK_DIR/index.html"
+
+# 6. Remover zip
+find "$WORK_DIR" -maxdepth 1 -type f \( -name "tagly*.xml" -o -name "tagly*.zip" \) -delete</Str>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg2" val="0"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Int sr="arg6" val="1"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>396</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%release_type
+0. Release type
+Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%mt_groups()
+Groups
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%mt_match_found
+Is Match
+true if there was a match, false otherwise&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%mt_match
+Match
+Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="1"/>
+			<Str sr="arg2" ve="3">%http_data[name]</Str>
+			<Str sr="arg3" ve="3">(?&lt;release_type&gt;\[\w+\])</Str>
+			<Str sr="arg4" ve="3"/>
+		</Action>
+	</Task>
+	<Task sr="task1914">
+		<cdate>1755704601605</cdate>
+		<edate>1755704601605</edate>
+		<id>1914</id>
+		<pri>103</pri>
+		<Action sr="act0" ve="7">
+			<code>49</code>
+			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
+		</Action>
+	</Task>
+	<Task sr="task1915">
+		<cdate>1772851580867</cdate>
+		<edate>1780935692436</edate>
+		<id>1915</id>
+		<nme>TG 02 - ENSURE DEPENDENCIES</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>389</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""/&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">%version_path=%tg_work_dir/version
+%expected_file_count=7</Str>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3">=</Str>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="3"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="1"/>
+		</Action>
+		<Action sr="act10" ve="7">
+			<code>47</code>
+			<se>false</se>
+			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
+			<Int sr="arg1" val="10"/>
+			<Int sr="arg10" val="1"/>
+			<Int sr="arg2" val="100"/>
+			<Int sr="arg3" val="100"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="1"/>
+			<Int sr="arg8" val="1"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act11" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act12" ve="7">
+			<code>30</code>
+			<Int sr="arg0" val="0"/>
+			<Int sr="arg1" val="2"/>
+			<Int sr="arg2" val="0"/>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+		</Action>
+		<Action sr="act13" ve="7">
+			<code>53</code>
+			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
+			<Str sr="arg1" ve="3">MATRIX LOADER</Str>
+			<Int sr="arg2" val="6"/>
+			<Str sr="arg3" ve="3">javascript:(MatrixLoader.complete)()</Str>
+		</Action>
+		<Action sr="act14" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>342</code>
+			<Int sr="arg0" val="5"/>
+			<Str sr="arg1" ve="3">%version_path</Str>
+			<Str sr="arg2" ve="3">%version_exists</Str>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="1"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>37</code>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%version_exists</lhs>
+					<op>2</op>
+					<rhs>true</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>417</code>
+			<se>false</se>
+			<Str sr="arg0" ve="3">%version_path</Str>
+			<Str sr="arg1" ve="3">%current_version</Str>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>38</code>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>123</code>
+			<label>List total code files</label>
+			<Str sr="arg0" ve="3">find "%tg_work_dir" -type f | wc -l</Str>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg2" val="0"/>
+			<Str sr="arg3" ve="3">%total_files</Str>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Int sr="arg6" val="1"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>548</code>
+			<on>false</on>
+			<Str sr="arg0" ve="3">%current_version - %tg_project_version
+
+%total_files / %expected_file_count
+
+%version_exists</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3">99999</Str>
+			<Int sr="arg9" val="1"/>
+		</Action>
+		<Action sr="act8" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<ConditionList sr="if">
+				<bool0>Or</bool0>
+				<bool1>Or</bool1>
+				<Condition sr="c0" ve="3">
+					<lhs>%version_exists</lhs>
+					<op>2</op>
+					<rhs>false</rhs>
+				</Condition>
+				<Condition sr="c1" ve="3">
+					<lhs>%tg_project_version</lhs>
+					<op>3</op>
+					<rhs>%current_version</rhs>
+				</Condition>
+				<Condition sr="c2" ve="3">
+					<lhs>%total_files</lhs>
+					<op>6</op>
+					<rhs>%expected_file_count</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act9" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3">TG 01 - MAIN</Str>
+		</Action>
+	</Task>
+	<Task sr="task1916">
+		<cdate>1772273455368</cdate>
+		<edate>1780074983192</edate>
+		<id>1916</id>
+		<nme>TG 04 - LOAD DATA</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>474</code>
+			<label>Load Data with Buffer</label>
+			<Str sr="arg0" ve="3">import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import com.joaomgcd.taskerm.action.java.JavaCodeException;
+
+baseDir = tasker.getVariable("tg_work_dir");
+
+if (baseDir == null || baseDir == void) {
+    tasker.showToast("Variable %tg_work_dir is not set. Please set it before running this script.");
+    throw new JavaCodeException("Variable %tg_work_dir is not set. Please set it before running this script.");
+}
+
+dataDir = baseDir + "/src/data/";
+i18nDir = baseDir + "/src/i18n/";
+
+fileNames = new String[]{"apps.json", "activities.json", "stats.json", "folders.json", "settings.json"};
+
+String readFile(dir, fileName) {
+    file = new File(dir, fileName);
+    if (!file.exists() || !file.isFile()) return null;
+
+    fis = null;
+    isr = null;
+    br = null;
+
+    try {
+        fis = new FileInputStream(file);
+        isr = new InputStreamReader(fis, "UTF-8");
+        br = new BufferedReader(isr);
+        sb = new StringBuffer();
+
+        line = br.readLine();
+        while (line != null) {
+            sb.append(line).append("\n");
+            line = br.readLine();
+        }
+
+        return sb.toString();
+    } catch (Exception e) {
+        tasker.log("Error reading file " + fileName + ": " + e.getMessage());
+        return null;
+    } finally {
+        try { if (br != null) br.close(); } catch (Exception e) {}
+        try { if (isr != null) isr.close(); } catch (Exception e) {}
+        try { if (fis != null) fis.close(); } catch (Exception e) {}
+    }
+}
+
+settingsContent = null;
+
+for (i = 0; i &lt; fileNames.length; i++) {
+    fileName = fileNames[i];
+    varName = fileName.replace(".json", "");
+    content = readFile(dataDir, fileName);
+
+    if (fileName.equals("settings.json")) settingsContent = content;
+
+    tasker.setVariable(varName, content, content != null);
+}
+
+systemLanguage = tasker.getVariable("system_language");
+langCode = null;
+
+if (settingsContent != null) {
+    langKey = tasker.getVariable("settings.language");
+    langCode = (langKey != null &amp;&amp; !langKey.equals("null")) ? langKey : (systemLanguage != null ? systemLanguage : "en");
+} else {
+    langCode = (systemLanguage != null ? systemLanguage : "en");
+}
+
+if (langCode != null) {
+    translationsContent = readFile(i18nDir, langCode + ".json");
+    tasker.setVariable("translations", translationsContent, translationsContent != null);
+}</Str>
+			<Str sr="arg1" ve="3"/>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>126</code>
+			<Str sr="arg0" ve="3"/>
+			<Int sr="arg1" val="1"/>
+			<Int sr="arg2" val="1"/>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3">%apps/%folders/%stats/%activities/%settings/%translations</Str>
+		</Action>
+	</Task>
+	<Task sr="task1920">
 		<cdate>1769973317306</cdate>
 		<edate>1780090641958</edate>
-		<id>2233</id>
+		<id>1920</id>
 		<nme>TG 06 - RUN QUEUE WORKER</nme>
 		<pri>100</pri>
 		<rty>2</rty>
@@ -1141,10 +2255,10 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<strout>false</strout>
 		</ProfileVariable>
 	</Task>
-	<Task sr="task2234">
+	<Task sr="task1922">
 		<cdate>1768957162196</cdate>
 		<edate>1768957162196</edate>
-		<id>2234</id>
+		<id>1922</id>
 		<pri>103</pri>
 		<Action sr="act0" ve="7">
 			<code>53</code>
@@ -1158,10 +2272,10 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 })();</Str>
 		</Action>
 	</Task>
-	<Task sr="task2235">
+	<Task sr="task1923">
 		<cdate>1772798386569</cdate>
 		<edate>1774638244615</edate>
-		<id>2235</id>
+		<id>1923</id>
 		<nme>TG 08 - NOTIFY</nme>
 		<pri>100</pri>
 		<rty>2</rty>
@@ -1218,10 +2332,10 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Str sr="arg9" ve="3"/>
 		</Action>
 	</Task>
-	<Task sr="task2236">
+	<Task sr="task1925">
 		<cdate>1768825217743</cdate>
-		<edate>1780937760743</edate>
-		<id>2236</id>
+		<edate>1780947174512</edate>
+		<id>1925</id>
 		<nme>TG 01 - MAIN</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
@@ -1358,20 +2472,20 @@ tasker.setVariable("recordings_path", screenRecordingPath);</Str>
 			<tint>-1</tint>
 		</Img>
 	</Task>
-	<Task sr="task2237">
+	<Task sr="task1926">
 		<cdate>1773159164732</cdate>
 		<edate>1773159164732</edate>
-		<id>2237</id>
+		<id>1926</id>
 		<pri>11</pri>
 		<Action sr="act0" ve="7">
 			<code>49</code>
 			<Str sr="arg0" ve="3">TG - SHIELD SCENE</Str>
 		</Action>
 	</Task>
-	<Task sr="task2238">
+	<Task sr="task1927">
 		<cdate>1755705635405</cdate>
 		<edate>1755705635405</edate>
-		<id>2238</id>
+		<id>1927</id>
 		<pri>103</pri>
 		<Action sr="act0" ve="7">
 			<code>37</code>
@@ -1407,10 +2521,10 @@ tasker.setVariable("recordings_path", screenRecordingPath);</Str>
 			<code>38</code>
 		</Action>
 	</Task>
-	<Task sr="task2239">
+	<Task sr="task1928">
 		<cdate>1746808569929</cdate>
 		<edate>1780090972737</edate>
-		<id>2239</id>
+		<id>1928</id>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
 			<code>137</code>
@@ -1590,1119 +2704,5 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<pvt>f</pvt>
 			<strout>false</strout>
 		</ProfileVariable>
-	</Task>
-	<Task sr="task2240">
-		<cdate>1774169776173</cdate>
-		<edate>1780074991429</edate>
-		<id>2240</id>
-		<nme>TG 09 - CHECK UPDATES</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>339</code>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
-Cookies
-The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_data
-Data
-Data that the server responded from the HTTP request.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_file_output
-File Output
-Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_response_code
-Response Code
-The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_headers()
-Response Headers
-The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_response_length
-Response Length
-The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg10" val="1"/>
-			<Int sr="arg11" val="0"/>
-			<Int sr="arg12" val="1"/>
-			<Str sr="arg2" ve="3">https://api.github.com/repos/x-mrrobot-x/tagly/releases/latest</Str>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8">
-				<var>3</var>
-			</Int>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>389</code>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""/&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Str sr="arg1" ve="3">%release_name
-%release_tag</Str>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3">%http_data[name]
-%http_data[tag_name]</Str>
-			<Str sr="arg4" ve="3">
-</Str>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="3"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="1"/>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>37</code>
-			<coll>false</coll>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%tg_project_version</lhs>
-					<op>3</op>
-					<rhs>%release_tag</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>396</code>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%release_type
-0. Release type
-Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%mt_groups()
-Groups
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%mt_match_found
-Is Match
-true if there was a match, false otherwise&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%mt_match
-Match
-Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="1"/>
-			<Str sr="arg2" ve="3">%release_name</Str>
-			<Str sr="arg3" ve="3">(?&lt;release_type&gt;\[\w+\])</Str>
-			<Str sr="arg4" ve="3"/>
-		</Action>
-		<Action sr="act5" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">Tagly • Update</Str>
-			<Str sr="arg1" ve="3">New interface update available: %release_tag</Str>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">super_tasker_notifications_created_by_me_the_developer</Str>
-			<Str sr="arg12" ve="3"/>
-			<Int sr="arg13" val="0"/>
-			<Str sr="arg14" ve="3"/>
-			<Str sr="arg15" ve="3">tagly</Str>
-			<Img sr="arg2" ve="2">
-				<nme>mw_navigation_arrow_downward</nme>
-			</Img>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%release_type</lhs>
-					<op>2</op>
-					<rhs>[UI]</rhs>
-				</Condition>
-			</ConditionList>
-			<ListElementItem sr="item0">
-				<label>Update Interface</label>
-				<Action sr="action" ve="7">
-					<code>130</code>
-					<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
-					<Int sr="arg1">
-						<var>%priority</var>
-					</Int>
-					<Int sr="arg10" val="1"/>
-					<Str sr="arg2" ve="3"/>
-					<Str sr="arg3" ve="3"/>
-					<Str sr="arg4" ve="3"/>
-					<Int sr="arg5" val="1"/>
-					<Int sr="arg6" val="0"/>
-					<Str sr="arg7" ve="3"/>
-					<Int sr="arg8" val="0"/>
-					<Int sr="arg9" val="0"/>
-				</Action>
-				<Img sr="icon" ve="2">
-					<nme>mw_action_autorenew</nme>
-					<tint>-1</tint>
-				</Img>
-			</ListElementItem>
-		</Action>
-		<Action sr="act6" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">Tagly • Update</Str>
-			<Str sr="arg1" ve="3">New project update available: %release_tag</Str>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">super_tasker_notifications_created_by_me_the_developer</Str>
-			<Str sr="arg12" ve="3"/>
-			<Int sr="arg13" val="0"/>
-			<Str sr="arg14" ve="3"/>
-			<Str sr="arg15" ve="3">tagly</Str>
-			<Img sr="arg2" ve="2">
-				<nme>mw_navigation_arrow_downward</nme>
-			</Img>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%release_type</lhs>
-					<op>2</op>
-					<rhs>[CORE]</rhs>
-				</Condition>
-			</ConditionList>
-			<ListElementItem sr="item0">
-				<label>Update Project</label>
-				<Action sr="action" ve="7">
-					<code>130</code>
-					<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
-					<Int sr="arg1">
-						<var>%priority</var>
-					</Int>
-					<Int sr="arg10" val="1"/>
-					<Str sr="arg2" ve="3"/>
-					<Str sr="arg3" ve="3"/>
-					<Str sr="arg4" ve="3"/>
-					<Int sr="arg5" val="1"/>
-					<Int sr="arg6" val="0"/>
-					<Str sr="arg7" ve="3"/>
-					<Int sr="arg8" val="0"/>
-					<Int sr="arg9" val="0"/>
-				</Action>
-				<Img sr="icon" ve="2">
-					<nme>mw_action_autorenew</nme>
-					<tint>-1</tint>
-				</Img>
-			</ListElementItem>
-		</Action>
-		<Action sr="act7" ve="7">
-			<code>38</code>
-		</Action>
-	</Task>
-	<Task sr="task2242">
-		<cdate>1774727756263</cdate>
-		<edate>1780936107239</edate>
-		<id>2242</id>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>130</code>
-			<Str sr="arg0" ve="3">TG 04 - LOAD DATA</Str>
-			<Int sr="arg1">
-				<var>%priority+1</var>
-			</Int>
-			<Int sr="arg10" val="1"/>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="0"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>417</code>
-			<Str sr="arg0" ve="3">%tg_work_dir/tasker/auto-process/index.html</Str>
-			<Str sr="arg1" ve="3">%html</Str>
-			<Int sr="arg2" val="1"/>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>49</code>
-			<se>false</se>
-			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>47</code>
-			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg10" val="1"/>
-			<Int sr="arg2" val="200"/>
-			<Int sr="arg3" val="200"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="1"/>
-			<Int sr="arg7" val="1"/>
-			<Int sr="arg8" val="1"/>
-			<Int sr="arg9" val="1"/>
-		</Action>
-	</Task>
-	<Task sr="task2243">
-		<cdate>1770004814122</cdate>
-		<edate>1780074987080</edate>
-		<id>2243</id>
-		<nme>TG 07 - ABORT QUEUE WORKER</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="1"/>
-			<Str sr="arg1" ve="3">TG 06 - RUN QUEUE WORKER</Str>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>548</code>
-			<Str sr="arg0" ve="3">Stoping %par1</Str>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg10" ve="3"/>
-			<Int sr="arg11" val="1"/>
-			<Int sr="arg12" val="0"/>
-			<Str sr="arg13" ve="3"/>
-			<Int sr="arg14" val="0"/>
-			<Str sr="arg15" ve="3"/>
-			<Int sr="arg2" val="1"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3">99999</Str>
-			<Int sr="arg9" val="1"/>
-		</Action>
-	</Task>
-	<Task sr="task2244">
-		<cdate>1772855289103</cdate>
-		<edate>1780937203424</edate>
-		<id>2244</id>
-		<nme>TG 05 - MOUNT SCENE</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>194</code>
-			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg2" ve="3">%scene_visibility</Str>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>49</code>
-			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%scene_visibility</lhs>
-					<op>3</op>
-					<rhs>uncreated</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>417</code>
-			<Str sr="arg0" ve="3">%tg_work_dir/index.html</Str>
-			<Str sr="arg1" ve="3">%html</Str>
-			<Int sr="arg2" val="1"/>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>47</code>
-			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
-			<Int sr="arg1" val="10"/>
-			<Int sr="arg10" val="1"/>
-			<Int sr="arg2" val="100"/>
-			<Int sr="arg3" val="100"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="1"/>
-			<Int sr="arg7" val="1"/>
-			<Int sr="arg8" val="1"/>
-			<Int sr="arg9" val="1"/>
-		</Action>
-	</Task>
-	<Task sr="task2245">
-		<cdate>1772847711394</cdate>
-		<edate>1780937836634</edate>
-		<id>2245</id>
-		<nme>TG 03 - SYNC DEPENDENCIES</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>300</code>
-			<label>&lt;h5&gt;Note -&lt;/h5&gt;
-&lt;h6&gt;This Task Is Necessary To Download Interface Codes From GitHub.&lt;br&gt;
-These Files Are Required To Setup The Webview Interface&lt;/h6&gt;</label>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>245</code>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>*anon</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act10" ve="7">
-			<code>354</code>
-			<Str sr="arg0" ve="3">%assets_exts</Str>
-			<Str sr="arg1" ve="3">zip,xml</Str>
-			<Str sr="arg2" ve="3">,</Str>
-		</Action>
-		<Action sr="act11" ve="7">
-			<code>39</code>
-			<Str sr="arg0" ve="3">%assests_ext</Str>
-			<Str sr="arg1" ve="3">%assets_exts()</Str>
-			<Int sr="arg2" val="1"/>
-		</Action>
-		<Action sr="act12" ve="7">
-			<code>135</code>
-			<Int sr="arg0" val="3"/>
-			<Int sr="arg1" val="1"/>
-			<Str sr="arg2" ve="3"/>
-			<ConditionList sr="if">
-				<bool0>And</bool0>
-				<Condition sr="c0" ve="3">
-					<lhs>%assests_ext</lhs>
-					<op>2</op>
-					<rhs>xml</rhs>
-				</Condition>
-				<Condition sr="c1" ve="3">
-					<lhs>%release_type</lhs>
-					<op>2</op>
-					<rhs>[UI]</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act13" ve="7">
-			<code>389</code>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""/&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Str sr="arg1" ve="3">%file_index
-%file_download_url
-%tag_name
-%file_dest_path</Str>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3">%http_data[assets.name](#?*.%assests_ext)
-%http_data[assets.browser_download_url](%file_index)
-%http_data[tag_name]
-%tg_work_dir/%http_data[assets.name](%file_index)</Str>
-			<Str sr="arg4" ve="3">
-</Str>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="3"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="1"/>
-		</Action>
-		<Action sr="act14" ve="7">
-			<code>548</code>
-			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#7Db3f9"&gt;Downloading project dependencies, wait...</Str>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg10" ve="3"/>
-			<Int sr="arg11" val="1"/>
-			<Int sr="arg12" val="0"/>
-			<Str sr="arg13" ve="3">1</Str>
-			<Int sr="arg14" val="1"/>
-			<Str sr="arg15" ve="3">1</Str>
-			<Int sr="arg2" val="1"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3">#aa2C4C94</Str>
-			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3">3000</Str>
-			<Int sr="arg9" val="1"/>
-		</Action>
-		<Action sr="act15" ve="7">
-			<code>339</code>
-			<se>false</se>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
-Cookies
-The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_file_output
-File Output
-Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_response_code
-Response Code
-The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_headers()
-Response Headers
-The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_response_length
-Response Length
-The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg10" val="1"/>
-			<Int sr="arg11" val="0"/>
-			<Int sr="arg12" val="1"/>
-			<Str sr="arg2" ve="3">%file_download_url</Str>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3">%file_dest_path</Str>
-			<Int sr="arg8">
-				<var>1000</var>
-			</Int>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act16" ve="7">
-			<code>37</code>
-			<coll>false</coll>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%http_response_code</lhs>
-					<op>8</op>
-					<rhs>200</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act17" ve="7">
-			<code>37</code>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%assests_ext</lhs>
-					<op>2</op>
-					<rhs>xml</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act18" ve="7">
-			<code>365</code>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%content_uri
-Content URI
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Str sr="arg1" ve="3">FilePathToContentUri(%file_dest_path)</Str>
-		</Action>
-		<Action sr="act19" ve="7">
-			<code>20</code>
-			<App sr="arg0">
-				<appClass>com.joaomgcd.taskerm.datashare.import.ActivityImportTaskerDataFromXml</appClass>
-				<appPkg>net.dinglisch.android.taskerm</appPkg>
-				<label>Tasker:com.joaomgcd.taskerm.datashare.import.ActivityImportTaskerDataFromXml</label>
-			</App>
-			<Str sr="arg1" ve="3">%content_uri</Str>
-			<Int sr="arg2" val="1"/>
-			<Int sr="arg3" val="1"/>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act20" ve="7">
-			<code>43</code>
-		</Action>
-		<Action sr="act21" ve="7">
-			<code>422</code>
-			<Str sr="arg0" ve="3">%file_dest_path</Str>
-			<Int sr="arg1" val="1"/>
-		</Action>
-		<Action sr="act22" ve="7">
-			<code>547</code>
-			<Str sr="arg0" ve="3">%tg_project_version</Str>
-			<Str sr="arg1" ve="3">%tag_name</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-		</Action>
-		<Action sr="act23" ve="7">
-			<code>123</code>
-			<Str sr="arg0" ve="3">set -euo pipefail
-
-WORK_DIR="%tg_work_dir"
-SRC_DIR="$WORK_DIR/src"
-TASKER_DIR="$WORK_DIR/tasker"
-DATA_DIR="$SRC_DIR/data"
-TMP_DIR="$WORK_DIR/tmp_data_backup"
-FILE_DEST_PATH="%file_dest_path"
-
-
-# 0. Recriar pasta de dados
-mkdir -p "$DATA_DIR"
-
-# 1. Restaurar arquivos
-if [ "$(ls -A "$TMP_DIR" 2&gt;/dev/null)" ]; then
-  mv "$TMP_DIR"/* "$DATA_DIR"/
-fi
-
-# 2. Limpar TMP
-rm -rf "$TMP_DIR"
-
-echo "success"</Str>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg2" val="0"/>
-			<Str sr="arg3" ve="3">%stdout</Str>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Int sr="arg6" val="1"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-		</Action>
-		<Action sr="act24" ve="7">
-			<code>410</code>
-			<Str sr="arg0" ve="3">%tg_work_dir/version</Str>
-			<Str sr="arg1" ve="3">%tag_name</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%stdout</lhs>
-					<op>4</op>
-					<rhs>success</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act25" ve="7">
-			<code>548</code>
-			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#7Db3f9"&gt;Project updated</Str>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg10" ve="3"/>
-			<Int sr="arg11" val="1"/>
-			<Int sr="arg12" val="0"/>
-			<Str sr="arg13" ve="3">1</Str>
-			<Int sr="arg14" val="1"/>
-			<Str sr="arg15" ve="3">1</Str>
-			<Int sr="arg2" val="1"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3">#aa2C4C94</Str>
-			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3">3000</Str>
-			<Int sr="arg9" val="1"/>
-		</Action>
-		<Action sr="act26" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act27" ve="7">
-			<code>779</code>
-			<Str sr="arg0" ve="3">Tagly • Update</Str>
-			<Int sr="arg1" val="0"/>
-		</Action>
-		<Action sr="act28" ve="7">
-			<code>43</code>
-		</Action>
-		<Action sr="act29" ve="7">
-			<code>548</code>
-			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#ffdddd"&gt;An error occurred while downloading project dependencies!</Str>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg10" ve="3"/>
-			<Int sr="arg11" val="1"/>
-			<Int sr="arg12" val="0"/>
-			<Str sr="arg13" ve="3">1</Str>
-			<Int sr="arg14" val="1"/>
-			<Str sr="arg15" ve="3">1</Str>
-			<Int sr="arg2" val="1"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3">#aaff3b5e</Str>
-			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3">3000</Str>
-			<Int sr="arg9" val="1"/>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>339</code>
-			<se>false</se>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
-Cookies
-The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_data
-Data
-Data that the server responded from the HTTP request.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_file_output
-File Output
-Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_response_code
-Response Code
-The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_headers()
-Response Headers
-The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_response_length
-Response Length
-The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg10" val="1"/>
-			<Int sr="arg11" val="0"/>
-			<Int sr="arg12" val="1"/>
-			<Str sr="arg2" ve="3">https://api.github.com/repos/x-mrrobot-x/tagly/releases/latest</Str>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8" val="60"/>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act30" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act31" ve="7">
-			<code>40</code>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>37</code>
-			<coll>false</coll>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%err</lhs>
-					<op>12</op>
-					<rhs></rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act5" ve="7">
-			<code>548</code>
-			<Str sr="arg0" ve="3">&lt;b&gt;&lt;font color="#ffdddd"&gt;Error! No Connection</Str>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg10" ve="3"/>
-			<Int sr="arg11" val="1"/>
-			<Int sr="arg12" val="0"/>
-			<Str sr="arg13" ve="3">1</Str>
-			<Int sr="arg14" val="1"/>
-			<Str sr="arg15" ve="3">1</Str>
-			<Int sr="arg2" val="1"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3">#aaff3b5e</Str>
-			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3">3000</Str>
-			<Int sr="arg9" val="1"/>
-		</Action>
-		<Action sr="act6" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-		</Action>
-		<Action sr="act7" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act8" ve="7">
-			<code>123</code>
-			<Str sr="arg0" ve="3">set -euo pipefail
-
-WORK_DIR="%tg_work_dir"
-SRC_DIR="$WORK_DIR/src"
-TASKER_DIR="$WORK_DIR/tasker"
-DATA_DIR="$SRC_DIR/data"
-TMP_DIR="$WORK_DIR/tmp_data_backup"
-
-# 0. Garantir diretório base
-if [ ! -d "$WORK_DIR" ]; then
-  mkdir -p "$WORK_DIR"
-fi
-
-# 1. Preparar TMP
-if [ -d "$TMP_DIR" ]; then
-  rm -rf "$TMP_DIR"
-fi
-mkdir -p "$TMP_DIR"
-
-# 2. Mover arquivos para TMP (se houver)
-if [ "$(ls -A "$DATA_DIR" 2&gt;/dev/null)" ]; then
-  mv "$DATA_DIR"/* "$TMP_DIR"/
-else
-  echo "Nenhum arquivo para mover"
-fi
-
-# 3. Remover src
-rm -rf "$SRC_DIR"
-
-# 4. Remover codigo tasker
-rm -rf "$TASKER_DIR"
-
-# 5. Remover html
-rm -rf "$WORK_DIR/index.html"
-
-# 6. Remover zip
-find "$WORK_DIR" -maxdepth 1 -type f \( -name "tagly*.xml" -o -name "tagly*.zip" \) -delete</Str>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg2" val="0"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Int sr="arg6" val="1"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-		</Action>
-		<Action sr="act9" ve="7">
-			<code>396</code>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%release_type
-0. Release type
-Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%mt_groups()
-Groups
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%mt_match_found
-Is Match
-true if there was a match, false otherwise&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%mt_match
-Match
-Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="1"/>
-			<Str sr="arg2" ve="3">%http_data[name]</Str>
-			<Str sr="arg3" ve="3">(?&lt;release_type&gt;\[\w+\])</Str>
-			<Str sr="arg4" ve="3"/>
-		</Action>
-	</Task>
-	<Task sr="task2246">
-		<cdate>1755704601605</cdate>
-		<edate>1755704601605</edate>
-		<id>2246</id>
-		<pri>103</pri>
-		<Action sr="act0" ve="7">
-			<code>49</code>
-			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
-		</Action>
-	</Task>
-	<Task sr="task2247">
-		<cdate>1772851580867</cdate>
-		<edate>1780935692436</edate>
-		<id>2247</id>
-		<nme>TG 02 - ENSURE DEPENDENCIES</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>389</code>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""/&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Str sr="arg1" ve="3">%version_path=%tg_work_dir/version
-%expected_file_count=7</Str>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3">=</Str>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="3"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="1"/>
-		</Action>
-		<Action sr="act10" ve="7">
-			<code>47</code>
-			<se>false</se>
-			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
-			<Int sr="arg1" val="10"/>
-			<Int sr="arg10" val="1"/>
-			<Int sr="arg2" val="100"/>
-			<Int sr="arg3" val="100"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="1"/>
-			<Int sr="arg8" val="1"/>
-			<Int sr="arg9" val="1"/>
-		</Action>
-		<Action sr="act11" ve="7">
-			<code>130</code>
-			<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
-			<Int sr="arg1">
-				<var>%priority+1</var>
-			</Int>
-			<Int sr="arg10" val="1"/>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="0"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act12" ve="7">
-			<code>30</code>
-			<Int sr="arg0" val="0"/>
-			<Int sr="arg1" val="2"/>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-		</Action>
-		<Action sr="act13" ve="7">
-			<code>53</code>
-			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
-			<Str sr="arg1" ve="3">MATRIX LOADER</Str>
-			<Int sr="arg2" val="6"/>
-			<Str sr="arg3" ve="3">javascript:(MatrixLoader.complete)()</Str>
-		</Action>
-		<Action sr="act14" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>342</code>
-			<Int sr="arg0" val="5"/>
-			<Str sr="arg1" ve="3">%version_path</Str>
-			<Str sr="arg2" ve="3">%version_exists</Str>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="1"/>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>37</code>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%version_exists</lhs>
-					<op>2</op>
-					<rhs>true</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>417</code>
-			<se>false</se>
-			<Str sr="arg0" ve="3">%version_path</Str>
-			<Str sr="arg1" ve="3">%current_version</Str>
-			<Int sr="arg2" val="1"/>
-		</Action>
-		<Action sr="act5" ve="7">
-			<code>38</code>
-		</Action>
-		<Action sr="act6" ve="7">
-			<code>123</code>
-			<label>List total code files</label>
-			<Str sr="arg0" ve="3">find "%tg_work_dir" -type f | wc -l</Str>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg2" val="0"/>
-			<Str sr="arg3" ve="3">%total_files</Str>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Int sr="arg6" val="1"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-		</Action>
-		<Action sr="act7" ve="7">
-			<code>548</code>
-			<on>false</on>
-			<Str sr="arg0" ve="3">%current_version - %tg_project_version
-
-%total_files / %expected_file_count
-
-%version_exists</Str>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg10" ve="3"/>
-			<Int sr="arg11" val="1"/>
-			<Int sr="arg12" val="0"/>
-			<Str sr="arg13" ve="3"/>
-			<Int sr="arg14" val="0"/>
-			<Str sr="arg15" ve="3"/>
-			<Int sr="arg2" val="1"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3">99999</Str>
-			<Int sr="arg9" val="1"/>
-		</Action>
-		<Action sr="act8" ve="7">
-			<code>37</code>
-			<coll>false</coll>
-			<ConditionList sr="if">
-				<bool0>Or</bool0>
-				<bool1>Or</bool1>
-				<Condition sr="c0" ve="3">
-					<lhs>%version_exists</lhs>
-					<op>2</op>
-					<rhs>false</rhs>
-				</Condition>
-				<Condition sr="c1" ve="3">
-					<lhs>%tg_project_version</lhs>
-					<op>3</op>
-					<rhs>%current_version</rhs>
-				</Condition>
-				<Condition sr="c2" ve="3">
-					<lhs>%total_files</lhs>
-					<op>6</op>
-					<rhs>%expected_file_count</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act9" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3">TG 01 - MAIN</Str>
-		</Action>
-	</Task>
-	<Task sr="task2248">
-		<cdate>1772273455368</cdate>
-		<edate>1780074983192</edate>
-		<id>2248</id>
-		<nme>TG 04 - LOAD DATA</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>474</code>
-			<label>Load Data with Buffer</label>
-			<Str sr="arg0" ve="3">import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
-import java.io.BufferedReader;
-import com.joaomgcd.taskerm.action.java.JavaCodeException;
-
-baseDir = tasker.getVariable("tg_work_dir");
-
-if (baseDir == null || baseDir == void) {
-    tasker.showToast("Variable %tg_work_dir is not set. Please set it before running this script.");
-    throw new JavaCodeException("Variable %tg_work_dir is not set. Please set it before running this script.");
-}
-
-dataDir = baseDir + "/src/data/";
-i18nDir = baseDir + "/src/i18n/";
-
-fileNames = new String[]{"apps.json", "activities.json", "stats.json", "folders.json", "settings.json"};
-
-String readFile(dir, fileName) {
-    file = new File(dir, fileName);
-    if (!file.exists() || !file.isFile()) return null;
-
-    fis = null;
-    isr = null;
-    br = null;
-
-    try {
-        fis = new FileInputStream(file);
-        isr = new InputStreamReader(fis, "UTF-8");
-        br = new BufferedReader(isr);
-        sb = new StringBuffer();
-
-        line = br.readLine();
-        while (line != null) {
-            sb.append(line).append("\n");
-            line = br.readLine();
-        }
-
-        return sb.toString();
-    } catch (Exception e) {
-        tasker.log("Error reading file " + fileName + ": " + e.getMessage());
-        return null;
-    } finally {
-        try { if (br != null) br.close(); } catch (Exception e) {}
-        try { if (isr != null) isr.close(); } catch (Exception e) {}
-        try { if (fis != null) fis.close(); } catch (Exception e) {}
-    }
-}
-
-settingsContent = null;
-
-for (i = 0; i &lt; fileNames.length; i++) {
-    fileName = fileNames[i];
-    varName = fileName.replace(".json", "");
-    content = readFile(dataDir, fileName);
-
-    if (fileName.equals("settings.json")) settingsContent = content;
-
-    tasker.setVariable(varName, content, content != null);
-}
-
-systemLanguage = tasker.getVariable("system_language");
-langCode = null;
-
-if (settingsContent != null) {
-    langKey = tasker.getVariable("settings.language");
-    langCode = (langKey != null &amp;&amp; !langKey.equals("null")) ? langKey : (systemLanguage != null ? systemLanguage : "en");
-} else {
-    langCode = (systemLanguage != null ? systemLanguage : "en");
-}
-
-if (langCode != null) {
-    translationsContent = readFile(i18nDir, langCode + ".json");
-    tasker.setVariable("translations", translationsContent, translationsContent != null);
-}</Str>
-			<Str sr="arg1" ve="3"/>
-			<Int sr="arg2" val="1"/>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>126</code>
-			<Str sr="arg0" ve="3"/>
-			<Int sr="arg1" val="1"/>
-			<Int sr="arg2" val="1"/>
-			<Int sr="arg3" val="0"/>
-			<Str sr="arg4" ve="3">%apps/%folders/%stats/%activities/%settings/%translations</Str>
-		</Action>
 	</Task>
 </TaskerData>
