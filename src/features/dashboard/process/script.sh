@@ -48,10 +48,7 @@ scan_media_app_packages() {
     \( -name "*_*.jpg" -o -name "*_*.png" -o -name "*_*.mp4" \) \
     ! -name ".trashed*" 2>/dev/null \
     | grep -vE "_[0-9][0-9-]*\.[^.]+$" \
-    | sed -n 's/.*_\(.*\)\.[^.]*$/\1/p' \
-    | sed 's/\[[^]]*\]//g' \
-    | sed 's/[[:space:]]*$//' \
-    | sed 's/-[a-z][a-z0-9]*$//' \
+    | sed -E -e 's/.*_(.*)\.([^.]+)$/\1/' -e 's/\[[^]]*\]//g' -e 's/[[:space:]]*$//' -e 's/-(edit|crop|rotated|edited|copy)$//' \
     | sort -u)
 
   if [ -z "$package_list" ]; then
@@ -59,7 +56,15 @@ scan_media_app_packages() {
     return 0
   fi
 
-  json_array=$(echo "$package_list" | sed 's/\\/\\\\/g; s/"/\\"/g; s/^/"/; s/$/"/; H; $!d; x; s/\n/,/g; s/^,//')
+  json_array=""
+  while IFS= read -r pkg; do
+    [ -z "$pkg" ] && continue
+    escaped=$(printf '%s' "$pkg" | sed 's/\\/\\\\/g; s/"/\\"/g')
+    [ -n "$json_array" ] && json_array="$json_array,"
+    json_array="${json_array}\"${escaped}\""
+  done << EOF
+$package_list
+EOF
 
   json_response "true" "[$json_array]" "null"
 }

@@ -38,8 +38,9 @@ function buildMoveEntries(resolvedNames, destPath, extensions) {
     const dest = `"${destPath}/${appName.trim()}/"`;
 
     for (const ext of extList) {
-      const exactPattern = `*_${pkgName}.${ext}`;
-      const suffixPattern = `*_${pkgName}-*.${ext}`;
+      const safePkg = pkgName.replace(/ /g, "?");
+      const exactPattern = `*_${safePkg}.${ext}`;
+      const suffixPattern = `*_${safePkg}-*.${ext}`;
 
       if (findPatterns.length > 0) findPatterns.push(`-o`);
       findPatterns.push(
