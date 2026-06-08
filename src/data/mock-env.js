@@ -127,10 +127,6 @@ function mediaTypeFromPath(path) {
   return path?.includes("Screenshots") ? "screenshots" : "recordings";
 }
 
-function mediaTypeFromExtension(ext) {
-  return ext === "jpg" ? "screenshots" : "recordings";
-}
-
 function sumMediaValues(mediaType) {
   return Object.values(MOCK_MEDIA_FILES[mediaType] ?? {}).reduce(
     (a, b) => a + b,
@@ -147,7 +143,8 @@ function parseJsonArg(json, fallback) {
 }
 
 function resolveMovedCount(countCommand) {
-  if (countCommand?.includes("jpg")) return sumMediaValues("screenshots");
+  if (countCommand?.includes("jpg") || countCommand?.includes("png"))
+    return sumMediaValues("screenshots");
   if (countCommand?.includes("mp4")) return sumMediaValues("recordings");
   return randomInt(5, 50);
 }
@@ -162,8 +159,8 @@ function getFolderName(folderPath) {
 
 const MOCK_COMMANDS = {
   scan_media_app_packages(args) {
-    const [extension] = args;
-    return MOCK_SOURCE_PACKAGES[mediaTypeFromExtension(extension)] ?? [];
+    const [folderPath] = args;
+    return MOCK_SOURCE_PACKAGES[mediaTypeFromPath(folderPath)] ?? [];
   },
 
   create_app_media_folders(args) {
@@ -181,15 +178,17 @@ const MOCK_COMMANDS = {
   },
 
   find_expired_files(args) {
-    const [folderPath, , extension] = args;
-    return Array.from(
-      { length: randomInt(0, 4) },
-      (_, i) => `${folderPath}/expired_${i}.${extension ?? "jpg"}`
-    );
+    const [folderPath] = args;
+    const isRecordings = mediaTypeFromPath(folderPath) === "recordings";
+    const exts = isRecordings ? ["mp4"] : ["jpg", "png"];
+    return Array.from({ length: randomInt(0, 4) }, (_, i) => {
+      const ext = exts[i % exts.length];
+      return `${folderPath}/expired_${i}.${ext}`;
+    });
   },
 
   count_media_items(args) {
-    return sumMediaValues(mediaTypeFromExtension(args[0]));
+    return sumMediaValues(mediaTypeFromPath(args[0]));
   },
 
   count_subfolders(args) {
@@ -300,8 +299,9 @@ const MOCK_COMMANDS = {
   },
 
   get_media_stats(args) {
-    const [dir, ext] = args;
-    if (ext === "mp4") return { pending: 8, tagged: 3, skipped: 1 };
+    const [dir] = args;
+    if (mediaTypeFromPath(dir) === "recordings")
+      return { pending: 8, tagged: 3, skipped: 1 };
     return { pending: 12, tagged: 5, skipped: 2 };
   },
 
@@ -321,7 +321,7 @@ const MOCK_COMMANDS = {
     return {
       files: [
         "Telegram/Screenshot_2024-08-07-07-26-13-563_org.telegram.messenger.jpg",
-        "WhatsApp/Screenshot_2024-09-15-10-44-22_com.whatsapp.jpg",
+        "WhatsApp/Screenshot_2024-09-15-10-44-22_com.whatsapp.png",
         "Instagram/Screenshot_2024-10-01-08-30-05_com.instagram.jpg"
       ]
     };
@@ -343,11 +343,11 @@ const MOCK_COMMANDS = {
     return {
       files: [
         "Screenshot_2024-10-19-14-04-19.jpg",
-        "Screenshot_2024-10-19-15-22-01[free_fire_lobby].jpg",
+        "Screenshot_2024-10-19-15-22-01[free_fire_lobby].png",
         "Screenshot_2024-10-20-09-11-45[skip].jpg",
-        "Screenshot_2024-10-20-11-33-57.jpg",
+        "Screenshot_2024-10-20-11-33-57.png",
         "Screenshot_2024-10-21-08-55-30.jpg",
-        "Screenshot_2024-10-21-10-10-00[youtube_music].jpg"
+        "Screenshot_2024-10-21-10-10-00[youtube_music].png"
       ]
     };
   },
@@ -381,8 +381,8 @@ const MOCK_COMMANDS = {
           mtime: 1729351321
         },
         {
-          path: `${dir}/Instagram/Screenshot_2024-10-21[${query}_result].jpg`,
-          name: `Screenshot_2024-10-21[${query}_result].jpg`,
+          path: `${dir}/Instagram/Screenshot_2024-10-21[${query}_result].png`,
+          name: `Screenshot_2024-10-21[${query}_result].png`,
           mtime: 1729501800
         }
       ]

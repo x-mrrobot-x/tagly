@@ -38,12 +38,12 @@ async function getToOrganizeFileCounts() {
   return fetchParallelCounts(
     TaskQueue.add(
       "count_media_items",
-      ["jpg", ENV.PATHS.SOURCE_SCREENSHOTS],
+      [ENV.PATHS.SOURCE_SCREENSHOTS],
       "shell"
     ),
     TaskQueue.add(
       "count_media_items",
-      ["mp4", ENV.PATHS.SOURCE_RECORDINGS],
+      [ENV.PATHS.SOURCE_RECORDINGS],
       "shell"
     ),
     "Failed to update pending files count:"

@@ -9,7 +9,11 @@ const state = {
   mode: "folders",
   currentFolder: null,
   currentMedia: [],
-  mediaStats: { pending: 0, tagged: 0, skipped: 0 },
+  mediaStats: {
+    pending: 0,
+    tagged: 0,
+    skipped: 0
+  },
   pendingMedia: [],
   mediaFilter: "all"
 };
@@ -33,8 +37,8 @@ function deleteFolder(id) {
 
 function mediaConfig(type) {
   return type === "sr"
-    ? { dir: ENV.PATHS.ORGANIZED_RECORDINGS || "", ext: "mp4" }
-    : { dir: ENV.PATHS.ORGANIZED_SCREENSHOTS || "", ext: "jpg" };
+    ? { dir: ENV.PATHS.ORGANIZED_RECORDINGS || "" }
+    : { dir: ENV.PATHS.ORGANIZED_SCREENSHOTS || "" };
 }
 
 function mapMediaFiles(files, dir) {
@@ -176,10 +180,10 @@ function getMediaStats() {
 }
 
 async function loadMediaStats(type) {
-  const { dir, ext } = mediaConfig(type);
+  const { dir } = mediaConfig(type);
   try {
     if (!dir) return;
-    const result = await TaskQueue.add("get_media_stats", [dir, ext], "shell");
+    const result = await TaskQueue.add("get_media_stats", [dir], "shell");
     if (result) setMediaStats(result);
   } catch (error) {
     Logger.warn("[OrganizerModel] Could not load media stats:", error);

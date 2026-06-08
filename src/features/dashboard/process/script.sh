@@ -37,17 +37,18 @@ write_file() {
 }
 
 scan_media_app_packages() {
-  file_type="$1"
-  source_folder="$2"
+  source_folder="$1"
 
   if [ ! -d "$source_folder" ]; then
     json_response "false" "[]" "\"Source folder does not exist: $source_folder\""
     return 1
   fi
 
-  package_list=$(find "$source_folder" -maxdepth 1 -type f -name "*_*.$file_type" ! -name ".trashed*" 2>/dev/null \
-    | grep -vE "_[0-9]+\.${file_type}" \
-    | sed -n "s/.*_\(.*\).${file_type}/\1/p" \
+  package_list=$(find "$source_folder" -maxdepth 1 -type f \
+    \( -name "*_*.jpg" -o -name "*_*.png" -o -name "*_*.mp4" \) \
+    ! -name ".trashed*" 2>/dev/null \
+    | grep -vE "_[0-9][0-9-]*\.[^.]+$" \
+    | sed -n 's/.*_\(.*\)\.[^.]*$/\1/p' \
     | sed 's/\[[^]]*\]//g' \
     | sed 's/[[:space:]]*$//' \
     | sed 's/-[a-z][a-z0-9]*$//' \
@@ -64,8 +65,7 @@ scan_media_app_packages() {
 }
 
 count_media_items() {
-  file_type="$1"
-  source_folder="$2"
+  source_folder="$1"
 
   if [ ! -d "$source_folder" ]; then
     json_response "true" "0" "null"
@@ -73,10 +73,10 @@ count_media_items() {
   fi
 
   item_count=$(find "$source_folder" -maxdepth 1 -type f \
-    -name "*_*.$file_type" \
+    \( -name "*_*.jpg" -o -name "*_*.png" -o -name "*_*.mp4" \) \
     ! -name ".trashed*" \
     2>/dev/null \
-    | grep -vE "_[0-9]+\.${file_type}$" \
+    | grep -vE "_[0-9][0-9-]*\.[^.]+$" \
     | wc -l | tr -d ' \t')
 
   json_response "true" "${item_count:-0}" "null"
@@ -142,14 +142,15 @@ run_batch_command() {
 find_expired_files() {
     folder_path="$1"
     days="$2"
-    extension="$3"
 
     if [ ! -d "$folder_path" ]; then
         json_response "false" "[]" "\"Folder not found: $folder_path\""
         return 1
     fi
 
-    file_list=$(find "$folder_path" -type f -name "*.$extension" -mtime "+$days" 2>/dev/null)
+    file_list=$(find "$folder_path" -type f \
+        \( -name "*.jpg" -o -name "*.png" -o -name "*.mp4" \) \
+        -mtime "+$days" 2>/dev/null)
 
     if [ -z "$file_list" ]; then
         json_response "true" "[]" "null"
@@ -338,16 +339,15 @@ rename_folder() {
 
 get_media_stats() {
   dir="$1"
-  ext="$2"
 
   if [ ! -d "$dir" ]; then
     json_response "true" "{\"pending\":0,\"tagged\":0,\"skipped\":0}" "null"
     return 0
   fi
 
-  total=$(find "$dir" -type f -iname "*.${ext}" 2>/dev/null | wc -l | tr -d ' \t')
-  skipped=$(find "$dir" -type f -iname "*\[skip\]*.${ext}" 2>/dev/null | wc -l | tr -d ' \t')
-  bracketed=$(find "$dir" -type f -iname "*\[*\]*.${ext}" 2>/dev/null | wc -l | tr -d ' \t')
+  total=$(find "$dir" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.mp4" \) 2>/dev/null | wc -l | tr -d ' \t')
+  skipped=$(find "$dir" -type f \( -name "*[skip]*.jpg" -o -name "*[skip]*.png" -o -name "*[skip]*.mp4" \) 2>/dev/null | wc -l | tr -d ' \t')
+  bracketed=$(find "$dir" -type f \( -name "*[*]*.jpg" -o -name "*[*]*.png" -o -name "*[*]*.mp4" \) 2>/dev/null | wc -l | tr -d ' \t')
 
   tagged=$((bracketed - skipped))
   pending=$((total - bracketed))
@@ -497,10 +497,10 @@ main() {
       write_file "$1" "$2"
       ;;
     scan_media_app_packages)
-      scan_media_app_packages "$1" "$2"
+      scan_media_app_packages "$1"
       ;;
     count_media_items)
-      count_media_items "$1" "$2"
+      count_media_items "$1"
       ;;
     create_app_media_folders)
       create_app_media_folders "$1" "$2"
@@ -509,7 +509,7 @@ main() {
       run_batch_command "$1" "$2"
       ;;
     find_expired_files)
-      find_expired_files "$1" "$2" "$3"
+      find_expired_files "$1" "$2"
       ;;
     delete_files_batch)
       delete_files_batch "$1"
@@ -530,7 +530,7 @@ main() {
       delete_folder_contents "$1"
       ;;
     get_media_stats)
-      get_media_stats "$1" "$2"
+      get_media_stats "$1"
       ;;
     get_pending_media)
       get_pending_media "$1"

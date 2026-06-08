@@ -29,25 +29,30 @@ function buildEmptyCommands() {
   };
 }
 
-function buildMoveEntries(resolvedNames, destPath, extension) {
+function buildMoveEntries(resolvedNames, destPath, extensions) {
   const findPatterns = [];
   const moveStatements = [];
+  const extList = Array.isArray(extensions) ? extensions : [extensions];
 
   for (const [pkgName, appName] of Object.entries(resolvedNames)) {
-    const exactPattern = `*_${pkgName}.${extension}`;
-    const suffixPattern = `*_${pkgName}-*.${extension}`;
     const dest = `"${destPath}/${appName.trim()}/"`;
 
-    findPatterns.push(
-      `-name '${exactPattern}'`,
-      `-o`,
-      `-name '${suffixPattern}'`
-    );
+    for (const ext of extList) {
+      const exactPattern = `*_${pkgName}.${ext}`;
+      const suffixPattern = `*_${pkgName}-*.${ext}`;
 
-    moveStatements.push(
-      `mv ${exactPattern} ${dest} 2>/dev/null`,
-      `mv ${suffixPattern} ${dest} 2>/dev/null`
-    );
+      if (findPatterns.length > 0) findPatterns.push(`-o`);
+      findPatterns.push(
+        `-name '${exactPattern}'`,
+        `-o`,
+        `-name '${suffixPattern}'`
+      );
+
+      moveStatements.push(
+        `mv ${exactPattern} ${dest} 2>/dev/null`,
+        `mv ${suffixPattern} ${dest} 2>/dev/null`
+      );
+    }
   }
 
   return { findPatterns, moveStatements };
@@ -106,13 +111,13 @@ async function loadCleanupRules() {
   return rules;
 }
 
-async function findExpired(configs, rootDir, extension) {
+async function findExpired(configs, rootDir) {
   const results = await Promise.allSettled(
     configs.map(async config => {
       const folderPath = `${rootDir}/${config.folder}`;
       const expired = await TaskQueue.add(
         "find_expired_files",
-        [folderPath, config.days, extension],
+        [folderPath, config.days],
         "shell"
       );
       return expired || [];
@@ -127,8 +132,8 @@ async function findExpired(configs, rootDir, extension) {
 
 async function findAllExpiredMedia(rules, screenshotsPath, recordingsPath) {
   const [expiredScreenshots, expiredRecordings] = await Promise.all([
-    findExpired(rules.screenshots, screenshotsPath, "jpg"),
-    findExpired(rules.recordings, recordingsPath, "mp4")
+    findExpired(rules.screenshots, screenshotsPath),
+    findExpired(rules.recordings, recordingsPath)
   ]);
   return {
     screenshots: expiredScreenshots,

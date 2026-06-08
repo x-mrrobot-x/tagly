@@ -14,7 +14,7 @@ const PROCESS_TYPES = {
         labelKey: "process.step_scan_screenshots",
         type: "shell",
         func: "scan_media_app_packages",
-        params: () => ["jpg", ENV.PATHS.SOURCE_SCREENSHOTS]
+        params: () => [ENV.PATHS.SOURCE_SCREENSHOTS]
       },
       {
         id: "resolve_app_names",
@@ -42,7 +42,7 @@ const PROCESS_TYPES = {
           ctx.resolve_app_names,
           ENV.PATHS.SOURCE_SCREENSHOTS,
           ENV.PATHS.ORGANIZED_SCREENSHOTS,
-          "jpg"
+          ["jpg", "png"]
         ]
       },
       {
@@ -85,7 +85,7 @@ const PROCESS_TYPES = {
         labelKey: "process.step_scan_recordings",
         type: "shell",
         func: "scan_media_app_packages",
-        params: () => ["mp4", ENV.PATHS.SOURCE_RECORDINGS]
+        params: () => [ENV.PATHS.SOURCE_RECORDINGS]
       },
       {
         id: "resolve_app_names",
@@ -113,7 +113,7 @@ const PROCESS_TYPES = {
           ctx.resolve_app_names,
           ENV.PATHS.SOURCE_RECORDINGS,
           ENV.PATHS.ORGANIZED_RECORDINGS,
-          "mp4"
+          ["mp4"]
         ]
       },
       {
