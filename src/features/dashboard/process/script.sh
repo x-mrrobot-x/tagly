@@ -351,8 +351,8 @@ get_media_stats() {
   fi
 
   total=$(find "$dir" -type f \( -name "*.jpg" -o -name "*.png" -o -name "*.mp4" \) 2>/dev/null | wc -l | tr -d ' \t')
-  skipped=$(find "$dir" -type f \( -name "*[skip]*.jpg" -o -name "*[skip]*.png" -o -name "*[skip]*.mp4" \) 2>/dev/null | wc -l | tr -d ' \t')
-  bracketed=$(find "$dir" -type f \( -name "*[*]*.jpg" -o -name "*[*]*.png" -o -name "*[*]*.mp4" \) 2>/dev/null | wc -l | tr -d ' \t')
+  skipped=$(find "$dir" -type f \( -name "*\[skip\]*" \) 2>/dev/null | wc -l | tr -d ' \t')
+  bracketed=$(find "$dir" -type f \( -name "*\[*" \) 2>/dev/null | wc -l | tr -d ' \t')
 
   tagged=$((bracketed - skipped))
   pending=$((total - bracketed))

@@ -151,6 +151,13 @@ function setMedia(files) {
   state.currentMedia = files || [];
 }
 
+function updateMediaFile(oldPath, newPath) {
+  const newName = newPath.split("/").pop();
+  state.currentMedia = state.currentMedia.map(f =>
+    f.path === oldPath ? { ...f, path: newPath, name: newName } : f
+  );
+}
+
 function setMediaFilter(filter) {
   state.mediaFilter = filter || "all";
 }
@@ -293,6 +300,7 @@ export default {
   enterFolder,
   exitFolder,
   setMedia,
+  updateMediaFile,
   getMedia,
   setMediaFilter,
   setMediaStats,

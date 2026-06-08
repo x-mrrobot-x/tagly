@@ -401,6 +401,19 @@ function handleCardUpdate(oldPath, newPath, newName, isVideo) {
   } else {
     OrganizerView.update.mediaCard(oldPath, newPath, newName);
   }
+
+  OrganizerModel.updateMediaFile(oldPath, newPath);
+
+  const allFiles = OrganizerModel.getState().currentMedia;
+  const { tagged, skipped, pending } = computeMediaStats(allFiles);
+  const { activeFilter, mediaFilter } = OrganizerModel.getState();
+  OrganizerView.update.infoBar("media", {
+    total: allFiles.length,
+    tagged,
+    pending,
+    skipped,
+    activeFilter: mediaFilter
+  });
 }
 
 const handlers = {

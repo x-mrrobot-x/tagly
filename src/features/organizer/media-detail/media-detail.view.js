@@ -87,6 +87,7 @@ const update = {
 
   tags(filename) {
     render.tags(filename);
+    elements.filename.textContent = filename;
   },
 
   stopVideo() {
