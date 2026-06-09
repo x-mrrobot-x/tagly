@@ -25,8 +25,6 @@ const DEFAULT_STATS = {
 
 const DEFAULT_SETTINGS = {
   theme: "system",
-  autoOrganizer: true,
-  autoCleaner: false,
   notifyOrganizationResult: true,
   notifyCleanupResult: true,
   notifyPendingFiles: false,

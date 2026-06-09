@@ -28,8 +28,8 @@
     "cleaner_folder_desc": "{{count}} {{media}} eliminados de la carpeta \"{{folder}}\".",
     "organizer_title": "Organización de {{label}}",
     "organizer_desc": "{{count}} {{media}} organizados.",
-    "feature_toggle_on": "Función activada.",
-    "feature_toggle_off": "Función desactivada.",
+    "trigger_toggle_on": "Gatillo activado.",
+    "trigger_toggle_off": "Gatillo desactivado.",
     "folder_toggle_desc": "La limpieza de {{media}} en la carpeta \"{{folder}}\" fue {{state}}.",
     "toggle_activated": "activada",
     "toggle_deactivated": "desactivada"
@@ -50,8 +50,8 @@
     "action_execute": "Ejecutar",
     "action_generate_tags": "Generar Etiquetas",
     "triggers_title": "Disparadores",
-    "trigger_scheduled_name": "Ejecución Programada",
-    "trigger_scheduled_desc": "Organiza y limpia archivos diariamente a la 01:00, si está configurado",
+    "trigger_scheduled_name": "Organizar y Limpiar Automáticamente",
+    "trigger_scheduled_desc": "Ejecuta automáticamente la organización de archivos y la limpieza de archivos expirados diariamente a las 01:00.",
     "trigger_stamp_name": "Sello de Grabación",
     "trigger_stamp_desc": "Detecta grabaciones de pantalla y añade el nombre de la app capturada"
   },
@@ -206,10 +206,6 @@
     "confirmation_message": "¿Estás seguro de que deseas continuar? Esta acción no se puede deshacer.",
     "cancel": "Cancelar",
     "confirm": "Confirmar"
-  },
-  "features": {
-    "auto_organizer": "Organización Automática",
-    "auto_cleaner": "Limpieza Automática"
   },
   "tagging": {
     "dialog_title": "Generar Etiquetas con IA",

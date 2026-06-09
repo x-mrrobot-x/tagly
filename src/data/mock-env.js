@@ -246,9 +246,7 @@ const MOCK_COMMANDS = {
       exportedAt: Date.now(),
       data: {
         settings: {
-          theme: "dark",
-          autoOrganizer: true,
-          autoCleaner: false,
+          theme: "system",
           notifyOrganizationResult: true,
           notifyCleanupResult: true,
           notifyPendingFiles: false,

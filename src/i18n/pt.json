@@ -28,8 +28,8 @@
     "cleaner_folder_desc": "{{count}} {{media}} removidos da pasta \"{{folder}}\".",
     "organizer_title": "Organização de {{label}}",
     "organizer_desc": "{{count}} {{media}} organizadas.",
-    "feature_toggle_on": "Recurso ativado.",
-    "feature_toggle_off": "Recurso desativado.",
+    "trigger_toggle_on": "Gatilho ativado.",
+    "trigger_toggle_off": "Gatilho desativado.",
     "folder_toggle_desc": "Limpeza de {{media}} na pasta \"{{folder}}\" foi {{state}}.",
     "toggle_activated": "ativada",
     "toggle_deactivated": "desativada"
@@ -50,8 +50,8 @@
     "action_execute": "Executar",
     "action_generate_tags": "Gerar Tags",
     "triggers_title": "Gatilhos",
-    "trigger_scheduled_name": "Execução Agendada",
-    "trigger_scheduled_desc": "Organiza e limpa arquivos diariamente às 01:00, se configurado",
+    "trigger_scheduled_name": "Organizar e Limpar Automaticamente",
+    "trigger_scheduled_desc": "Executa automaticamente a organização de arquivos e a limpeza de arquivos expirados diariamente às 01:00.",
     "trigger_stamp_name": "Carimbo de Gravação",
     "trigger_stamp_desc": "Detecta gravações de tela e adiciona o nome do aplicativo capturado"
   },
@@ -206,10 +206,6 @@
     "confirmation_message": "Tem certeza de que deseja continuar? Esta ação não pode ser desfeita.",
     "cancel": "Cancelar",
     "confirm": "Confirmar"
-  },
-  "features": {
-    "auto_organizer": "Organização Automática",
-    "auto_cleaner": "Limpeza Automática"
   },
   "tagging": {
     "dialog_title": "Gerar Tags com IA",

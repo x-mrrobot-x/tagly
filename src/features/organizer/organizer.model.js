@@ -108,20 +108,6 @@ function logClearActivity(folderName, mediaType, removedCount) {
   AppState.incrementStat("cleanedFiles", removedCount);
 }
 
-function getAutoOrganizerSetting() {
-  return AppState.getSetting("autoOrganizer");
-}
-
-function toggleAutoOrganizer() {
-  const newValue = AppState.toggleSetting("autoOrganizer");
-  AppState.addActivity({
-    type: "feature-toggle",
-    feature: "auto-organizer",
-    enabled: newValue
-  });
-  return newValue;
-}
-
 function searchFolders(query, activeFilter) {
   const term = query.toLowerCase();
   return AppState.getFolders().filter(f => {
@@ -294,8 +280,6 @@ export default {
   deleteFolder,
   clearFolderContents,
   logClearActivity,
-  getAutoOrganizerSetting,
-  toggleAutoOrganizer,
   searchFolders,
   enterFolder,
   exitFolder,

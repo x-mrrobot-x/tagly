@@ -120,11 +120,9 @@ const update = {
     const cards = DOM.qsa("[data-trigger]", elements.triggers.section);
     cards.forEach(card => {
       const isActive = enabledSet.has(card.dataset.trigger);
-      const badge = card.querySelector(".dashboard-trigger-badge");
+      const switchEl = card.querySelector(".dashboard-trigger-switch");
       card.classList.toggle("active", isActive);
-      badge.textContent = isActive
-        ? I18n.t("dashboard.status_active")
-        : I18n.t("dashboard.status_inactive");
+      if (switchEl) switchEl.checked = isActive;
     });
   },
   all: data => {

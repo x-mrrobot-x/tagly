@@ -43,27 +43,12 @@ function setFolderDays(folderId, mediaType, days) {
   });
 }
 
-function toggleAutoCleaner() {
-  const newValue = AppState.toggleSetting("autoCleaner");
-  AppState.addActivity({
-    type: "feature-toggle",
-    feature: "auto-cleaner",
-    enabled: newValue
-  });
-  return newValue;
-}
-
 function getFolders() {
   return AppState.getFolders();
-}
-function getAutoCleanerSetting() {
-  return AppState.getSetting("autoCleaner");
 }
 
 export default {
   toggleFolderClean,
   setFolderDays,
-  toggleAutoCleaner,
-  getFolders,
-  getAutoCleanerSetting
+  getFolders
 };

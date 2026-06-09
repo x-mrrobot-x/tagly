@@ -8,7 +8,6 @@ let elements = null;
 function queryElements() {
   elements = {
     tabContent: DOM.qs("#tab-cleaner"),
-    autoSwitch: DOM.qs("#switch-auto-cleaner"),
     list: DOM.qs("#cleaner-folder-list"),
     countText: DOM.qs("#cleaner-subtitle")
   };
@@ -167,10 +166,6 @@ const update = {
     } else {
       optionsDiv?.remove();
     }
-  },
-
-  autoCleaner: active => {
-    elements.autoSwitch.checked = !!active;
   },
 
   card: folder => {

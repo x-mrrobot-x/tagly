@@ -390,16 +390,20 @@
                   <span
                     class="dashboard-trigger-name"
                     data-i18n="dashboard.trigger_scheduled_name"
-                    >Execução Agendada</span
+                    >Organizar e Limpar Automaticamente</span
                   >
                   <span
                     class="dashboard-trigger-status"
                     data-i18n="dashboard.trigger_scheduled_desc"
-                    >Organiza e limpa arquivos diariamente às 01:00, se
-                    configurado</span
+                    >Executa automaticamente a organização de arquivos e a limpeza de arquivos expirados diariamente às 01:00.</span
                   >
                 </div>
-                <span class="dashboard-trigger-badge"></span>
+                <input
+                  type="checkbox"
+                  class="switch-md dashboard-trigger-switch"
+                  data-trigger="TG 01 - SCHEDULED RUN"
+                  aria-label="Ativar processamento automático"
+                />
               </div>
 
               <div
@@ -423,7 +427,12 @@
                     capturado</span
                   >
                 </div>
-                <span class="dashboard-trigger-badge"></span>
+                <input
+                  type="checkbox"
+                  class="switch-md dashboard-trigger-switch"
+                  data-trigger="TG 02 - STAMP SCREEN RECORDING"
+                  aria-label="Ativar carimbo de gravação"
+                />
               </div>
             </div>
           </section>
@@ -494,38 +503,6 @@
             </nav>
           </header>
 
-          <section
-            id="organizer-automation-section"
-            class="automation-section animate-fade-in-up"
-            style="animation-delay: 0.25s"
-            aria-label="Configuração de organização automática"
-          >
-            <label id="organizer-automation-card" class="automation-card card">
-              <div class="automation-info">
-                <div class="automation-icon icon-green" aria-hidden="true">
-                  <i data-icon="folder-open"></i>
-                </div>
-                <div class="automation-text">
-                  <h3 data-i18n="features.auto_organizer">
-                    Organização Automática
-                  </h3>
-                  <p data-i18n="organizer.auto_desc">
-                    Verifica periodicamente novas capturas e gravações de tela e
-                    as organiza automaticamente em pastas por aplicativo
-                  </p>
-                </div>
-              </div>
-              <input
-                type="checkbox"
-                class="switch-md"
-                id="switch-auto-organizer"
-                data-setting-key="autoOrganizer"
-                aria-label="Ativar organização automática"
-                checked
-              />
-            </label>
-          </section>
-
           <button
             class="organizer-back-btn animate-fade-in-up tap-scale"
             id="organizer-back-btn"
@@ -581,36 +558,6 @@
               </div>
             </div>
           </header>
-
-          <section
-            class="automation-section animate-fade-in-up"
-            style="animation-delay: 0.1s"
-            aria-label="Configuração de limpeza automática"
-          >
-            <label id="cleaner-automation-card" class="automation-card card">
-              <div class="automation-info">
-                <div class="automation-icon icon-purple" aria-hidden="true">
-                  <i data-icon="broom"></i>
-                </div>
-                <div class="automation-text">
-                  <h3 data-i18n="features.auto_cleaner">Limpeza Automática</h3>
-                  <p data-i18n="cleaner.auto_desc">
-                    Verifica periodicamente as pastas configuradas e remove
-                    capturas ou gravações de tela que ultrapassam o limite de
-                    dias definido
-                  </p>
-                </div>
-              </div>
-              <input
-                type="checkbox"
-                class="switch-md"
-                id="switch-auto-cleaner"
-                data-setting-key="autoCleaner"
-                aria-label="Ativar limpeza automática"
-                checked
-              />
-            </label>
-          </section>
 
           <section
             id="cleaner-folder-list"

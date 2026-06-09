@@ -5,6 +5,7 @@ import ENV from "../../core/platform/env.js";
 import Logger from "../../core/platform/logger.js";
 import Utils from "../../lib/utils.js";
 import Navigation from "../../core/ui/navigation.js";
+import AppState from "../../core/state/app-state.js";
 
 
 let isInitialized = false;
@@ -44,6 +45,12 @@ const handlers = {
     const newState = !isActive;
 
     ENV.toggleTrigger(triggerName, newState);
+
+    AppState.addActivity({
+      type: "trigger-toggle",
+      trigger: triggerName,
+      enabled: newState
+    });
 
     const currentEnabled = DashboardModel.getEnabledTriggers();
     if (newState) {

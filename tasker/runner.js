@@ -109,18 +109,15 @@ async function initServices() {
   await I18n.init();
 }
 
-async function runEnabledProcesses() {
-  const autoOrganizer = AppState.getSetting("autoOrganizer");
-  const autoCleaner = AppState.getSetting("autoCleaner");
-
-  if (autoOrganizer) await runOrganizerProcesses();
-  if (autoCleaner) await runCleanerProcess();
+async function runAllProcesses() {
+  await runOrganizerProcesses();
+  await runCleanerProcess();
 }
 
 async function run() {
   try {
     await initServices();
-    await runEnabledProcesses();
+    await runAllProcesses();
   } catch (err) {
     Logger.error("[Runner] Critical error:", String(err));
   } finally {

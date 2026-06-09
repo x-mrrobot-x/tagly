@@ -92,8 +92,6 @@ function renderFolders() {
 
   paginator.reset(filtered);
   OrganizerView.render.filters(state.activeFilter);
-  OrganizerView.update.autoOrganizer(OrganizerModel.getAutoOrganizerSetting());
-  OrganizerView.update.automationSection(true);
 
   const { ssTotal, srTotal } = computeFolderTotals(filtered);
   OrganizerView.update.infoBar("folders", {
@@ -117,7 +115,6 @@ function renderMedia() {
     paginator = createMediaPaginator(grid, isRecordings, activeFilter);
 
   paginator.reset(files);
-  OrganizerView.update.automationSection(false);
 
   const { tagged, skipped, pending } = computeMediaStats(allFiles);
   OrganizerView.update.infoBar("media", {
@@ -217,7 +214,6 @@ function searchScreenshots(query) {
 
 function clearSearch(mode, currentFolder) {
   paginator = null;
-  OrganizerView.update.automationSection(mode === "folders");
   if (mode === "media") {
     if (currentFolder) OrganizerModel.setMediaFilter("all");
     renderMedia();
@@ -250,7 +246,6 @@ function handleSearch(value) {
     return;
   }
 
-  OrganizerView.update.automationSection(false);
   OrganizerView.update.infoBar("hidden");
   OrganizerView.update.gridLoading(true);
   paginator = null;
@@ -335,7 +330,6 @@ async function handleClearAction(folderId) {
 
 async function enterFolder(folder) {
   const { activeFilter } = OrganizerModel.getState();
-  OrganizerView.update.automationSection(false);
   OrganizerView.update.infoBar("hidden");
   paginator = null;
   OrganizerModel.enterFolder(folder);
@@ -368,7 +362,6 @@ function exitFolder() {
   paginator = null;
   OrganizerModel.exitFolder();
   OrganizerView.update.mode("folders", null);
-  OrganizerView.update.automationSection(true);
   OrganizerView.getElements().search.value = "";
   requestAnimationFrame(() => renderFolders());
 }
@@ -432,12 +425,6 @@ const handlers = {
     OrganizerModel.setFilter(filter);
     renderFolders();
   },
-  onSwitchChange: e => {
-    const switchEl = e.target.closest("[data-setting-key]");
-    if (!switchEl) return;
-    const newValue = OrganizerModel.toggleAutoOrganizer();
-    OrganizerView.update.autoOrganizer(newValue);
-  },
   onGridClick: e => {
     const recordingCard = e.target.closest(".is-recording");
     if (recordingCard) {
@@ -471,23 +458,18 @@ const handlers = {
   onBackClick: () => exitFolder(),
   onFabClick: () => TaggingController.openTaggingDialog(),
   onStateChange: data => {
-    if (data.key === "settings")
-      OrganizerView.update.autoOrganizer(
-        OrganizerModel.getAutoOrganizerSetting()
-      );
     if (data.key === "folders" && !suppressNextRender) debouncedRender();
   }
 };
 
 function attachEvents() {
-  const { grid, search, tabContent, filterContainer, backBtn, fab, infoBar } =
+  const { grid, search, backBtn, fab, infoBar, filterContainer } =
     OrganizerView.getElements();
 
   const events = [
     [search, "input", handlers.onSearch],
     [grid, "click", handlers.onGridClick],
     [filterContainer, "click", handlers.onFilterClick],
-    [tabContent, "change", handlers.onSwitchChange],
     [document, "click", handlers.onDocumentClick],
     [backBtn, "click", handlers.onBackClick],
     [fab, "click", handlers.onFabClick],

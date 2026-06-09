@@ -11,8 +11,6 @@ function queryElements() {
     filterContainer: DOM.qs(".organizer-filters-row"),
     filterBtns: DOM.qsa(".organizer-filter-button"),
     search: DOM.qs(".organizer-search-input"),
-    autoSwitch: DOM.qs("#switch-auto-organizer"),
-    automationSection: DOM.qs("#organizer-automation-section"),
     infoBar: DOM.qs("#organizer-info-bar"),
     backBtn: DOM.qs("#organizer-back-btn"),
     fab: DOM.qs("#organizer-fab")
@@ -271,10 +269,6 @@ const render = {
 };
 
 const update = {
-  automationSection(show) {
-    elements.automationSection.style.display = show ? "" : "none";
-  },
-
   infoBar(mode, data) {
     if (mode === "hidden" || !mode) {
       elements.infoBar.innerHTML = "";
@@ -361,10 +355,6 @@ const update = {
       );
       elements.infoBar.innerHTML = chips.join("");
     }
-  },
-
-  autoOrganizer(value) {
-    elements.autoSwitch.checked = !!value;
   },
 
   card(folder, activeFilter) {

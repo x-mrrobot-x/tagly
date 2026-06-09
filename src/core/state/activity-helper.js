@@ -53,25 +53,16 @@ const ACTIVITY_CONFIG = {
     }
   },
 
-  "feature-toggle": {
-    icon: "toggle-right",
-    class: "icon-green",
-    getTitle: data => {
-      if (data.feature === "auto-organizer")
-        return I18n.t("features.auto_organizer");
-      if (data.feature === "auto-cleaner")
-        return I18n.t("features.auto_cleaner");
-      return data.feature;
-    },
+  "trigger-toggle": {
+    icon: "clock",
+    class: "icon-blue",
+    getTitle: data => data.trigger,
     getDescription: data =>
       data.enabled
-        ? I18n.t("activity.feature_toggle_on")
-        : I18n.t("activity.feature_toggle_off"),
+        ? I18n.t("activity.trigger_toggle_on")
+        : I18n.t("activity.trigger_toggle_off"),
     getIcon: data => (data.enabled ? "toggle-right" : "toggle-left"),
-    getClass: data => {
-      if (!data.enabled) return "icon-gray";
-      return data.feature.includes("cleaner") ? "icon-purple" : "icon-green";
-    }
+    getClass: data => (data.enabled ? "icon-blue" : "icon-gray")
   },
 
   "cleaner-folder-toggle": {

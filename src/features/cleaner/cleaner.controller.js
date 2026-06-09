@@ -22,7 +22,6 @@ function renderUI() {
 
   paginator.reset(folders);
   CleanerView.render.cleaner(folders);
-  CleanerView.update.autoCleaner(CleanerModel.getAutoCleanerSetting());
 }
 
 function updatePartial(folderId) {
@@ -67,21 +66,14 @@ const handlers = {
       suppressNextRender = false;
     }
   },
-  onAutoCleanerToggle: () => {
-    const newValue = CleanerModel.toggleAutoCleaner();
-    CleanerView.update.autoCleaner(newValue);
-  },
   onStateChange: data => {
-    if (data.key === "settings")
-      CleanerView.update.autoCleaner(CleanerModel.getAutoCleanerSetting());
     if (data.key === "folders" && !suppressNextRender) debouncedRender();
   }
 };
 
 function attachEvents() {
-  const { autoSwitch, list } = CleanerView.getElements();
+  const { list } = CleanerView.getElements();
   const events = [
-    [autoSwitch, "change", handlers.onAutoCleanerToggle],
     [list, "click", handlers.onListClick],
     [list, "change", handlers.onListChange]
   ];

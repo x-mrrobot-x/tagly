@@ -28,8 +28,8 @@
     "cleaner_folder_desc": "{{count}} {{media}} removed from folder \"{{folder}}\".",
     "organizer_title": "{{label}} Organization",
     "organizer_desc": "{{count}} {{media}} organized.",
-    "feature_toggle_on": "Feature enabled.",
-    "feature_toggle_off": "Feature disabled.",
+    "trigger_toggle_on": "Trigger enabled.",
+    "trigger_toggle_off": "Trigger disabled.",
     "folder_toggle_desc": "Cleanup of {{media}} in folder \"{{folder}}\" was {{state}}.",
     "toggle_activated": "enabled",
     "toggle_deactivated": "disabled"
@@ -50,8 +50,8 @@
     "action_execute": "Run",
     "action_generate_tags": "Generate Tags",
     "triggers_title": "Triggers",
-    "trigger_scheduled_name": "Scheduled Run",
-    "trigger_scheduled_desc": "Organizes and cleans files daily at 01:00, if configured",
+    "trigger_scheduled_name": "Organize and Clean Automatically",
+    "trigger_scheduled_desc": "Automatically organizes your files and cleans up expired ones daily at 01:00.",
     "trigger_stamp_name": "Stamp Screen Recording",
     "trigger_stamp_desc": "Detects screen recordings and stamps the captured app name"
   },
@@ -66,7 +66,6 @@
     "clear_error": "Error clearing the folder. Please try again.",
     "page_subtitle": "View and manage your media by folder",
     "search_placeholder_tags": "Search folders or tags...",
-    "auto_desc": "Periodically checks for new screenshots and screen recordings and automatically organizes them into folders by app",
     "folder_action_clear": "Clear folder",
     "back": "Back",
     "empty_screenshots_folder": "No screenshots in this folder.",
@@ -106,7 +105,6 @@
   "cleaner": {
     "no_active_folders": "No folders with active cleanup",
     "page_subtitle": "Remove old files",
-    "auto_desc": "Periodically checks configured folders and removes screenshots or screen recordings that exceed the defined day limit",
     "delete_after": "Delete after:",
     "day": "day",
     "day_plural": "days",
@@ -229,10 +227,6 @@
     "confirmation_message": "Are you sure you want to continue? This action cannot be undone.",
     "cancel": "Cancel",
     "confirm": "Confirm"
-  },
-  "features": {
-    "auto_organizer": "Auto Organization",
-    "auto_cleaner": "Auto Cleanup"
   },
   "media_detail": {
     "screenshot_title": "Screenshot Details",

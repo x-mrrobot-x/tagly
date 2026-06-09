@@ -266,19 +266,3 @@
   color: hsl(var(--muted-foreground));
 }
 
-.dashboard-trigger-badge {
-  color: hsl(var(--muted-foreground));
-  font-size: var(--font-xxs);
-  font-weight: 700;
-  padding: var(--space-xxs) var(--space-xs);
-  border-radius: var(--radius-full);
-  flex-shrink: 0;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  background: hsl(var(--muted));
-}
-
-.dashboard-trigger-card.active .dashboard-trigger-badge {
-  background: hsl(var(--success) / 0.15);
-  color: hsl(var(--success));
-}
