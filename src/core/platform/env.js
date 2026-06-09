@@ -20,11 +20,17 @@ const PATHS = {
       "/storage/emulated/0/DCIM/Screenshots"
     );
   },
+  set SOURCE_SCREENSHOTS(value) {
+    setVariableFn && setVariableFn("screenshots_path", value);
+  },
   get SOURCE_RECORDINGS() {
     return (
       (getVariableFn && getVariableFn("recordings_path")) ||
       "/storage/emulated/0/DCIM/ScreenRecorder"
     );
+  },
+  set SOURCE_RECORDINGS(value) {
+    setVariableFn && setVariableFn("recordings_path", value);
   },
   get ORGANIZED_SCREENSHOTS() {
     return resolveDestination("screenshots");
@@ -113,6 +119,7 @@ const isWeb = typeof tk === "undefined";
 const USE_MOCK = import.meta.env.DEV || import.meta.env.MODE === "pages";
 let settingsGetter = null;
 let getVariableFn = null;
+let setVariableFn = null;
 
 function setSettingsGetter(fn) {
   settingsGetter = fn;
@@ -181,6 +188,12 @@ function WebEnvironment() {
   }
 
   getVariableFn = getVariable;
+
+  function setVariable(name, value) {
+    Logger.debug(`[WEB ENV] setVariable("${name}", "${value}")`);
+  }
+
+  setVariableFn = setVariable;
 
   async function readFile(key, params = {}) {
     try {
@@ -347,6 +360,17 @@ function TaskerEnvironment() {
   }
 
   getVariableFn = getVariable;
+
+  function setVariable(name, value) {
+    const isGlobal = /[A-Z]/.test(name);
+    if (isGlobal) {
+      tk.setGlobal(name, String(value));
+    } else {
+      tk.setLocal(name, String(value));
+    }
+  }
+
+  setVariableFn = setVariable;
 
   async function readFile(key, params = {}) {
     try {

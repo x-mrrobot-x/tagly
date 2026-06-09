@@ -16,6 +16,10 @@ function queryElements() {
     destinationScreenshotsPathEl: DOM.qs("#destination-screenshots-path"),
     destinationRecordingsBtn: DOM.qs("#setting-destination-recordings"),
     destinationRecordingsPathEl: DOM.qs("#destination-recordings-path"),
+    sourceScreenshotsBtn: DOM.qs("#setting-source-screenshots"),
+    sourceScreenshotsPathEl: DOM.qs("#source-screenshots-path"),
+    sourceRecordingsBtn: DOM.qs("#setting-source-recordings"),
+    sourceRecordingsPathEl: DOM.qs("#source-recordings-path"),
     geminiConfigBtn: DOM.qs("#setting-gemini-config"),
     exportBtn: DOM.qs("#setting-export-data"),
     importBtn: DOM.qs("#setting-import-data")
@@ -49,6 +53,8 @@ const render = {
       settings.customDestinationScreenshots
     );
     update.destinationPath("recordings", settings.customDestinationRecordings);
+    update.sourcePath("screenshots");
+    update.sourcePath("recordings");
   }
 };
 
@@ -74,6 +80,18 @@ const update = {
       : type === "screenshots"
       ? `${ENV.PATHS.SOURCE_SCREENSHOTS}/Tagly`
       : `${ENV.PATHS.SOURCE_RECORDINGS}/Tagly`;
+  },
+  sourcePath: type => {
+    const el =
+      type === "screenshots"
+        ? elements.sourceScreenshotsPathEl
+        : elements.sourceRecordingsPathEl;
+    if (!el) return;
+    el.removeAttribute("data-i18n");
+    el.textContent =
+      type === "screenshots"
+        ? ENV.PATHS.SOURCE_SCREENSHOTS
+        : ENV.PATHS.SOURCE_RECORDINGS;
   },
   setting: (key, value) => {
     const switchEl = DOM.qs(

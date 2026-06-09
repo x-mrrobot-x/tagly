@@ -159,6 +159,9 @@
     "notify_pending_desc": "Notifica periódicamente cuando hay capturas o grabaciones de pantalla esperando organización",
     "section_files": "Archivos",
     "destination_error": "Error al seleccionar la carpeta de destino.",
+    "source_error": "Error al seleccionar la carpeta de origen.",
+    "source_screenshots_title": "Origen de Capturas",
+    "source_recordings_title": "Origen de Grabaciones",
     "section_language": "Idioma",
     "language_title": "Idioma de la Aplicación",
     "section_data": "Datos",
@@ -179,9 +182,7 @@
     "delete_all_desc": "Elimina permanentemente configuraciones, historial de actividades y estadísticas. Los archivos de medios en el dispositivo no se verán afectados.",
     "delete_all_btn": "Eliminar",
     "destination_screenshots_title": "Destino de Capturas",
-    "destination_screenshots_desc": "Carpeta donde se guardarán las capturas organizadas",
-    "destination_recordings_title": "Destino de Grabaciones",
-    "destination_recordings_desc": "Carpeta donde se guardarán las grabaciones organizadas"
+    "destination_recordings_title": "Destino de Grabaciones"
   },
   "monitor": {
     "apps_updated": "Lista de aplicaciones actualizada.",

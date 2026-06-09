@@ -10,6 +10,7 @@ import TaskQueue from "../../core/platform/task-queue.js";
 import ThumbnailCache from "../../core/ui/thumbnail-cache.js";
 import SubfolderMonitor from "../../core/services/subfolder-monitor.js";
 import AppState from "../../core/state/app-state.js";
+import ENV from "../../core/platform/env.js";
 
 let isInitialized = false;
 
@@ -99,6 +100,38 @@ const handlers = {
       Toast.error(I18n.t("settings.destination_error"));
     }
   },
+  onSourceScreenshotsClick: async () => {
+    try {
+      const result = await TaskQueue.add("select_directory", [], "default");
+      const path = result?.path ?? null;
+      if (!path) return;
+      ENV.PATHS.SOURCE_SCREENSHOTS = path;
+      SettingsView.update.sourcePath("screenshots");
+      EventBus.emit("dashboard:reload-stats");
+    } catch (error) {
+      Logger.error(
+        "[Settings] Failed to select source screenshots directory:",
+        error
+      );
+      Toast.error(I18n.t("settings.source_error"));
+    }
+  },
+  onSourceRecordingsClick: async () => {
+    try {
+      const result = await TaskQueue.add("select_directory", [], "default");
+      const path = result?.path ?? null;
+      if (!path) return;
+      ENV.PATHS.SOURCE_RECORDINGS = path;
+      SettingsView.update.sourcePath("recordings");
+      EventBus.emit("dashboard:reload-stats");
+    } catch (error) {
+      Logger.error(
+        "[Settings] Failed to select source recordings directory:",
+        error
+      );
+      Toast.error(I18n.t("settings.source_error"));
+    }
+  },
   onExport: async () => {
     try {
       const backup = SettingsModel.buildBackup();
@@ -158,6 +191,8 @@ function attachEvents() {
     languageSelect,
     destinationScreenshotsBtn,
     destinationRecordingsBtn,
+    sourceScreenshotsBtn,
+    sourceRecordingsBtn,
     geminiConfigBtn,
     exportBtn,
     importBtn
@@ -175,6 +210,8 @@ function attachEvents() {
       handlers.onDestinationScreenshotsClick
     ],
     [destinationRecordingsBtn, "click", handlers.onDestinationRecordingsClick],
+    [sourceScreenshotsBtn, "click", handlers.onSourceScreenshotsClick],
+    [sourceRecordingsBtn, "click", handlers.onSourceRecordingsClick],
     [geminiConfigBtn, "click", handlers.onGeminiConfigClick],
     [exportBtn, "click", handlers.onExport],
     [importBtn, "click", handlers.onImport]
