@@ -60,10 +60,7 @@ const templates = {
     const isRecordings = activeFilter === "recordings";
     const count = isRecordings ? srCount : ssCount;
     const icon = Icons.getSvg(isRecordings ? "video" : "image");
-    const label = isRecordings
-      ? I18n.t("common.recordings_label")
-      : I18n.t("common.screenshots_label");
-    return `<div class="organizer-folder-badge">${icon} <span>${count}</span> <span>${label}</span></div>`;
+    return `<div class="organizer-folder-badge">${icon} <span>${count}</span></div>`;
   },
 
   mediaOverlay(name) {
