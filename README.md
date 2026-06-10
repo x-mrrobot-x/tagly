@@ -1,203 +1,255 @@
-# Tagly
+<table align="right">
+  <tr>
+    <td height="43px">
+      <b>
+        <a href="README.pt.md">Portuguese 🇧🇷</a>
+      </b>
+    </td>
+  </tr>
+</table>
 
-Organizador inteligente de capturas e gravações de tela para Android — agrupa mídias por aplicativo, gera tags automáticas com IA, permite busca instantânea por conteúdo e remove arquivos antigos automaticamente com regras de retenção configuráveis por pasta.
+<h1 align="center">Tagly</h1>
 
-<br>
+<p align="center">
+  Smart screenshot and screen recording organizer for Android. Groups media by app, analyzes and generates AI-powered tags, enables instant content search, and automatically removes old files using configurable retention rules per folder.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/platform-Tasker%20%2F%20Android-blueviolet?style=flat-square">
+  <img src="https://img.shields.io/badge/language-JavaScript%20%7C%20Shell-f7df1e?style=flat-square">
+  <img src="https://img.shields.io/badge/AI-Gemini%20API-4285f4?style=flat-square">
+  <img src="https://img.shields.io/badge/i18n-pt%20%7C%20en%20%7C%20es-blue?style=flat-square">
+  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square">
+</p>
 
 <div align="center">
-  <p>
-    <img src="https://img.shields.io/badge/plataforma-Tasker%20%2F%20Android-blueviolet?style=flat-square" />
-    <img src="https://img.shields.io/badge/linguagem-JavaScript%20%7C%20Shell-f7df1e?style=flat-square" />
-    <img src="https://img.shields.io/badge/IA-Gemini%20API-4285f4?style=flat-square" />
-    <img src="https://img.shields.io/badge/i18n-pt%20%7C%20en%20%7C%20es-blue?style=flat-square" />
-    <img src="https://img.shields.io/badge/licença-MIT-green?style=flat-square" />
-  </p>
+  <img src=".github/assets/preview-en.jpg" alt="Tagly Preview" width="320" style="border-radius: 10px">
 </div>
 
----
+## 🚀 Why Tagly?
 
-## Demonstração
+- **📂 Automatic organization**: groups screenshots and recordings into app-based subfolders without manual configuration.
+- **🤖 AI-generated tags**: uses the Gemini API to analyze visual content and embed tags directly into file names.
+- **🔍 Instant search**: find any media by tag or app name in real time.
+- **🧹 Configurable cleanup**: independent retention rules for each folder and media type.
+- **🌐 Multilingual**: available in Portuguese, English, and Spanish.
 
-<div align="center">
-  <img src=".github/assets/preview.jpg" alt="Prévia do Tagly" width="320" style="border-radius: 10px">
-</div>
+## 📦 Installation
 
----
+### Production (via Tasker)
 
-## Funcionalidades
+1. Import the project from TaskerNet
+2. Run the **TG 01 - MAIN** task
+3. In **Settings**, configure the source folders for **screenshots** and **screen recordings**
+4. In **Settings → Gemini AI**, add your Gemini API keys
 
-### Dashboard
+> Get a free API key from Google AI Studio.
 
-Painel central com métricas em tempo real: arquivos organizados, removidos e pendentes. Exibe o app com mais mídias organizadas e oferece **Ações Rápidas** para as operações mais comuns:
-
-- **Organizar Capturas** — move capturas de tela para pastas por aplicativo
-- **Organizar Gravações** — move gravações de tela para pastas por aplicativo
-- **Executar Limpeza** — remove arquivos que ultrapassaram o prazo configurado
-- **Gerar Tags** — abre o dialog de geração de tags com IA
-
-Também exibe os **Gatilhos de Automação** com status em tempo real (ativo/inativo):
-- **Execução Agendada** — organiza e limpa arquivos automaticamente todos os dias às 01:00
-- **Carimbo de Gravação** — detecta gravações de tela e adiciona o nome do app capturado ao arquivo
-
----
-
-### Organização de Mídias
-
-Grade de pastas agrupadas por aplicativo de origem. Filtros por tipo (todas, capturas ou gravações) e toggle de **Organização Automática** que monitora em segundo plano e organiza novas mídias sem intervenção manual.
-
-Ao entrar em uma pasta, as mídias são exibidas com seu status de tag visível em cada card. Uma barra de filtros clicável permite ver apenas:
-
-- **Todas** — todas as mídias da pasta
-- **Com tags** — mídias já tagueadas pela IA
-- **Pendentes** — mídias que ainda não foram analisadas
-- **Ignoradas** — mídias marcadas para pular
-
-Ao tocar em uma mídia, abre o **Detalhe** com preview em tela cheia (ou player de vídeo para gravações), exibição das tags aplicadas com opção de removê-las individualmente, e botão para gerar tags caso o arquivo ainda não tenha nenhuma.
-
----
-
-### Geração de Tags com IA
-
-Usa a **Gemini API** para analisar visualmente cada captura ou gravação e gerar palavras-chave descritivas automaticamente. As tags são **embutidas no próprio nome do arquivo**, sem banco de dados externo:
-
-```
-screenshot[instagram_stories_feed].jpg
-screen-recording[whatsapp_videochamada].mp4
-screenshot[skip].jpg   ← ignorado manualmente
-```
-
-O dialog de tagging exibe uma fila de mídias pendentes, uma por vez, com contadores de progresso (pendentes / com tags / ignoradas). As ações disponíveis são:
-
-| Ação | Comportamento |
-|---|---|
-| **Gerar Tags** | Envia a imagem ao Gemini e aplica as tags retornadas ao nome do arquivo |
-| **Ignorar** | Marca o arquivo como `[skip]` sem gerar tags |
-| **Gerar Tags em Todas** | Processa toda a fila com **3 workers paralelos** e prefetch de 10 itens à frente |
-| **Ignorar Todas** | Marca todos os arquivos pendentes como `[skip]` em lote |
-| **Parar** | Interrompe o lote e retorna ao ponto onde parou |
-
-**Fallback automático:** ao atingir cota ou rate limit em uma chave ou modelo, o sistema rotaciona automaticamente entre as múltiplas chaves e modelos configurados, sem interromper o fluxo. As tags são geradas **no idioma configurado no app** (pt, en ou es).
-
----
-
-### Busca por Tags e Pastas
-
-Campo de busca com debounce de 300ms disponível na aba Organização. A busca funciona em dois contextos:
-
-- **Visão de pastas** — pesquisa simultaneamente por nome de app e por tags em todas as mídias organizadas, retornando resultados separados em seções de Pastas e Arquivos
-- **Dentro de uma pasta** — filtra instantaneamente as mídias da pasta pelo conteúdo das tags no nome do arquivo
-
----
-
-### Limpeza Automática
-
-Configurável **por pasta e por tipo de mídia individualmente**. Para cada pasta organizada é possível definir:
-
-- Habilitar ou não a limpeza automática de capturas de tela da pasta
-- Habilitar ou não a limpeza automática de gravações de tela da pasta
-- **Prazo de retenção em dias separado** para cada tipo — por exemplo, apagar capturas após 30 dias e gravações após 7 dias na mesma pasta
-
-A limpeza pode ser executada manualmente pelas Ações Rápidas do Dashboard ou automaticamente pelo Tasker conforme o agendamento configurado.
-
----
-
-### Estatísticas
-
-Gráficos semanais de atividade com alternância entre capturas e gravações, ranking das pastas com mais arquivos organizados e feed de atividades recentes com histórico completo de operações.
-
----
-
-### Configurações
-
-- **Tema** — claro, escuro ou automático (segue o sistema)
-- **Idioma** — Português (BR), Inglês e Espanhol; as tags geradas pela IA seguem este idioma
-- **Notificações** — resultado de organização, limpeza e aviso de arquivos pendentes
-- **Pasta de destino** — caminho personalizado para os arquivos organizados
-- **Gemini AI** — gerenciamento de múltiplas chaves de API e seleção do modelo preferido
-- **Exportar / Importar dados** — backup e restauração completa em JSON
-- **Restaurar configurações** — reverte preferências para os padrões sem apagar dados
-- **Apagar todos os dados** — remove configurações e histórico (arquivos de mídia não são afetados)
-
-#### Configuração do Gemini AI
-
-Adicione quantas chaves de API quiser. O sistema rotaciona automaticamente entre elas quando uma atingir o limite de cota. Escolha o modelo preferido entre as opções disponíveis — se o modelo escolhido estiver indisponível, o fallback assume automaticamente na ordem:
-
-```
-gemini-2.5-flash-lite → gemini-3-flash-preview → gemini-2.5-flash → gemini-3-pro-preview → gemini-2.5-pro
-```
-
----
-
-## Tecnologias
-
-| Tecnologia | Uso |
-|---|---|
-| Vanilla JavaScript (ES6+) | Toda a lógica de UI e negócio, sem frameworks |
-| CSS Custom Properties | Theming e suporte a dark/light mode |
-| Chart.js | Gráficos de atividade semanal |
-| Gemini API (Google) | Análise visual e geração de tags com IA |
-| POSIX Shell | Operações no sistema de arquivos Android |
-| Tasker API | Integração com automações do Android |
-
----
-
-## Pré-requisitos
-
-- Android com **[Tasker](https://tasker.joaoapps.com/)** instalado e com permissão de armazenamento
-- **Chave de API do Gemini** para usar a geração de tags — obtenha gratuitamente em [aistudio.google.com](https://aistudio.google.com/)
-- Desenvolvimento local: qualquer navegador moderno com suporte a ES6+
-
----
-
-## Instalação
-
-### Produção (via Tasker)
-
-1. Baixe o arquivo XML da [última release](../../releases/latest)
-2. Importe o XML no Tasker e conceda as permissões de armazenamento
-3. Execute a tarefa **Tagly** para abrir a interface
-4. Vá em **Configurações → Gemini AI** e adicione sua chave de API
-
-### Desenvolvimento local
+### Local Development
 
 ```bash
-git clone https://github.com/seu-usuario/tagly.git
+git clone https://github.com/x-mrrobot-x/tagly.git
 cd tagly
-# Abra index.html em qualquer navegador — sem bundler, sem dependências
+npm install
+npm run dev
 ```
 
-No modo Web, dados são salvos no `localStorage` e operações de arquivo são simuladas com dados de exemplo. A geração de tags via Gemini funciona normalmente com uma chave válida.
+### Available Scripts
 
----
+| Command                | Description                 |
+| ---------------------- | --------------------------- |
+| `npm run dev`          | Development environment     |
+| `npm run build:main`   | Main interface build        |
+| `npm run build:tasker` | Background processing build |
+| `npm run build:all`    | Runs all build processes    |
 
-## Fluxo Principal
+## 🚀 Getting Started
 
-```
-1. Organizar
-   Dashboard → "Organizar Capturas" ou "Organizar Gravações"
-   → arquivos movidos para pastas por app
-
-2. Gerar Tags
-   Dashboard → "Gerar Tags"  (ou Organização → botão ✦)
-   → Gemini analisa cada mídia e aplica tags no nome do arquivo
-
-3. Buscar
-   Organização → campo de busca → digitar uma tag ou nome de app
-   → resultados em pastas + arquivos individuais
+### 1. Organize Media
+```txt
+Dashboard → "Organize Captures" or "Organize Recordings"
+→ files moved to subfolders by app
 ```
 
----
+### 2. Generate Tags for Media
+```txt
+Dashboard → "Generate Tags"  (or Organization → FAB Button ✦)
+→ Gemini analyzes each media file and applies tags to the filename
+```
 
-## Contribuição
+### 3. Search Media by Tags
+```txt
+Organization → search field → type a tag or app name
+→ results shown in found folders and individual files
+```
 
-1. Fork o repositório e crie uma branch: `git checkout -b feat/minha-feature`
-2. Commit seguindo [Conventional Commits](https://www.conventionalcommits.org/): `git commit -m 'feat: descrição'`
-3. Abra um Pull Request
+## 📋 Features
 
-> Ao criar uma tag `v*`, o GitHub Actions gera automaticamente o changelog via Gemini API e publica a release com o XML do projeto Tasker.
+### 📂 Media Organization
 
----
+Scans screenshot and recording source folders and moves each file into a subfolder named after the app identified in the file name.
 
-## Licença
+```text
+# Before
+Screenshots/
+├── Screenshot_2026-01-01_com.whatsapp.png
+└── Screenshot_2026-01-02_com.instagram.png
 
-Distribuído sob a licença **MIT**. Veja [`LICENSE`](./LICENSE) para mais detalhes.
+# After
+Screenshots/Tagly/
+├── Whatsapp/
+│   └── Screenshot_2026-01-01_com.whatsapp.png
+└── Instagram/
+    └── Screenshot_2026-01-02_com.instagram.png
+```
+
+### 🤖 AI Tag Generation
+
+Uses the **Gemini API** to analyze screenshots and screen recordings, automatically generating descriptive tags based on visual content. Tags are added directly to file names and can later be used to quickly locate media files.
+
+When clicking **Generate Tags**, a dialog displays media files that do not yet have tags, allowing them to be analyzed individually or in batches. During processing, progress indicators show how many files are pending, tagged, or skipped.
+
+| Action                    | Behavior                                                                        |
+| ------------------------- | ------------------------------------------------------------------------------- |
+| **Generate Tags**         | Analyzes the current media file and automatically adds content-related tags     |
+| **Skip**                  | Marks the current media file as skipped                                         |
+| **Generate Tags for All** | Automatically analyzes all pending media files in the queue                     |
+| **Skip All**              | Marks all pending media files as skipped                                        |
+| **Stop**                  | Interrupts batch processing while preserving completed progress                 |
+
+**Automatic key rotation:** when usage limits are reached, Tagly automatically switches between configured Gemini API keys and models.
+
+### 🔍 Media Search
+
+AI-generated tags are used by Tagly's search engine, allowing screenshots and recordings to be quickly located through keywords related to their content.
+
+Search is available on the **Organizer** page and updates instantly while typing.
+
+Two search modes are available:
+
+- **Search across all folders** — searches simultaneously by app name and tags across all organized media of the currently selected type (**screenshots** or **recordings**)
+- **Search within folder** — searches only the media inside the currently opened folder using the tags associated with each file
+
+### 📁 Media Explorer
+
+On the **Organizer** page, browse and view screenshots and recordings organized by Tagly through an app-based interface.
+
+The main view displays a grid of folders grouped by application, showing information related to the currently selected media type (**screenshots** or **recordings**).
+
+Inside a folder, media files can be filtered by status (**All**, **Tagged**, **Pending**, and **Skipped**) and images, videos, and their associated tags can be viewed.
+
+Tapping a media file opens the **Media Details** dialog, featuring full-screen preview, tag viewing and removal, and the ability to generate tags for files that have not yet been analyzed.
+
+### 🧹 Automatic Cleanup
+
+Configure independent cleanup rules for each organized folder and media type. Only folders and media types explicitly enabled will be included in the cleanup process.
+
+For each folder, you can:
+
+- Enable or disable automatic screenshot cleanup
+- Enable or disable automatic screen recording cleanup
+- Define different retention periods for each media type
+
+For example, the same folder can keep screenshots for **30 days** and recordings for only **7 days**, while other folders remain completely excluded from automatic cleanup.
+
+Cleanup can be executed manually through the Dashboard's **Quick Actions** or automatically by Tasker according to the configured schedule.
+
+## ⚙️ Main Settings
+
+Open **Settings** to customize Tagly's behavior.
+
+### Appearance
+
+- **Theme** — Light, Dark, or Automatic (follows the system setting)
+
+### Language
+
+- **Português**, **English**, or **Español**
+
+### Folders
+
+Configure the directories used by Tagly:
+
+- **Screenshot Source** — monitored folder for screenshots
+- **Recording Source** — monitored folder for screen recordings
+- **Screenshot Destination** — folder where organized screenshots are stored
+- **Recording Destination** — folder where organized recordings are stored
+
+### Notifications
+
+Control which notifications are displayed:
+
+- File organization results
+- Automatic cleanup results
+- Pending media reminders for tag generation
+
+### Gemini AI
+
+Configure the Gemini API integration used by Tagly to analyze media and generate tags automatically.
+
+- Add one or more Gemini API keys
+- Select the Gemini model used for tag generation
+
+Get your API keys for free from Google AI Studio.
+
+### Architecture
+
+Modular architecture inspired by MVC. The `ENV` layer abstracts the execution environment (Tasker or browser), enabling full local development without Android.
+
+```text
+src/
+├── core/
+│   ├── platform/       # ENV (Web/Tasker), EventBus, Logger, TaskQueue
+│   ├── services/       # ProcessEngine, I18n, AppMonitor, SubfolderMonitor
+│   ├── state/          # AppState, ActivityHelper
+│   └── ui/             # Navigation, Toast, History, Pagination, Thumbnails
+├── features/
+│   ├── dashboard/      # Dashboard, triggers, main process
+│   │   └── process/    # script.sh (Android shell) + ProcessController
+│   ├── organizer/      # Folder navigation and media browsing
+│   │   └── tagging/    # Gemini tagging dialog
+│   ├── cleaner/        # Folder-based cleanup rules
+│   ├── stats/          # Activity charts and history
+│   └── settings/       # General settings and Gemini integration
+├── lib/                # gemini.js, image-utils.js, utils.js, defaults.js
+├── i18n/               # pt.json, en.json, es.json
+└── data/               # mock-env.js (development environment)
+
+tasker/
+├── TAGLY.prj.xml       # Tasker project (tasks, profiles, scenes)
+├── auto-process.html   # Headless WebApp for background execution
+└── runner.js           # Automatic process entry point
+```
+
+### Technologies
+
+| Technology                      | Purpose                                                  |
+| ------------------------------- | -------------------------------------------------------- |
+| Vanilla JavaScript (ES Modules) | Entire UI and business logic without frameworks          |
+| CSS Custom Properties           | Theming and dark/light mode support                      |
+| Vite + `vite-plugin-singlefile` | Self-contained single HTML build                         |
+| Chart.js                        | Weekly activity charts                                   |
+| Gemini API (Google)             | Visual analysis and tag generation                       |
+| POSIX Shell                     | Android file system operations                           |
+| Tasker                          | Android automation engine (shell, events, notifications) |
+
+## 🤝 Contributing
+
+Contributions are welcome! Tagly is fully open source (MIT), and you can:
+
+- Report bugs and suggest new features
+- Improve the documentation
+- Submit fixes and code improvements
+
+To contribute:
+
+1. Fork the repository and create a branch: `git checkout -b feat/my-feature`
+2. Commit following Conventional Commits: `git commit -m 'feat: description'`
+3. Push: `git push origin feat/my-feature`
+4. Open a Pull Request
+
+> When a `v*` tag is created, GitHub Actions automatically generates the changelog using the Gemini API and publishes a release containing the Tasker project XML.
+
+## 📄 License
+
+- **License**: [MIT](LICENSE)
