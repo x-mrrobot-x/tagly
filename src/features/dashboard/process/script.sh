@@ -7,6 +7,16 @@ json_response() {
   printf '{"success": %s, "data": %s, "error": %s}\n' "$success" "$data" "$error"
 }
 
+find_source_media() {
+  source_folder="$1"
+  find "$source_folder" -maxdepth 1 -type f \
+    \( -name "*_*.jpg" -o -name "*_*.png" -o -name "*_*.mp4" \) \
+    ! -name ".trashed*" \
+    2>/dev/null \
+    | grep -vE "_[0-9][0-9-]*\.[^.]+$" \
+    | grep -vE "\([0-9]+\)\.[^.]+$"
+}
+
 read_file() {
     filepath="$1"
     if [ -f "$filepath" ]; then
@@ -44,11 +54,8 @@ scan_media_app_packages() {
     return 1
   fi
 
-  package_list=$(find "$source_folder" -maxdepth 1 -type f \
-    \( -name "*_*.jpg" -o -name "*_*.png" -o -name "*_*.mp4" \) \
-    ! -name ".trashed*" 2>/dev/null \
-    | grep -vE "_[0-9][0-9-]*\.[^.]+$" \
-    | sed -E -e 's/.*_(.*)\.([^.]+)$/\1/' -e 's/\[[^]]*\]//g' -e 's/[[:space:]]*$//' -e 's/-(edit|crop|rotated|edited|copy)$//' \
+  package_list=$(find_source_media "$source_folder" \
+    | sed -E -e 's/.*_(.*)\.[^.]+$/\1/' -e 's/\[[^]]*\]//g' -e 's/[[:space:]]*$//' -e 's/-(edit|crop|rotated|edited|copy)$//' \
     | sort -u)
 
   if [ -z "$package_list" ]; then
@@ -77,12 +84,7 @@ count_media_items() {
     return 0
   fi
 
-  item_count=$(find "$source_folder" -maxdepth 1 -type f \
-    \( -name "*_*.jpg" -o -name "*_*.png" -o -name "*_*.mp4" \) \
-    ! -name ".trashed*" \
-    2>/dev/null \
-    | grep -vE "_[0-9][0-9-]*\.[^.]+$" \
-    | wc -l | tr -d ' \t')
+  item_count=$(find_source_media "$source_folder" | wc -l | tr -d ' \t')
 
   json_response "true" "${item_count:-0}" "null"
 }
