@@ -38,7 +38,7 @@
 
 ### Production (via Tasker)
 
-1. Import the project from TaskerNet
+1. Import the project from [TaskerNet](https://taskernet.com/shares/?user=AS35m8k%2FEQCE%2BJiPvkN1cJcjBE7Yh%2B%2Fa8zZeifxINYS7E94XnS26HrYYgsweBVnbf2VB9WJdrS5k&id=Project%3ATAGLY)
 2. Run the **TG 01 - MAIN** task
 3. In **Settings**, configure the source folders for **screenshots** and **screen recordings**
 4. In **Settings → Gemini AI**, add your Gemini API keys

@@ -50,9 +50,9 @@
     "action_execute": "Ejecutar",
     "action_generate_tags": "Generar Etiquetas",
     "triggers_title": "Disparadores",
-    "trigger_scheduled_name": "Organizar y Limpiar Automáticamente",
+    "trigger_scheduled_name": "Organización Automática de Medios",
     "trigger_scheduled_desc": "Ejecuta automáticamente la organización de archivos y la limpieza de archivos expirados diariamente a las 01:00.",
-    "trigger_stamp_name": "Sello de Grabación",
+    "trigger_stamp_name": "Detección de Grabación de Pantalla",
     "trigger_stamp_desc": "Detecta grabaciones de pantalla y añade el nombre de la app capturada"
   },
   "organizer": {
@@ -157,7 +157,7 @@
     "notify_cleanup_desc": "Muestra un resumen con el total de archivos eliminados al completar la limpieza",
     "notify_pending_title": "Archivos Pendientes",
     "notify_pending_desc": "Notifica periódicamente cuando hay capturas o grabaciones de pantalla esperando organización",
-    "section_files": "Archivos",
+    "section_folders": "Carpetas",
     "destination_error": "Error al seleccionar la carpeta de destino.",
     "source_error": "Error al seleccionar la carpeta de origen.",
     "source_screenshots_title": "Origen de Capturas",

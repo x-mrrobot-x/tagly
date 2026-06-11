@@ -50,9 +50,9 @@
     "action_execute": "Run",
     "action_generate_tags": "Generate Tags",
     "triggers_title": "Triggers",
-    "trigger_scheduled_name": "Organize and Clean Automatically",
+    "trigger_scheduled_name": "Auto Media Organization",
     "trigger_scheduled_desc": "Automatically organizes your files and cleans up expired ones daily at 01:00.",
-    "trigger_stamp_name": "Stamp Screen Recording",
+    "trigger_stamp_name": "Screen Recording Detection",
     "trigger_stamp_desc": "Detects screen recordings and stamps the captured app name"
   },
   "organizer": {
@@ -178,7 +178,7 @@
     "notify_cleanup_desc": "Displays a summary with the total files removed when cleanup completes",
     "notify_pending_title": "Pending Files",
     "notify_pending_desc": "Periodically notifies when there are screenshots or screen recordings awaiting organization",
-    "section_files": "Files",
+    "section_folders": "Folders",
     "destination_error": "Failed to select destination directory.",
     "source_error": "Failed to select source directory.",
     "source_screenshots_title": "Screenshots Source",
