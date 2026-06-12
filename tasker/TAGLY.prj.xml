@@ -1,13 +1,28 @@
 <TaskerData sr="" dvi="1" tv="6.7.4-beta">
 	<dmetric>1080.0,2307.0</dmetric>
-	<Profile sr="prof1989" ve="2">
-		<cdate>1781142823862</cdate>
+	<Profile sr="prof2096" ve="2">
+		<cdate>1781222995995</cdate>
 		<clp>true</clp>
-		<edate>1781203318098</edate>
+		<edate>1781239306985</edate>
+		<flags>40</flags>
+		<id>2096</id>
+		<mid0>2088</mid0>
+		<nme>TG 02 - SCREEN RECORDING DETECTION</nme>
+		<Event sr="con0" ve="2">
+			<code>222</code>
+			<pri>0</pri>
+			<Str sr="arg0" ve="3">%recordings_path</Str>
+			<Str sr="arg1" ve="3">ClosedWrite</Str>
+		</Event>
+	</Profile>
+	<Profile sr="prof2097" ve="2">
+		<cdate>1781222995998</cdate>
+		<clp>true</clp>
+		<edate>1781239283926</edate>
 		<flags>8</flags>
-		<id>1989</id>
-		<mid0>1974</mid0>
-		<nme>TG 01 - SCHEDULED RUN</nme>
+		<id>2097</id>
+		<mid0>2091</mid0>
+		<nme>TG 01 - AUTO MEDIA ORGANIZATION</nme>
 		<Time sr="con0">
 			<fh>1</fh>
 			<fm>0</fm>
@@ -15,77 +30,249 @@
 			<tm>0</tm>
 		</Time>
 	</Profile>
-	<Profile sr="prof1990" ve="2">
-		<cdate>1781142823863</cdate>
-		<clp>true</clp>
-		<edate>1781203046484</edate>
-		<flags>40</flags>
-		<id>1990</id>
-		<mid0>1987</mid0>
-		<nme>TG 02 - STAMP SCREEN RECORDING</nme>
-		<Event sr="con0" ve="2">
-			<code>222</code>
-			<pri>0</pri>
-			<Str sr="arg0" ve="3">%recordings_path</Str>
-			<Str sr="arg1" ve="3">MovedTo</Str>
-		</Event>
-	</Profile>
 	<Project sr="proj0" ve="2">
 		<cdate>1716309952758</cdate>
 		<id>b9f4022c-dce4-46e4-9de1-1da75e7dc1c0</id>
 		<name>TAGLY</name>
-		<pids>1990,1989</pids>
+		<pids>2097,2096</pids>
 		<psort>Alpha</psort>
-		<scenes>TG - MAIN SCENE,TG - SHIELD SCENE,TG - SETUP SPLASH</scenes>
+		<scenes>TG - SHIELD SCENE,TG - SETUP SPLASH,TG - MAIN SCENE</scenes>
 		<ssort>Alpha</ssort>
-		<tids>1976,1983,1988,1984,1979,1981,1973,1977,1985,1978,1986,1987,1980,1975,1974</tids>
+		<tids>2086,2089,2090,2085,2087,2082,2088,2083,2095,2084,2093,2094,2092,2091,2081</tids>
 		<tsort>Alpha</tsort>
 		<Share sr="Share">
 			<b>false</b>
-			<d>&lt;!doctype html&gt;
-&lt;html lang="pt-BR"&gt;
-  &lt;head&gt;
-    &lt;meta charset="UTF-8" /&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;
-    &lt;title&gt;SCREENSHOTS ORGANIZER&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;fieldset&gt;
-      &lt;legend&gt;English&lt;/legend&gt;
+			<d>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"/&gt;
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"/&gt;
+  &lt;title&gt;Tagly — by x-mrrobot-x&lt;/title&gt;
+&lt;/head&gt;
+&lt;body style="margin:0; padding:0; background:#0a0a0f;"&gt;
 
-      &lt;h4&gt;
-        Automatically organizes screenshots and recordings into specific folders, based on the name of the application where they were taken. And allows you to configure the automatic deletion of these files after a time (days) determined by the user.
-      &lt;/h4&gt;
+  &lt;div style="box-sizing:border-box; background:#0a0a0f; color:#e2e2f0; font-family:'Roboto','Droid Sans',sans-serif; min-height:100vh; width:100%; padding:60px 20px 50px; position:relative;"&gt;
 
-      &lt;h4&gt;List of features:&lt;/h4&gt;
-      &lt;ul&gt;
-        &lt;li&gt;
-          Organization of screenshots and recordings into folders by applications.
-        &lt;/li&gt;
-        &lt;li&gt;Automatic destruction of files.&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/fieldset&gt;
+    &lt;!-- grid overlay --&gt;
+    &lt;div style="position:fixed; top:0; left:0; width:100%; height:100%; background-image:linear-gradient(rgba(0,150,255,0.04) 1px, transparent 1px),linear-gradient(90deg, rgba(0,150,255,0.04) 1px, transparent 1px); background-size:40px 40px; pointer-events:none; z-index:0;"&gt;&lt;/div&gt;
 
-    &lt;br /&gt;
+    &lt;div style="max-width:960px; margin:0 auto; position:relative; z-index:1;"&gt;
 
-    &lt;fieldset&gt;
-      &lt;legend&gt;Portuguese&lt;/legend&gt;
+      &lt;!-- HERO --&gt;
+      &lt;div style="text-align:center; margin-bottom:60px;"&gt;
+        &lt;div style="display:inline-block; font-family:'Roboto Mono','Courier New',monospace; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; color:#0096ff; border:1px solid rgba(0,150,255,0.35); padding:4px 14px; border-radius:2px; margin-bottom:20px;"&gt;
+          x-mrrobot-x / tagly
+        &lt;/div&gt;
+        &lt;h1 style="font-size:2.4rem; font-weight:800; line-height:1.15; color:#ffffff; margin:0 0 12px;"&gt;
+          Organize. Tag. &lt;span style="color:#00ffe0;"&gt;Find.&lt;/span&gt;
+        &lt;/h1&gt;
+        &lt;p style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.85rem; color:#8e8ea6; margin:0 0 24px;"&gt;
+          screenshots · screen recordings · ai tagging · smart search · auto-cleanup
+        &lt;/p&gt;
+        &lt;div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;"&gt;
+          &lt;a href="https://taskernet.com/shares/?user=AS35m8k%2FEQCE%2BJiPvkN1cJcjBE7Yh%2B%2Fa8zZeifxINYS7E94XnS26HrYYgsweBVnbf2VB9WJdrS5k&amp;id=Project%3ATAGLY" target="_blank" style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.75rem; letter-spacing:0.1em; text-decoration:none; padding:7px 18px; border-radius:4px; background:rgba(0,150,255,0.15); border:1px solid rgba(0,150,255,0.45); color:#33adff;"&gt;Import via TaskerNet&lt;/a&gt;
+          &lt;a href="https://github.com/x-mrrobot-x/tagly" target="_blank" style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.75rem; letter-spacing:0.1em; text-decoration:none; padding:7px 18px; border-radius:4px; background:transparent; border:1px solid rgba(255,255,255,0.12); color:#8e8ea6;"&gt;GitHub&lt;/a&gt;
+          &lt;a href="https://imgur.com/a/yJoYXjY" target="_blank" style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.75rem; letter-spacing:0.1em; text-decoration:none; padding:7px 18px; border-radius:4px; background:transparent; border:1px solid rgba(255,255,255,0.12); color:#8e8ea6;"&gt;Previews&lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
 
-      &lt;h4&gt;
-        Organiza automaticamente capturas e gravações de tela em pastas específicas, baseadas no nome do aplicativo onde foram realizadas.E permite configurar a exclusão automática desses arquivos após um tempo(dias) determinado pelo usuário.
-      &lt;/h4&gt;
+      &lt;!-- SECTION: APP PAGES --&gt;
+      &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:#8e8ea6; margin-bottom:18px;"&gt;
+        &lt;span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#0096ff; margin-right:8px; vertical-align:middle;"&gt;&lt;/span&gt;App Pages
+      &lt;/div&gt;
 
-      &lt;h4&gt;Lista de recursos:&lt;/h4&gt;
-      &lt;ul&gt;
-        &lt;li&gt;
-          Organização de capturas e gravações de tela em pastas por aplicativos.
-        &lt;/li&gt;
-        &lt;li&gt;Auto destruição de arquivos.&lt;/li&gt;
-      &lt;/ul&gt;
-    &lt;/fieldset&gt;
+      &lt;div style="display:flex; gap:14px; flex-wrap:wrap; margin-bottom:56px;"&gt;
 
-    &lt;p&gt;by x-mrrobot-x.&lt;/p&gt;
-  &lt;/body&gt;
+        &lt;div style="flex:1; min-width:150px; background:rgba(0,150,255,0.07); border:1px solid rgba(0,150,255,0.2); border-top:2px solid #0096ff; border-radius:10px; padding:20px 18px;"&gt;
+          &lt;div style="font-size:1.3rem; margin-bottom:10px;"&gt;🏠&lt;/div&gt;
+          &lt;div style="font-weight:700; font-size:0.95rem; color:#ffffff; margin-bottom:6px;"&gt;Dashboard&lt;/div&gt;
+          &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.7rem; color:#9090aa; line-height:1.6;"&gt;Quick actions for organizing, tagging and cleanup&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div style="flex:1; min-width:150px; background:rgba(0,150,255,0.07); border:1px solid rgba(0,150,255,0.2); border-top:2px solid #0096ff; border-radius:10px; padding:20px 18px;"&gt;
+          &lt;div style="font-size:1.3rem; margin-bottom:10px;"&gt;📁&lt;/div&gt;
+          &lt;div style="font-weight:700; font-size:0.95rem; color:#ffffff; margin-bottom:6px;"&gt;Organizer&lt;/div&gt;
+          &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.7rem; color:#9090aa; line-height:1.6;"&gt;Browse folders by app, filter by status, search by tags&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div style="flex:1; min-width:150px; background:rgba(0,150,255,0.07); border:1px solid rgba(0,150,255,0.2); border-top:2px solid #0096ff; border-radius:10px; padding:20px 18px;"&gt;
+          &lt;div style="font-size:1.3rem; margin-bottom:10px;"&gt;🧹&lt;/div&gt;
+          &lt;div style="font-weight:700; font-size:0.95rem; color:#ffffff; margin-bottom:6px;"&gt;Cleanup&lt;/div&gt;
+          &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.7rem; color:#9090aa; line-height:1.6;"&gt;Independent retention rules per folder and media type&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div style="flex:1; min-width:150px; background:rgba(0,150,255,0.07); border:1px solid rgba(0,150,255,0.2); border-top:2px solid #0096ff; border-radius:10px; padding:20px 18px;"&gt;
+          &lt;div style="font-size:1.3rem; margin-bottom:10px;"&gt;📊&lt;/div&gt;
+          &lt;div style="font-weight:700; font-size:0.95rem; color:#ffffff; margin-bottom:6px;"&gt;Stats&lt;/div&gt;
+          &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.7rem; color:#9090aa; line-height:1.6;"&gt;Activity history with weekly charts&lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div style="flex:1; min-width:150px; background:rgba(0,150,255,0.07); border:1px solid rgba(0,150,255,0.2); border-top:2px solid #0096ff; border-radius:10px; padding:20px 18px;"&gt;
+          &lt;div style="font-size:1.3rem; margin-bottom:10px;"&gt;⚙️&lt;/div&gt;
+          &lt;div style="font-weight:700; font-size:0.95rem; color:#ffffff; margin-bottom:6px;"&gt;Settings&lt;/div&gt;
+          &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.7rem; color:#9090aa; line-height:1.6;"&gt;Folders, theme, language, notifications, Gemini AI&lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+      &lt;!-- SECTION: FEATURES --&gt;
+      &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:#8e8ea6; margin-bottom:18px;"&gt;
+        &lt;span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#0096ff; margin-right:8px; vertical-align:middle;"&gt;&lt;/span&gt;Features
+      &lt;/div&gt;
+
+      &lt;!-- Feature: Media Organization --&gt;
+      &lt;div style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,150,255,0.18); border-left:3px solid #0096ff; border-radius:12px; padding:30px 28px; margin-bottom:16px;"&gt;
+        &lt;div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:14px;"&gt;
+          &lt;div style="font-size:1.5rem; line-height:1; flex-shrink:0; margin-top:2px;"&gt;📂&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div style="font-size:1.15rem; font-weight:700; color:#ffffff; margin-bottom:4px;"&gt;Media Organization&lt;/div&gt;
+            &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.68rem; color:#0096ff; letter-spacing:0.1em;"&gt;Dashboard&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.78rem; line-height:1.8; color:#c0c0d8; margin:0 0 16px;"&gt;
+          Scans the source folders and moves each file into a subfolder named after the app identified in the filename. Works with both screenshots and screen recordings.
+        &lt;/p&gt;
+        &lt;p style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:#8e8ea6; margin:0 0 8px;"&gt;Before → After&lt;/p&gt;
+        &lt;pre style="background:rgba(0,0,0,0.5); border:1px solid rgba(0,150,255,0.2); border-left:1px solid #0096ff; border-radius:10px; padding:14px 16px; font-family:'Roboto Mono','Courier New',monospace; font-size:0.7rem; color:#d6d6e8; line-height:1.8; overflow-x:auto; margin:0; white-space:pre-wrap;"&gt;Screenshots/
+├── Screenshot_2026-01-01_com.whatsapp.png
+└── Screenshot_2026-01-02_com.spotify.png
+
+&lt;span style="color:#00ffe0;"&gt;# After&lt;/span&gt;
+Screenshots/Tagly/
+├── Whatsapp/
+│   └── Screenshot_2026-01-01_com.whatsapp.png
+└── Spotify/
+    └── Screenshot_2026-01-02_com.spotify.png&lt;/pre&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Feature: AI Tag Generation --&gt;
+      &lt;div style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,150,255,0.18); border-left:3px solid #0096ff; border-radius:12px; padding:30px 28px; margin-bottom:16px;"&gt;
+        &lt;div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:14px;"&gt;
+          &lt;div style="font-size:1.5rem; line-height:1; flex-shrink:0; margin-top:2px;"&gt;🤖&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div style="font-size:1.15rem; font-weight:700; color:#ffffff; margin-bottom:4px;"&gt;AI Tag Generation&lt;/div&gt;
+            &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.68rem; color:#0096ff; letter-spacing:0.1em;"&gt;Dashboard → "Generate Tags"&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.78rem; line-height:1.8; color:#c0c0d8; margin:0 0 16px;"&gt;
+          Gemini analyzes the visual content of each file and writes descriptive tags directly into the filename — making keyword search possible later. Process files individually, in batch, or let it run automatically in the background. If an API key hits its limit, Tagly switches to the next registered key automatically.
+        &lt;/p&gt;
+        &lt;p style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:#8e8ea6; margin:0 0 8px;"&gt;Before → After&lt;/p&gt;
+        &lt;pre style="background:rgba(0,0,0,0.5); border:1px solid rgba(0,150,255,0.2); border-left:1px solid #0096ff; border-radius:10px; padding:14px 16px; font-family:'Roboto Mono','Courier New',monospace; font-size:0.7rem; color:#d6d6e8; line-height:1.8; overflow-x:auto; margin:0; white-space:pre-wrap;"&gt;Screenshot_2026-01-01_com.spotify.png
+
+&lt;span style="color:#00ffe0;"&gt;# After&lt;/span&gt;
+Screenshot_2026-01-01_com.spotify&lt;span style="color:#00ffe0;"&gt;[podcast,tecnologia,episodio]&lt;/span&gt;.png&lt;/pre&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Feature: Smart Search --&gt;
+      &lt;div style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,150,255,0.18); border-left:3px solid #0096ff; border-radius:12px; padding:30px 28px; margin-bottom:16px;"&gt;
+        &lt;div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:14px;"&gt;
+          &lt;div style="font-size:1.5rem; line-height:1; flex-shrink:0; margin-top:2px;"&gt;🔍&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div style="font-size:1.15rem; font-weight:700; color:#ffffff; margin-bottom:4px;"&gt;Smart Media Search&lt;/div&gt;
+            &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.68rem; color:#0096ff; letter-spacing:0.1em;"&gt;Organizer → search field&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.78rem; line-height:1.8; color:#c0c0d8; margin:0 0 16px;"&gt;
+          Uses the AI-generated tags to locate any file by keyword. Searches across all folders simultaneously or scoped to a specific folder.
+        &lt;/p&gt;
+        &lt;p style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:#8e8ea6; margin:0 0 8px;"&gt;Example&lt;/p&gt;
+        &lt;pre style="background:rgba(0,0,0,0.5); border:1px solid rgba(0,150,255,0.2); border-left:1px solid #0096ff; border-radius:10px; padding:14px 16px; font-family:'Roboto Mono','Courier New',monospace; font-size:0.7rem; color:#d6d6e8; line-height:1.8; overflow-x:auto; margin:0; white-space:pre-wrap;"&gt;&lt;span style="color:#00ffe0;"&gt;Search: "tutorial"&lt;/span&gt;
+→ Youtube/  → Screenshot_...&lt;span style="color:#00ffe0;"&gt;[tutorial,python,codigo]&lt;/span&gt;.png
+→ Chrome/   → Screenshot_...&lt;span style="color:#00ffe0;"&gt;[tutorial,css,animacao]&lt;/span&gt;.png&lt;/pre&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Feature: Media Browser --&gt;
+      &lt;div style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,150,255,0.18); border-left:3px solid #0096ff; border-radius:12px; padding:30px 28px; margin-bottom:16px;"&gt;
+        &lt;div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:14px;"&gt;
+          &lt;div style="font-size:1.5rem; line-height:1; flex-shrink:0; margin-top:2px;"&gt;🖼️&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div style="font-size:1.15rem; font-weight:700; color:#ffffff; margin-bottom:4px;"&gt;Media Browser&lt;/div&gt;
+            &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.68rem; color:#0096ff; letter-spacing:0.1em;"&gt;Organizer&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.78rem; line-height:1.8; color:#c0c0d8; margin:0;"&gt;
+          Browse organized folders by app in a visual grid. Inside each folder, filter by status —
+          &lt;span style="color:#00ffe0;"&gt;All&lt;/span&gt;, &lt;span style="color:#00ffe0;"&gt;Tagged&lt;/span&gt;, &lt;span style="color:#00ffe0;"&gt;Pending&lt;/span&gt;, or &lt;span style="color:#00ffe0;"&gt;Ignored&lt;/span&gt;
+          — and preview images, videos, and their associated tags. Tapping a file opens a fullscreen preview with options to manage or generate tags.
+        &lt;/p&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Feature: Automatic Cleanup --&gt;
+      &lt;div style="background:rgba(255,255,255,0.03); border:1px solid rgba(0,150,255,0.18); border-left:3px solid #0096ff; border-radius:12px; padding:30px 28px; margin-bottom:16px;"&gt;
+        &lt;div style="display:flex; align-items:flex-start; gap:14px; margin-bottom:14px;"&gt;
+          &lt;div style="font-size:1.5rem; line-height:1; flex-shrink:0; margin-top:2px;"&gt;🧹&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div style="font-size:1.15rem; font-weight:700; color:#ffffff; margin-bottom:4px;"&gt;Automatic Cleanup&lt;/div&gt;
+            &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.68rem; color:#0096ff; letter-spacing:0.1em;"&gt;Cleanup&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;p style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.78rem; line-height:1.8; color:#c0c0d8; margin:0 0 16px;"&gt;
+          Set independent retention rules per folder and per media type. Any folder or type without a configured rule is never touched.
+        &lt;/p&gt;
+        &lt;p style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.65rem; letter-spacing:0.15em; text-transform:uppercase; color:#8e8ea6; margin:0 0 8px;"&gt;Example rules&lt;/p&gt;
+        &lt;pre style="background:rgba(0,0,0,0.5); border:1px solid rgba(0,150,255,0.2); border-left:1px solid #0096ff; border-radius:10px; padding:14px 16px; font-family:'Roboto Mono','Courier New',monospace; font-size:0.7rem; color:#d6d6e8; line-height:1.8; overflow-x:auto; margin:0; white-space:pre-wrap;"&gt;Spotify/
+├── Screenshots  → keep for &lt;span style="color:#00ffe0;"&gt;30 days&lt;/span&gt;
+└── Recordings   → keep for &lt;span style="color:#00ffe0;"&gt;7 days&lt;/span&gt;
+
+Youtube/
+├── Screenshots  → &lt;span style="color:#facc15;"&gt;disabled&lt;/span&gt;
+└── Recordings   → keep for &lt;span style="color:#00ffe0;"&gt;3 days&lt;/span&gt;&lt;/pre&gt;
+      &lt;/div&gt;
+
+      &lt;!-- DIVIDER --&gt;
+      &lt;div style="height:1px; background:linear-gradient(90deg, transparent, rgba(0,150,255,0.3), transparent); margin:48px 0;"&gt;&lt;/div&gt;
+
+      &lt;!-- SECTION: SETUP --&gt;
+      &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.65rem; letter-spacing:0.22em; text-transform:uppercase; color:#8e8ea6; margin-bottom:18px;"&gt;
+        &lt;span style="display:inline-block; width:6px; height:6px; border-radius:50%; background:#0096ff; margin-right:8px; vertical-align:middle;"&gt;&lt;/span&gt;Setup
+      &lt;/div&gt;
+
+      &lt;div style="display:flex; flex-direction:column; gap:12px; margin-bottom:56px;"&gt;
+
+        &lt;div style="display:flex; gap:18px; align-items:flex-start; background:rgba(0,150,255,0.06); border:1px solid rgba(0,150,255,0.18); border-radius:10px; padding:18px 20px;"&gt;
+          &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.8rem; font-weight:700; color:#0096ff; border:1px solid rgba(0,150,255,0.4); border-radius:4px; padding:2px 9px; flex-shrink:0; margin-top:2px;"&gt;01&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div style="font-size:0.9rem; font-weight:700; color:#ffffff; margin-bottom:4px;"&gt;Import via TaskerNet&lt;/div&gt;
+            &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.73rem; color:#9090aa; line-height:1.6;"&gt;Tap the TaskerNet link above and import the Tagly project into Tasker.&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div style="display:flex; gap:18px; align-items:flex-start; background:rgba(0,150,255,0.06); border:1px solid rgba(0,150,255,0.18); border-radius:10px; padding:18px 20px;"&gt;
+          &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.8rem; font-weight:700; color:#0096ff; border:1px solid rgba(0,150,255,0.4); border-radius:4px; padding:2px 9px; flex-shrink:0; margin-top:2px;"&gt;02&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div style="font-size:0.9rem; font-weight:700; color:#ffffff; margin-bottom:4px;"&gt;Run the main task&lt;/div&gt;
+            &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.73rem; color:#9090aa; line-height:1.6;"&gt;Execute &lt;span style="color:#33adff; background:rgba(0,150,255,0.12); padding:1px 5px; border-radius:3px;"&gt;TG 01 - MAIN&lt;/span&gt; to launch the app for the first time. The interface is downloaded automatically.&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div style="display:flex; gap:18px; align-items:flex-start; background:rgba(0,150,255,0.06); border:1px solid rgba(0,150,255,0.18); border-radius:10px; padding:18px 20px;"&gt;
+          &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.8rem; font-weight:700; color:#0096ff; border:1px solid rgba(0,150,255,0.4); border-radius:4px; padding:2px 9px; flex-shrink:0; margin-top:2px;"&gt;03&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div style="font-size:0.9rem; font-weight:700; color:#ffffff; margin-bottom:4px;"&gt;Configure source folders&lt;/div&gt;
+            &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.73rem; color:#9090aa; line-height:1.6;"&gt;Go to &lt;span style="color:#33adff; background:rgba(0,150,255,0.12); padding:1px 5px; border-radius:3px;"&gt;Settings&lt;/span&gt; and set which folders Tagly should scan and organize.&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+        &lt;div style="display:flex; gap:18px; align-items:flex-start; background:rgba(0,150,255,0.06); border:1px solid rgba(0,150,255,0.18); border-radius:10px; padding:18px 20px;"&gt;
+          &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.8rem; font-weight:700; color:#0096ff; border:1px solid rgba(0,150,255,0.4); border-radius:4px; padding:2px 9px; flex-shrink:0; margin-top:2px;"&gt;04&lt;/div&gt;
+          &lt;div&gt;
+            &lt;div style="font-size:0.9rem; font-weight:700; color:#ffffff; margin-bottom:4px;"&gt;Add your Gemini API key&lt;/div&gt;
+            &lt;div style="font-family:'Roboto Mono','Courier New',monospace; font-size:0.73rem; color:#9090aa; line-height:1.6;"&gt;In &lt;span style="color:#33adff; background:rgba(0,150,255,0.12); padding:1px 5px; border-radius:3px;"&gt;Settings → Gemini AI&lt;/span&gt;, add your free key from Google AI Studio to enable tag generation.&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+
+      &lt;/div&gt;
+
+      &lt;!-- FOOTER --&gt;
+      &lt;div style="text-align:center; margin-top:50px; font-family:'Roboto Mono','Courier New',monospace; font-size:0.9rem; color:#8e8ea6; letter-spacing:0.1em;"&gt;
+        by &lt;span style="color:#0096ff;"&gt;x-mrrobot-x&lt;/span&gt; · open source · MIT license
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+&lt;/body&gt;
 &lt;/html&gt;</d>
 			<g>Apps,Capture Screen,Utility</g>
 			<p>true</p>
@@ -93,7 +280,7 @@
 		</Share>
 		<ProfileVariable sr="pv0">
 			<clearout>false</clearout>
-			<exportval>v1.32.1</exportval>
+			<exportval>v1.33.1</exportval>
 			<immutable>false</immutable>
 			<pvci>false</pvci>
 			<pvd></pvd>
@@ -102,7 +289,7 @@
 			<pvit>pj</pvit>
 			<pvn>%tg_project_version</pvn>
 			<pvt>t</pvt>
-			<pvv>v1.32.1</pvv>
+			<pvv>v1.33.1</pvv>
 			<strout>false</strout>
 		</ProfileVariable>
 		<ProfileVariable sr="pv1">
@@ -180,7 +367,7 @@
 			</RectElement>
 		</WebElement>
 		<PropertiesElement sr="props">
-			<keyTask>1984</keyTask>
+			<keyTask>2085</keyTask>
 			<Int sr="arg0" val="1"/>
 			<Int sr="arg1" val="2"/>
 			<Str sr="arg2" ve="3">#00FFFFFF</Str>
@@ -206,7 +393,7 @@
 		<WebElement sr="elements0" ve="2">
 			<flags>6</flags>
 			<geom>0,0,1080,2400,-1,-1,-1,-1</geom>
-			<linkclickTask>1986</linkclickTask>
+			<linkclickTask>2087</linkclickTask>
 			<Str sr="arg0" ve="3">MATRIX LOADER</Str>
 			<Int sr="arg1" val="2"/>
 			<Str sr="arg2" ve="3">&lt;!doctype html&gt;
@@ -522,7 +709,7 @@
 			</LinkClickFilter>
 		</WebElement>
 		<PropertiesElement sr="props">
-			<keyTask>1978</keyTask>
+			<keyTask>2095</keyTask>
 			<Int sr="arg0" val="1"/>
 			<Int sr="arg1" val="0"/>
 			<Str sr="arg2" ve="3">#00FFFFFF</Str>
@@ -546,7 +733,7 @@
 		<widthLand>-1</widthLand>
 		<widthPort>1080</widthPort>
 		<PropertiesElement sr="props">
-			<keyTask>1981</keyTask>
+			<keyTask>2083</keyTask>
 			<Int sr="arg0" val="1"/>
 			<Int sr="arg1" val="0"/>
 			<Str sr="arg2" ve="3">#00FFFFFF</Str>
@@ -561,529 +748,10 @@
 			</LinkClickFilter>
 		</PropertiesElement>
 	</Scene>
-	<Task sr="task1973">
-		<cdate>1774169776173</cdate>
-		<edate>1780074991429</edate>
-		<id>1973</id>
-		<nme>TG 09 - CHECK UPDATES</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>339</code>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
-Cookies
-The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_data
-Data
-Data that the server responded from the HTTP request.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_file_output
-File Output
-Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_response_code
-Response Code
-The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_headers()
-Response Headers
-The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_response_length
-Response Length
-The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg10" val="1"/>
-			<Int sr="arg11" val="0"/>
-			<Int sr="arg12" val="1"/>
-			<Str sr="arg2" ve="3">https://api.github.com/repos/x-mrrobot-x/tagly/releases/latest</Str>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8">
-				<var>3</var>
-			</Int>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>389</code>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""/&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Str sr="arg1" ve="3">%release_name
-%release_tag</Str>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3">%http_data[name]
-%http_data[tag_name]</Str>
-			<Str sr="arg4" ve="3">
-</Str>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="3"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="1"/>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>37</code>
-			<coll>false</coll>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%tg_project_version</lhs>
-					<op>3</op>
-					<rhs>%release_tag</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>396</code>
-			<Bundle sr="arg0">
-				<Vals sr="val">
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%release_type
-0. Release type
-Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%mt_groups()
-Groups
-&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%mt_match_found
-Is Match
-true if there was a match, false otherwise&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%mt_match
-Match
-Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
-					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
-				</Vals>
-			</Bundle>
-			<Int sr="arg1" val="1"/>
-			<Str sr="arg2" ve="3">%release_name</Str>
-			<Str sr="arg3" ve="3">(?&lt;release_type&gt;\[\w+\])</Str>
-			<Str sr="arg4" ve="3"/>
-		</Action>
-		<Action sr="act5" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">Tagly • Update</Str>
-			<Str sr="arg1" ve="3">New interface update available: %release_tag</Str>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">super_tasker_notifications_created_by_me_the_developer</Str>
-			<Str sr="arg12" ve="3"/>
-			<Int sr="arg13" val="0"/>
-			<Str sr="arg14" ve="3"/>
-			<Str sr="arg15" ve="3">tagly</Str>
-			<Img sr="arg2" ve="2">
-				<nme>mw_navigation_arrow_downward</nme>
-			</Img>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%release_type</lhs>
-					<op>2</op>
-					<rhs>[UI]</rhs>
-				</Condition>
-			</ConditionList>
-			<ListElementItem sr="item0">
-				<label>Update Interface</label>
-				<Action sr="action" ve="7">
-					<code>130</code>
-					<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
-					<Int sr="arg1">
-						<var>%priority</var>
-					</Int>
-					<Int sr="arg10" val="1"/>
-					<Str sr="arg2" ve="3"/>
-					<Str sr="arg3" ve="3"/>
-					<Str sr="arg4" ve="3"/>
-					<Int sr="arg5" val="1"/>
-					<Int sr="arg6" val="0"/>
-					<Str sr="arg7" ve="3"/>
-					<Int sr="arg8" val="0"/>
-					<Int sr="arg9" val="0"/>
-				</Action>
-				<Img sr="icon" ve="2">
-					<nme>mw_action_autorenew</nme>
-					<tint>-1</tint>
-				</Img>
-			</ListElementItem>
-		</Action>
-		<Action sr="act6" ve="7">
-			<code>523</code>
-			<Str sr="arg0" ve="3">Tagly • Update</Str>
-			<Str sr="arg1" ve="3">New project update available: %release_tag</Str>
-			<Str sr="arg10" ve="3"/>
-			<Str sr="arg11" ve="3">super_tasker_notifications_created_by_me_the_developer</Str>
-			<Str sr="arg12" ve="3"/>
-			<Int sr="arg13" val="0"/>
-			<Str sr="arg14" ve="3"/>
-			<Str sr="arg15" ve="3">tagly</Str>
-			<Img sr="arg2" ve="2">
-				<nme>mw_navigation_arrow_downward</nme>
-			</Img>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<Int sr="arg7" val="0"/>
-			<Int sr="arg8" val="0"/>
-			<Str sr="arg9" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%release_type</lhs>
-					<op>2</op>
-					<rhs>[CORE]</rhs>
-				</Condition>
-			</ConditionList>
-			<ListElementItem sr="item0">
-				<label>Update Project</label>
-				<Action sr="action" ve="7">
-					<code>130</code>
-					<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
-					<Int sr="arg1">
-						<var>%priority</var>
-					</Int>
-					<Int sr="arg10" val="1"/>
-					<Str sr="arg2" ve="3"/>
-					<Str sr="arg3" ve="3"/>
-					<Str sr="arg4" ve="3"/>
-					<Int sr="arg5" val="1"/>
-					<Int sr="arg6" val="0"/>
-					<Str sr="arg7" ve="3"/>
-					<Int sr="arg8" val="0"/>
-					<Int sr="arg9" val="0"/>
-				</Action>
-				<Img sr="icon" ve="2">
-					<nme>mw_action_autorenew</nme>
-					<tint>-1</tint>
-				</Img>
-			</ListElementItem>
-		</Action>
-		<Action sr="act7" ve="7">
-			<code>38</code>
-		</Action>
-	</Task>
-	<Task sr="task1974">
-		<cdate>1774727756263</cdate>
-		<edate>1781203318098</edate>
-		<id>1974</id>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>130</code>
-			<Str sr="arg0" ve="3">TG 04 - LOAD DATA</Str>
-			<Int sr="arg1">
-				<var>%priority+1</var>
-			</Int>
-			<Int sr="arg10" val="1"/>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="0"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>417</code>
-			<Str sr="arg0" ve="3">%tg_work_dir/tasker/auto-process/index.html</Str>
-			<Str sr="arg1" ve="3">%html</Str>
-			<Int sr="arg2" val="1"/>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>49</code>
-			<se>false</se>
-			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>47</code>
-			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
-			<Int sr="arg1" val="0"/>
-			<Int sr="arg10" val="1"/>
-			<Int sr="arg2" val="200"/>
-			<Int sr="arg3" val="200"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="1"/>
-			<Int sr="arg7" val="1"/>
-			<Int sr="arg8" val="1"/>
-			<Int sr="arg9" val="1"/>
-		</Action>
-	</Task>
-	<Task sr="task1975">
-		<cdate>1770004814122</cdate>
-		<edate>1780074987080</edate>
-		<id>1975</id>
-		<nme>TG 07 - ABORT QUEUE WORKER</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="1"/>
-			<Str sr="arg1" ve="3">TG 06 - RUN QUEUE WORKER</Str>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>548</code>
-			<Str sr="arg0" ve="3">Stoping %par1</Str>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg10" ve="3"/>
-			<Int sr="arg11" val="1"/>
-			<Int sr="arg12" val="0"/>
-			<Str sr="arg13" ve="3"/>
-			<Int sr="arg14" val="0"/>
-			<Str sr="arg15" ve="3"/>
-			<Int sr="arg2" val="1"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3"/>
-			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3">99999</Str>
-			<Int sr="arg9" val="1"/>
-		</Action>
-	</Task>
-	<Task sr="task1976">
-		<cdate>1768825217743</cdate>
-		<edate>1781036498870</edate>
-		<id>1976</id>
-		<nme>TG 01 - MAIN</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>130</code>
-			<Str sr="arg0" ve="3">TG 02 - ENSURE DEPENDENCIES</Str>
-			<Int sr="arg1">
-				<var>%priority+1</var>
-			</Int>
-			<Int sr="arg10" val="1"/>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="0"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>130</code>
-			<Str sr="arg0" ve="3">TG 04 - LOAD DATA</Str>
-			<Int sr="arg1">
-				<var>%priority+1</var>
-			</Int>
-			<Int sr="arg10" val="1"/>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="0"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>235</code>
-			<se>false</se>
-			<Int sr="arg0" val="2"/>
-			<Str sr="arg1" ve="3">system_locales</Str>
-			<Str sr="arg2" ve="3"/>
-			<Int sr="arg3" val="0"/>
-			<Str sr="arg4" ve="3">%system_language</Str>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>474</code>
-			<Str sr="arg0" ve="3">import android.os.Environment;
-import java.io.File;
-
-base = Environment.getExternalStorageDirectory().getAbsolutePath();
-
-screenshotCandidates = new String[]{
-    base + "/DCIM/Screenshots",
-    base + "/Pictures/Screenshots",
-    base + "/Pictures/ScreenShots",
-    base + "/MIUI/Gallery/Pictures/Screenshots",
-    base + "/Screenshots",
-};
-screenshotPath = base + "/DCIM/Screenshots";
-for (int i = 0; i &lt; screenshotCandidates.length; i++) {
-    dir = new File(screenshotCandidates[i]);
-    if (dir.exists() &amp;&amp; dir.isDirectory()) { screenshotPath = screenshotCandidates[i]; break; }
-}
-
-recordingCandidates = new String[]{
-    base + "/DCIM/ScreenRecorder",
-    base + "/DCIM/ScreenRecordings",
-    base + "/DCIM/Screen recordings",
-    base + "/Movies/ScreenRecorder",
-    base + "/Movies/ScreenRecordings",
-    base + "/Movies/Screen recordings",
-    base + "/Movies",
-    base + "/Videos/ScreenRecordings",
-    base + "/MIUI/Gallery/Videos/ScreenRecordings",
-    base + "/ScreenRecordings",
-};
-screenRecordingPath = base + "/DCIM/ScreenRecorder";
-for (int i = 0; i &lt; recordingCandidates.length; i++) {
-    dir = new File(recordingCandidates[i]);
-    if (dir.exists() &amp;&amp; dir.isDirectory()) { screenRecordingPath = recordingCandidates[i]; break; }
-}
-
-tasker.setVariable("screenshots_path", screenshotPath);
-tasker.setVariable("recordings_path", screenRecordingPath);</Str>
-			<Str sr="arg1" ve="3"/>
-			<Int sr="arg2" val="1"/>
-			<ConditionList sr="if">
-				<bool0>Or</bool0>
-				<Condition sr="c0" ve="3">
-					<lhs>%screenshots_path</lhs>
-					<op>13</op>
-					<rhs></rhs>
-				</Condition>
-				<Condition sr="c1" ve="3">
-					<lhs>%recordings_path</lhs>
-					<op>13</op>
-					<rhs></rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>130</code>
-			<Str sr="arg0" ve="3">TG 05 - MOUNT SCENE</Str>
-			<Int sr="arg1">
-				<var>%priority+1</var>
-			</Int>
-			<Int sr="arg10" val="0"/>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="1"/>
-			<Str sr="arg7" ve="3">%apps/%folders/%stats/%activities/%settings/%translations/%system_language</Str>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Action sr="act5" ve="7">
-			<code>130</code>
-			<Str sr="arg0" ve="3">TG 09 - CHECK UPDATES</Str>
-			<Int sr="arg1">
-				<var>%priority</var>
-			</Int>
-			<Int sr="arg10" val="1"/>
-			<Str sr="arg2" ve="3"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Int sr="arg5" val="1"/>
-			<Int sr="arg6" val="0"/>
-			<Str sr="arg7" ve="3"/>
-			<Int sr="arg8" val="0"/>
-			<Int sr="arg9" val="0"/>
-		</Action>
-		<Img sr="icn" ve="2">
-			<nme>mw_av_play_arrow</nme>
-			<tint>-1</tint>
-		</Img>
-	</Task>
-	<Task sr="task1977">
-		<cdate>1772855289103</cdate>
-		<edate>1781203233803</edate>
-		<id>1977</id>
-		<nme>TG 05 - MOUNT SCENE</nme>
-		<pri>100</pri>
-		<Action sr="act0" ve="7">
-			<code>137</code>
-			<Int sr="arg0" val="0"/>
-			<Str sr="arg1" ve="3"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%caller1</lhs>
-					<op>2</op>
-					<rhs>ui</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act1" ve="7">
-			<code>194</code>
-			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg2" ve="3">%scene_visibility</Str>
-		</Action>
-		<Action sr="act2" ve="7">
-			<code>49</code>
-			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%scene_visibility</lhs>
-					<op>3</op>
-					<rhs>uncreated</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>417</code>
-			<Str sr="arg0" ve="3">%tg_work_dir/index.html</Str>
-			<Str sr="arg1" ve="3">%html</Str>
-			<Int sr="arg2" val="0"/>
-		</Action>
-		<Action sr="act4" ve="7">
-			<code>47</code>
-			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
-			<Int sr="arg1" val="10"/>
-			<Int sr="arg10" val="1"/>
-			<Int sr="arg2" val="100"/>
-			<Int sr="arg3" val="100"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="0"/>
-			<Int sr="arg6" val="1"/>
-			<Int sr="arg7" val="1"/>
-			<Int sr="arg8" val="1"/>
-			<Int sr="arg9" val="1"/>
-		</Action>
-	</Task>
-	<Task sr="task1978">
-		<cdate>1755704601605</cdate>
-		<edate>1755704601605</edate>
-		<id>1978</id>
-		<pri>103</pri>
-		<Action sr="act0" ve="7">
-			<code>49</code>
-			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
-		</Action>
-	</Task>
-	<Task sr="task1979">
+	<Task sr="task2081">
 		<cdate>1772851580867</cdate>
-		<edate>1780935692436</edate>
-		<id>1979</id>
+		<edate>1781219559616</edate>
+		<id>2081</id>
 		<nme>TG 02 - ENSURE DEPENDENCIES</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
@@ -1259,10 +927,10 @@ tasker.setVariable("recordings_path", screenRecordingPath);</Str>
 			<Str sr="arg1" ve="3">TG 01 - MAIN</Str>
 		</Action>
 	</Task>
-	<Task sr="task1980">
+	<Task sr="task2082">
 		<cdate>1772273455368</cdate>
-		<edate>1781202937992</edate>
-		<id>1980</id>
+		<edate>1781219574782</edate>
+		<id>2082</id>
 		<nme>TG 04 - LOAD DATA</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
@@ -1367,20 +1035,20 @@ if (langCode != null) {
 			<Str sr="arg4" ve="3">%apps/%folders/%stats/%activities/%settings/%translations</Str>
 		</Action>
 	</Task>
-	<Task sr="task1981">
+	<Task sr="task2083">
 		<cdate>1773159164732</cdate>
 		<edate>1773159164732</edate>
-		<id>1981</id>
+		<id>2083</id>
 		<pri>11</pri>
 		<Action sr="act0" ve="7">
 			<code>49</code>
 			<Str sr="arg0" ve="3">TG - SHIELD SCENE</Str>
 		</Action>
 	</Task>
-	<Task sr="task1983">
+	<Task sr="task2084">
 		<cdate>1769973317306</cdate>
-		<edate>1781202599208</edate>
-		<id>1983</id>
+		<edate>1781219581588</edate>
+		<id>2084</id>
 		<nme>TG 06 - RUN QUEUE WORKER</nme>
 		<pri>100</pri>
 		<rty>2</rty>
@@ -1937,10 +1605,10 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<strout>false</strout>
 		</ProfileVariable>
 	</Task>
-	<Task sr="task1984">
+	<Task sr="task2085">
 		<cdate>1768957162196</cdate>
 		<edate>1768957162196</edate>
-		<id>1984</id>
+		<id>2085</id>
 		<pri>103</pri>
 		<Action sr="act0" ve="7">
 			<code>53</code>
@@ -1954,10 +1622,10 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 })();</Str>
 		</Action>
 	</Task>
-	<Task sr="task1985">
+	<Task sr="task2086">
 		<cdate>1772798386569</cdate>
-		<edate>1781202508323</edate>
-		<id>1985</id>
+		<edate>1781219601175</edate>
+		<id>2086</id>
 		<nme>TG 08 - NOTIFY</nme>
 		<pri>100</pri>
 		<rty>2</rty>
@@ -2014,10 +1682,10 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Str sr="arg9" ve="3"/>
 		</Action>
 	</Task>
-	<Task sr="task1986">
+	<Task sr="task2087">
 		<cdate>1755705635405</cdate>
 		<edate>1755705635405</edate>
-		<id>1986</id>
+		<id>2087</id>
 		<pri>103</pri>
 		<Action sr="act0" ve="7">
 			<code>37</code>
@@ -2053,12 +1721,18 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<code>38</code>
 		</Action>
 	</Task>
-	<Task sr="task1987">
+	<Task sr="task2088">
 		<cdate>1746808569929</cdate>
-		<edate>1781203046484</edate>
-		<id>1987</id>
-		<pri>100</pri>
+		<edate>1781239306985</edate>
+		<id>2088</id>
+		<pri>6</pri>
 		<Action sr="act0" ve="7">
+			<code>300</code>
+			<label>&lt;h5&gt;&lt;font color="#5768ef"&gt;
+This task automatically detects new screen recordings and adds the name of the app where the recording was made to the file name.
+&lt;/font&gt;&lt;/h5&gt;</label>
+		</Action>
+		<Action sr="act1" ve="7">
 			<code>137</code>
 			<Int sr="arg0" val="0"/>
 			<Str sr="arg1" ve="3"/>
@@ -2070,77 +1744,8 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 				</Condition>
 			</ConditionList>
 		</Action>
-		<Action sr="act1" ve="7">
-			<code>342</code>
-			<Int sr="arg0" val="1"/>
-			<Str sr="arg1" ve="3">%evtprm1</Str>
-			<Str sr="arg2" ve="3">%time</Str>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="1"/>
-		</Action>
-		<Action sr="act10" ve="7">
-			<code>400</code>
-			<Str sr="arg0" ve="3">%evtprm1</Str>
-			<Str sr="arg1" ve="3">%new_file</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="1"/>
-		</Action>
-		<Action sr="act11" ve="7">
-			<code>548</code>
-			<Str sr="arg0" ve="3">Gravação de tela renomeada:
-
-&lt;br&gt;&lt;br&gt;
-
-&lt;b&gt;%new_file&lt;/b&gt;</Str>
-			<Int sr="arg1" val="0"/>
-			<Str sr="arg10" ve="3"/>
-			<Int sr="arg11" val="1"/>
-			<Int sr="arg12" val="0"/>
-			<Str sr="arg13" ve="3"/>
-			<Int sr="arg14" val="1"/>
-			<Str sr="arg15" ve="3"/>
-			<Int sr="arg2" val="1"/>
-			<Str sr="arg3" ve="3"/>
-			<Str sr="arg4" ve="3"/>
-			<Str sr="arg5" ve="3"/>
-			<Str sr="arg6" ve="3">#DD5768ef</Str>
-			<Str sr="arg7" ve="3"/>
-			<Str sr="arg8" ve="3">10000</Str>
-			<Int sr="arg9" val="1"/>
-		</Action>
-		<Action sr="act12" ve="7">
-			<code>38</code>
-		</Action>
 		<Action sr="act2" ve="7">
-			<code>547</code>
-			<label>Calcular tempo decorrido</label>
-			<Str sr="arg0" ve="3">%seconds_elapsed</Str>
-			<Str sr="arg1" ve="3">%TIMES - %time</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="1"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-		</Action>
-		<Action sr="act3" ve="7">
-			<code>37</code>
-			<ConditionList sr="if">
-				<bool0>And</bool0>
-				<Condition sr="c0" ve="3">
-					<lhs>%seconds_elapsed</lhs>
-					<op>8</op>
-					<rhs>1</rhs>
-				</Condition>
-				<Condition sr="c1" ve="3">
-					<lhs>%evtprm1</lhs>
-					<op>1</op>
-					<rhs>%last_file</rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act4" ve="7">
 			<code>335</code>
-			<se>false</se>
 			<Bundle sr="arg0">
 				<Vals sr="val">
 					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%app_icon
@@ -2158,89 +1763,172 @@ Unique package name for the app&lt;/_array_net.dinglisch.android.tasker.RELEVANT
 			<Int sr="arg3" val="0"/>
 			<Int sr="arg4" val="0"/>
 		</Action>
-		<Action sr="act5" ve="7">
-			<code>547</code>
-			<Str sr="arg0" ve="3">%current_app_name</Str>
-			<Str sr="arg1" ve="3">%app_name</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
+		<Action sr="act3" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">import com.joaomgcd.taskerm.action.java.JavaCodeException;
+import java.io.File;
+import android.provider.Settings;
+
+filePath = tasker.getVariable("evtprm1");
+if (filePath == null || filePath.isEmpty()) {
+    throw new JavaCodeException("No file path received in %evtprm1.");
+}
+
+appPackage = tasker.getVariable("app_package");
+if (appPackage == null || appPackage.isEmpty()) {
+    throw new JavaCodeException("No app package received in %app_package.");
+}
+
+file = new File(filePath);
+fileName = file.getName();
+
+if (!fileName.toLowerCase().endsWith(".mp4")) {
+    return;
+}
+
+renameFile(targetFile, pkg) {
+    name = targetFile.getName();
+    mutexKey = "tasker_lock_" + name.replaceAll("[^a-zA-Z0-9]", "_");
+
+    if ("1".equals(tasker.getVariable(mutexKey))) {
+        return;
+    }
+    tasker.setVariable(mutexKey, "1");
+
+    Thread.sleep(1000);
+
+    if (!targetFile.exists() || targetFile.length() == 0) {
+        tasker.setVariable(mutexKey, null);
+        throw new JavaCodeException("File not found or empty: " + targetFile.getPath());
+    }
+
+    nameWithoutExt = name.substring(0, name.lastIndexOf("."));
+    newFile = new File(targetFile.getParent(), nameWithoutExt + "_" + pkg + ".mp4");
+
+    success = targetFile.renameTo(newFile);
+    tasker.setVariable(mutexKey, null);
+
+    if (!success) {
+        throw new JavaCodeException("Failed to rename file to: " + newFile.getName());
+    }
+
+    systemLocale = Settings.System.getString(context.getContentResolver(), "system_locales");
+    lang = (systemLocale != null &amp;&amp; systemLocale.length() &gt;= 2) ? systemLocale.substring(0, 2).toLowerCase() : "en";
+
+    if (lang.equals("pt")) {
+        msg = "Gravação de tela nomeada";
+    } else if (lang.equals("es")) {
+        msg = "Grabación de pantalla nombrada";
+    } else {
+        msg = "Screen recording named";
+    }
+
+    tasker.setVariable("recording_msg", msg);
+    tasker.setVariable("new_recording_name", newFile.getName());
+}
+
+/* ── Non-pending file: custom ROM or stock ROM second event ── */
+if (!fileName.startsWith(".pending")) {
+    if (!fileName.contains("_" + appPackage + ".mp4")) {
+        renameFile(file, appPackage);
+    }
+    return;
+}
+
+/* ── First .pending: recording started, store flag and exit ── */
+if (recordingPending == null || recordingPending == void) {
+    tasker.setJavaVariable("recordingPending", "1");
+    return;
+}
+
+/* ── Second .pending: recording ended, poll for final file ── */
+dir = file.getParentFile();
+finalFile = null;
+
+for (int i = 0; i &lt; 10; i++) {
+    Thread.sleep(500);
+
+    if (file.exists()) {
+        continue;
+    }
+
+    files = dir.listFiles();
+    if (files == null) {
+        break;
+    }
+
+    newestFile = null;
+    newestTime = 0;
+
+    for (int j = 0; j &lt; files.length; j++) {
+        candidate = files[j];
+        candidateName = candidate.getName();
+
+        if (!candidateName.toLowerCase().endsWith(".mp4")) {
+            continue;
+        }
+        if (candidateName.startsWith(".pending")) {
+            continue;
+        }
+        if (candidateName.contains("_" + appPackage + ".mp4")) {
+            continue;
+        }
+        if (candidate.lastModified() &gt; newestTime) {
+            newestTime = candidate.lastModified();
+            newestFile = candidate;
+        }
+    }
+
+    finalFile = newestFile;
+    break;
+}
+
+tasker.setJavaVariable("recordingPending", null);
+
+if (finalFile == null) {
+    tasker.log("Polling timeout: final file not found for " + appPackage);
+    return;
+}
+
+renameFile(finalFile, appPackage);</Str>
+			<Str sr="arg1" ve="3"/>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">&lt;b&gt;%recording_msg
+
+&lt;br&gt;&lt;br&gt;
+
+%new_recording_name</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="1"/>
+			<Str sr="arg15" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3">#DD5768ef</Str>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3">5000</Str>
+			<Int sr="arg9" val="1"/>
 			<ConditionList sr="if">
 				<Condition sr="c0" ve="3">
-					<lhs>%app_name</lhs>
+					<lhs>%recording_msg</lhs>
 					<op>12</op>
 					<rhs></rhs>
 				</Condition>
 			</ConditionList>
 		</Action>
-		<Action sr="act6" ve="7">
-			<code>547</code>
-			<Str sr="arg0" ve="3">%current_app_name</Str>
-			<Str sr="arg1" ve="3">UnknownApp</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-			<ConditionList sr="if">
-				<Condition sr="c0" ve="3">
-					<lhs>%app_name</lhs>
-					<op>13</op>
-					<rhs></rhs>
-				</Condition>
-			</ConditionList>
-		</Action>
-		<Action sr="act7" ve="7">
-			<code>547</code>
-			<Str sr="arg0" ve="3">%new_file</Str>
-			<Str sr="arg1" ve="3">%evtprm1</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="1"/>
-		</Action>
-		<Action sr="act8" ve="7">
-			<code>598</code>
-			<Str sr="arg0" ve="3">%new_file</Str>
-			<Str sr="arg1" ve="3">\.(?!.*\.)</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Str sr="arg5" ve="3"/>
-			<Int sr="arg6" val="1"/>
-			<Str sr="arg7" ve="3">_%current_app_name.</Str>
-		</Action>
-		<Action sr="act9" ve="7">
-			<code>547</code>
-			<Str sr="arg0" ve="3">%last_file</Str>
-			<Str sr="arg1" ve="3">%new_file</Str>
-			<Int sr="arg2" val="0"/>
-			<Int sr="arg3" val="0"/>
-			<Int sr="arg4" val="0"/>
-			<Int sr="arg5" val="3"/>
-			<Int sr="arg6" val="0"/>
-		</Action>
-		<ProfileVariable sr="pv0">
-			<clearout>false</clearout>
-			<exportval></exportval>
-			<immutable>false</immutable>
-			<pvci>false</pvci>
-			<pvd></pvd>
-			<pvdn></pvdn>
-			<pvid>1956</pvid>
-			<pvit>t</pvit>
-			<pvn>%last_file</pvn>
-			<pvt>f</pvt>
-			<strout>false</strout>
-		</ProfileVariable>
 	</Task>
-	<Task sr="task1988">
+	<Task sr="task2089">
 		<cdate>1772847711394</cdate>
 		<edate>1780937836634</edate>
-		<id>1988</id>
+		<id>2089</id>
 		<nme>TG 03 - SYNC DEPENDENCIES</nme>
 		<pri>100</pri>
 		<Action sr="act0" ve="7">
@@ -2683,6 +2371,531 @@ Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVAN
 			<Str sr="arg2" ve="3">%http_data[name]</Str>
 			<Str sr="arg3" ve="3">(?&lt;release_type&gt;\[\w+\])</Str>
 			<Str sr="arg4" ve="3"/>
+		</Action>
+	</Task>
+	<Task sr="task2090">
+		<cdate>1774169776173</cdate>
+		<edate>1781219605516</edate>
+		<id>2090</id>
+		<nme>TG 09 - CHECK UPDATES</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>339</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%http_cookies
+Cookies
+The cookies the server sent in the response in the Cookie:COOKIE_VALUE format. You can use this directly in the 'Headers' field of the HTTP Request action&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%http_data
+Data
+Data that the server responded from the HTTP request.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%http_file_output
+File Output
+Will always contain the file's full path even if you specified a directory as the File to save.&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%http_response_code
+Response Code
+The HTTP Code the server responded&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;%http_headers()
+Response Headers
+The HTTP Headers the server sent in the response. Each header is in the 'key:value' format&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES4&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;%http_response_length
+Response Length
+The size of the response in bytes&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES5&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg10" val="1"/>
+			<Int sr="arg11" val="0"/>
+			<Int sr="arg12" val="1"/>
+			<Str sr="arg2" ve="3">https://api.github.com/repos/x-mrrobot-x/tagly/releases/latest</Str>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8">
+				<var>3</var>
+			</Int>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>389</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""/&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Str sr="arg1" ve="3">%release_name
+%release_tag</Str>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3">%http_data[name]
+%http_data[tag_name]</Str>
+			<Str sr="arg4" ve="3">
+</Str>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="3"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="1"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>37</code>
+			<coll>false</coll>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%tg_project_version</lhs>
+					<op>3</op>
+					<rhs>%release_tag</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>396</code>
+			<Bundle sr="arg0">
+				<Vals sr="val">
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES>&lt;StringArray sr=""&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;%release_type
+0. Release type
+Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES0&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;%mt_groups()
+Groups
+&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES1&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;%mt_match_found
+Is Match
+true if there was a match, false otherwise&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES2&gt;&lt;_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;%mt_match
+Match
+Can also be accessed as an array&lt;/_array_net.dinglisch.android.tasker.RELEVANT_VARIABLES3&gt;&lt;/StringArray&gt;</net.dinglisch.android.tasker.RELEVANT_VARIABLES>
+					<net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>[Ljava.lang.String;</net.dinglisch.android.tasker.RELEVANT_VARIABLES-type>
+				</Vals>
+			</Bundle>
+			<Int sr="arg1" val="1"/>
+			<Str sr="arg2" ve="3">%release_name</Str>
+			<Str sr="arg3" ve="3">(?&lt;release_type&gt;\[\w+\])</Str>
+			<Str sr="arg4" ve="3"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Tagly • Update</Str>
+			<Str sr="arg1" ve="3">New interface update available: %release_tag</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">super_tasker_notifications_created_by_me_the_developer</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">tagly</Str>
+			<Img sr="arg2" ve="2">
+				<nme>mw_navigation_arrow_downward</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%release_type</lhs>
+					<op>2</op>
+					<rhs>[UI]</rhs>
+				</Condition>
+			</ConditionList>
+			<ListElementItem sr="item0">
+				<label>Update Interface</label>
+				<Action sr="action" ve="7">
+					<code>130</code>
+					<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
+					<Int sr="arg1">
+						<var>%priority</var>
+					</Int>
+					<Int sr="arg10" val="1"/>
+					<Str sr="arg2" ve="3"/>
+					<Str sr="arg3" ve="3"/>
+					<Str sr="arg4" ve="3"/>
+					<Int sr="arg5" val="1"/>
+					<Int sr="arg6" val="0"/>
+					<Str sr="arg7" ve="3"/>
+					<Int sr="arg8" val="0"/>
+					<Int sr="arg9" val="0"/>
+				</Action>
+				<Img sr="icon" ve="2">
+					<nme>mw_action_autorenew</nme>
+					<tint>-1</tint>
+				</Img>
+			</ListElementItem>
+		</Action>
+		<Action sr="act6" ve="7">
+			<code>523</code>
+			<Str sr="arg0" ve="3">Tagly • Update</Str>
+			<Str sr="arg1" ve="3">New project update available: %release_tag</Str>
+			<Str sr="arg10" ve="3"/>
+			<Str sr="arg11" ve="3">super_tasker_notifications_created_by_me_the_developer</Str>
+			<Str sr="arg12" ve="3"/>
+			<Int sr="arg13" val="0"/>
+			<Str sr="arg14" ve="3"/>
+			<Str sr="arg15" ve="3">tagly</Str>
+			<Img sr="arg2" ve="2">
+				<nme>mw_navigation_arrow_downward</nme>
+			</Img>
+			<Int sr="arg3" val="0"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="3"/>
+			<Int sr="arg6" val="0"/>
+			<Int sr="arg7" val="0"/>
+			<Int sr="arg8" val="0"/>
+			<Str sr="arg9" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%release_type</lhs>
+					<op>2</op>
+					<rhs>[CORE]</rhs>
+				</Condition>
+			</ConditionList>
+			<ListElementItem sr="item0">
+				<label>Update Project</label>
+				<Action sr="action" ve="7">
+					<code>130</code>
+					<Str sr="arg0" ve="3">TG 03 - SYNC DEPENDENCIES</Str>
+					<Int sr="arg1">
+						<var>%priority</var>
+					</Int>
+					<Int sr="arg10" val="1"/>
+					<Str sr="arg2" ve="3"/>
+					<Str sr="arg3" ve="3"/>
+					<Str sr="arg4" ve="3"/>
+					<Int sr="arg5" val="1"/>
+					<Int sr="arg6" val="0"/>
+					<Str sr="arg7" ve="3"/>
+					<Int sr="arg8" val="0"/>
+					<Int sr="arg9" val="0"/>
+				</Action>
+				<Img sr="icon" ve="2">
+					<nme>mw_action_autorenew</nme>
+					<tint>-1</tint>
+				</Img>
+			</ListElementItem>
+		</Action>
+		<Action sr="act7" ve="7">
+			<code>38</code>
+		</Action>
+	</Task>
+	<Task sr="task2091">
+		<cdate>1774727756263</cdate>
+		<edate>1781239283926</edate>
+		<id>2091</id>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>300</code>
+			<label>&lt;h5&gt;&lt;font color="#5768ef"&gt;
+This task automatically performs the entire process of organizing screenshots and screen recordings in the background.
+&lt;/font&gt;&lt;/h5&gt;</label>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">TG 04 - LOAD DATA</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>417</code>
+			<Str sr="arg0" ve="3">%tg_work_dir/tasker/auto-process/index.html</Str>
+			<Str sr="arg1" ve="3">%html</Str>
+			<Int sr="arg2" val="1"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>49</code>
+			<se>false</se>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>47</code>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+			<Int sr="arg1" val="0"/>
+			<Int sr="arg10" val="1"/>
+			<Int sr="arg2" val="200"/>
+			<Int sr="arg3" val="200"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="1"/>
+			<Int sr="arg7" val="1"/>
+			<Int sr="arg8" val="1"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task2092">
+		<cdate>1770004814122</cdate>
+		<edate>1781219591124</edate>
+		<id>2092</id>
+		<nme>TG 07 - ABORT QUEUE WORKER</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="1"/>
+			<Str sr="arg1" ve="3">TG 06 - RUN QUEUE WORKER</Str>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>548</code>
+			<Str sr="arg0" ve="3">Stoping %par1</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg10" ve="3"/>
+			<Int sr="arg11" val="1"/>
+			<Int sr="arg12" val="0"/>
+			<Str sr="arg13" ve="3"/>
+			<Int sr="arg14" val="0"/>
+			<Str sr="arg15" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Str sr="arg5" ve="3"/>
+			<Str sr="arg6" ve="3"/>
+			<Str sr="arg7" ve="3"/>
+			<Str sr="arg8" ve="3">99999</Str>
+			<Int sr="arg9" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task2093">
+		<cdate>1768825217743</cdate>
+		<edate>1781229694135</edate>
+		<id>2093</id>
+		<nme>TG 01 - MAIN</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">TG 02 - ENSURE DEPENDENCIES</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">TG 04 - LOAD DATA</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>235</code>
+			<se>false</se>
+			<Int sr="arg0" val="2"/>
+			<Str sr="arg1" ve="3">system_locales</Str>
+			<Str sr="arg2" ve="3"/>
+			<Int sr="arg3" val="0"/>
+			<Str sr="arg4" ve="3">%system_language</Str>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>474</code>
+			<Str sr="arg0" ve="3">import android.os.Environment;
+import java.io.File;
+
+base = Environment.getExternalStorageDirectory().getAbsolutePath();
+
+screenshotCandidates = new String[]{
+    base + "/DCIM/Screenshots",
+    base + "/Pictures/Screenshots",
+    base + "/Pictures/ScreenShots",
+    base + "/MIUI/Gallery/Pictures/Screenshots",
+    base + "/Screenshots",
+};
+screenshotPath = base + "/DCIM/Screenshots";
+for (int i = 0; i &lt; screenshotCandidates.length; i++) {
+    dir = new File(screenshotCandidates[i]);
+    if (dir.exists() &amp;&amp; dir.isDirectory()) { screenshotPath = screenshotCandidates[i]; break; }
+}
+
+recordingCandidates = new String[]{
+    base + "/DCIM/ScreenRecorder",
+    base + "/DCIM/ScreenRecordings",
+    base + "/DCIM/Screen recordings",
+    base + "/Movies/ScreenRecorder",
+    base + "/Movies/ScreenRecordings",
+    base + "/Movies/Screen recordings",
+    base + "/Movies",
+    base + "/Videos/ScreenRecordings",
+    base + "/MIUI/Gallery/Videos/ScreenRecordings",
+    base + "/ScreenRecordings",
+};
+screenRecordingPath = base + "/DCIM/ScreenRecorder";
+for (int i = 0; i &lt; recordingCandidates.length; i++) {
+    dir = new File(recordingCandidates[i]);
+    if (dir.exists() &amp;&amp; dir.isDirectory()) { screenRecordingPath = recordingCandidates[i]; break; }
+}
+
+tasker.setVariable("screenshots_path", screenshotPath);
+tasker.setVariable("recordings_path", screenRecordingPath);</Str>
+			<Str sr="arg1" ve="3"/>
+			<Int sr="arg2" val="1"/>
+			<ConditionList sr="if">
+				<bool0>Or</bool0>
+				<Condition sr="c0" ve="3">
+					<lhs>%screenshots_path</lhs>
+					<op>13</op>
+					<rhs></rhs>
+				</Condition>
+				<Condition sr="c1" ve="3">
+					<lhs>%recordings_path</lhs>
+					<op>13</op>
+					<rhs></rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">TG 05 - MOUNT SCENE</Str>
+			<Int sr="arg1">
+				<var>%priority+1</var>
+			</Int>
+			<Int sr="arg10" val="0"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="1"/>
+			<Str sr="arg7" ve="3">%apps/%folders/%stats/%activities/%settings/%translations/%system_language</Str>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Action sr="act5" ve="7">
+			<code>130</code>
+			<Str sr="arg0" ve="3">TG 09 - CHECK UPDATES</Str>
+			<Int sr="arg1">
+				<var>%priority</var>
+			</Int>
+			<Int sr="arg10" val="1"/>
+			<Str sr="arg2" ve="3"/>
+			<Str sr="arg3" ve="3"/>
+			<Str sr="arg4" ve="3"/>
+			<Int sr="arg5" val="1"/>
+			<Int sr="arg6" val="0"/>
+			<Str sr="arg7" ve="3"/>
+			<Int sr="arg8" val="0"/>
+			<Int sr="arg9" val="0"/>
+		</Action>
+		<Img sr="icn" ve="2">
+			<nme>mw_av_play_arrow</nme>
+			<tint>-1</tint>
+		</Img>
+	</Task>
+	<Task sr="task2094">
+		<cdate>1772855289103</cdate>
+		<edate>1781219578720</edate>
+		<id>2094</id>
+		<nme>TG 05 - MOUNT SCENE</nme>
+		<pri>100</pri>
+		<Action sr="act0" ve="7">
+			<code>137</code>
+			<Int sr="arg0" val="0"/>
+			<Str sr="arg1" ve="3"/>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%caller1</lhs>
+					<op>2</op>
+					<rhs>ui</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act1" ve="7">
+			<code>194</code>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+			<Int sr="arg1" val="0"/>
+			<Str sr="arg2" ve="3">%scene_visibility</Str>
+		</Action>
+		<Action sr="act2" ve="7">
+			<code>49</code>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+			<ConditionList sr="if">
+				<Condition sr="c0" ve="3">
+					<lhs>%scene_visibility</lhs>
+					<op>3</op>
+					<rhs>uncreated</rhs>
+				</Condition>
+			</ConditionList>
+		</Action>
+		<Action sr="act3" ve="7">
+			<code>417</code>
+			<Str sr="arg0" ve="3">%tg_work_dir/index.html</Str>
+			<Str sr="arg1" ve="3">%html</Str>
+			<Int sr="arg2" val="0"/>
+		</Action>
+		<Action sr="act4" ve="7">
+			<code>47</code>
+			<Str sr="arg0" ve="3">TG - MAIN SCENE</Str>
+			<Int sr="arg1" val="10"/>
+			<Int sr="arg10" val="1"/>
+			<Int sr="arg2" val="100"/>
+			<Int sr="arg3" val="100"/>
+			<Int sr="arg4" val="0"/>
+			<Int sr="arg5" val="0"/>
+			<Int sr="arg6" val="1"/>
+			<Int sr="arg7" val="1"/>
+			<Int sr="arg8" val="1"/>
+			<Int sr="arg9" val="1"/>
+		</Action>
+	</Task>
+	<Task sr="task2095">
+		<cdate>1755704601605</cdate>
+		<edate>1755704601605</edate>
+		<id>2095</id>
+		<pri>103</pri>
+		<Action sr="act0" ve="7">
+			<code>49</code>
+			<Str sr="arg0" ve="3">TG - SETUP SPLASH</Str>
 		</Action>
 	</Task>
 </TaskerData>
