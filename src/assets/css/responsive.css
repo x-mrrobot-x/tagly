@@ -31,15 +31,15 @@
   }
 
   .organizer-folders-grid {
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-  }
-
-  .search-folders-grid {
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+    grid-template-columns: repeat(4, 1fr);
   }
 
   .organizer-folders-grid.media-mode {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .search-folders-grid {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
   }
 
   .search-screenshots-grid,
@@ -47,13 +47,13 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
-  .cleaner-folder-list {
+  #cleaner-folders-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--space-md);
   }
 
-  .cleaner-folder-card {
+  .folder-card {
     margin-bottom: 0;
   }
 
@@ -237,7 +237,7 @@
   }
 
   .organizer-folders-grid {
-    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    grid-template-columns: repeat(5, 1fr);
   }
 
   .organizer-folders-grid.media-mode {
@@ -259,15 +259,15 @@
     bottom: var(--space-xl);
   }
 
-  .organizer-folder-card {
+  .folder-card {
     height: 20rem;
   }
 
-  .cleaner-folder-list {
-    grid-template-columns: repeat(2, 1fr);
+  #cleaner-folders-grid {
+    grid-template-columns: repeat(5, 1fr);
   }
 
-  .cleaner-folder-card {
+  #cleaner-folders-grid .folder-card {
     margin-bottom: 0;
   }
 
@@ -348,6 +348,10 @@
     gap: var(--space-xl);
   }
 
+  .organizer-folders-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
   .organizer-folders-grid.media-mode {
     grid-template-columns: repeat(6, 1fr);
   }
@@ -357,8 +361,8 @@
     grid-template-columns: repeat(6, 1fr);
   }
 
-  .cleaner-folder-list {
-    grid-template-columns: repeat(3, 1fr);
+  #cleaner-folders-grid {
+    grid-template-columns: repeat(6, 1fr);
   }
 
   .settings-section {

@@ -462,16 +462,17 @@
             </div>
 
             <div
-              class="organizer-search-container animate-fade-in-up"
+              class="page-search-container animate-fade-in-up"
               style="animation-delay: 0.1s"
               role="search"
             >
-              <div class="organizer-search-icon" aria-hidden="true">
+              <div class="page-search-icon" aria-hidden="true">
                 <i data-icon="search"></i>
               </div>
               <input
                 type="search"
-                class="organizer-search-input"
+                id="organizer-search-input"
+                class="page-search-input"
                 placeholder="Buscar pasta..."
                 data-i18n-placeholder="organizer.search_placeholder_tags"
                 aria-label="Buscar pasta"
@@ -479,13 +480,13 @@
             </div>
 
             <nav
-              class="organizer-filters-row animate-fade-in-up"
+              id="organizer-filters-row"
+              class="media-filters-row animate-fade-in-up"
               style="animation-delay: 0.2s"
               aria-label="Filtrar por tipo de mídia"
             >
               <button
-                id="filter-screenshots"
-                class="organizer-filter-button active card tap-scale"
+                class="media-filter-button active card tap-scale"
                 data-filter="screenshots"
                 aria-pressed="true"
               >
@@ -493,8 +494,7 @@
                 <span data-i18n="common.screenshots_short">Capturas</span>
               </button>
               <button
-                id="filter-recordings"
-                class="organizer-filter-button card tap-scale"
+                class="media-filter-button card tap-scale"
                 data-filter="recordings"
                 aria-pressed="false"
               >
@@ -520,8 +520,8 @@
           ></div>
 
           <section
-            id="folders-grid"
-            class="organizer-folders-grid animate-fade-in"
+            id="organizer-folders-grid"
+            class="folder-card-grid organizer-folders-grid animate-fade-in"
             style="animation-delay: 0.3s"
             aria-label="Pastas organizadas"
           ></section>
@@ -549,20 +549,64 @@
               </div>
               <div class="header-text">
                 <h2 class="page-title" data-i18n="nav.cleaner">Limpeza</h2>
-                <p
-                  class="page-subtitle"
-                  id="cleaner-subtitle"
-                  data-i18n="cleaner.page_subtitle"
-                >
-                  Remova arquivos antigos
+                <p class="page-subtitle" data-i18n="cleaner.page_subtitle">
+                  Configure a limpeza automática por pasta
                 </p>
               </div>
             </div>
+
+            <div
+              class="page-search-container animate-fade-in-up"
+              style="animation-delay: 0.1s"
+              role="search"
+            >
+              <div class="page-search-icon" aria-hidden="true">
+                <i data-icon="search"></i>
+              </div>
+              <input
+                type="search"
+                id="cleaner-search-input"
+                class="page-search-input"
+                placeholder="Buscar aplicativo..."
+                data-i18n-placeholder="cleaner.search_placeholder"
+                aria-label="Buscar aplicativo"
+              />
+            </div>
+
+            <nav
+              class="media-filters-row animate-fade-in-up"
+              style="animation-delay: 0.15s"
+              aria-label="Filtrar por tipo de mídia"
+              id="cleaner-filters-row"
+            >
+              <button
+                class="media-filter-button active card tap-scale"
+                data-filter="screenshots"
+                aria-pressed="true"
+              >
+                <i data-icon="image" aria-hidden="true"></i>
+                <span data-i18n="common.screenshots_short">Capturas</span>
+              </button>
+              <button
+                class="media-filter-button card tap-scale"
+                data-filter="recordings"
+                aria-pressed="false"
+              >
+                <i data-icon="video" aria-hidden="true"></i>
+                <span data-i18n="common.recordings_short">Gravações</span>
+              </button>
+            </nav>
           </header>
 
+          <div
+            class="cleaner-info-bar animate-fade-in-up"
+            style="animation-delay: 0.15s"
+            id="cleaner-info-bar"
+          ></div>
+
           <section
-            id="cleaner-folder-list"
-            class="cleaner-folder-list animate-fade-in"
+            id="cleaner-folders-grid"
+            class="folder-card-grid cleaner-folders-grid animate-fade-in"
             style="animation-delay: 0.2s"
             aria-label="Pastas configuradas para limpeza"
           ></section>
@@ -1623,6 +1667,38 @@
           </div>
         </div>
       </div>
+    </div>
+    
+    <!-- CLEANER FOLDER DIALOG -->
+    <div
+      class="dialog"
+      id="dialog-cleaner-folder"
+      role="dialog"
+      aria-labelledby="dialog-cleaner-folder-title"
+      aria-hidden="true"
+    >
+      <header class="dialog-header">
+        <div
+          class="dialog-cleaner-folder-icon"
+          aria-hidden="true"
+          id="dialog-cleaner-folder-icon"
+        ></div>
+        <div class="dialog-header-text">
+          <h2 class="dialog-title" id="dialog-cleaner-folder-title"></h2>
+          <p class="dialog-subtitle" data-i18n="cleaner.dialog_subtitle">
+            Limpeza automática
+          </p>
+        </div>
+        <button
+          type="button"
+          class="dialog-close tap-scale"
+          id="dialog-cleaner-folder-close"
+          aria-label="Fechar"
+        >
+          <i data-icon="x"></i>
+        </button>
+      </header>
+      <div class="dialog-body" id="dialog-cleaner-folder-body"></div>
     </div>
   </body>
 </html>

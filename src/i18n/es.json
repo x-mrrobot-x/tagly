@@ -35,8 +35,6 @@
     "toggle_deactivated": "desactivada"
   },
   "dashboard": {
-    "status_active": "Activo",
-    "status_inactive": "Inactivo",
     "page_subtitle": "Todo organizado automáticamente",
     "summary_organized": "Archivos Organizados",
     "summary_removed": "Archivos Eliminados",
@@ -65,7 +63,6 @@
     "clear_empty": "No se eliminaron archivos o la carpeta ya estaba vacía.",
     "clear_error": "Error al limpiar la carpeta. Por favor, inténtalo de nuevo.",
     "page_subtitle": "Visualiza y gestiona tus medios por carpeta",
-    "auto_desc": "Verifica periódicamente nuevas capturas y grabaciones de pantalla y las organiza automáticamente en carpetas por aplicación",
     "folder_action_clear": "Limpiar carpeta",
     "search_placeholder_tags": "Buscar carpetas o etiquetas...",
     "back": "Volver",
@@ -81,18 +78,18 @@
     "search_empty": "No se encontraron resultados"
   },
   "cleaner": {
-    "no_active_folders": "Sin carpetas con limpieza activa",
-    "page_subtitle": "Elimina archivos antiguos",
-    "auto_desc": "Verifica periódicamente las carpetas configuradas y elimina capturas o grabaciones de pantalla que superan el límite de días definido",
+    "page_subtitle": "Configura la limpieza automática por carpeta",
     "delete_after": "Eliminar después de:",
     "day": "día",
     "day_plural": "días",
-    "count_screenshots": "carpeta con limpieza de capturas",
-    "count_screenshots_plural": "carpetas con limpieza de capturas",
-    "count_recordings": "carpeta con limpieza de grabaciones",
-    "count_recordings_plural": "carpetas con limpieza de grabaciones",
     "empty_title": "No hay carpetas organizadas",
-    "empty_subtitle": "Organiza tus capturas y grabaciones primero para que puedan configurarse para la limpieza automática."
+    "empty_subtitle": "Organiza tus capturas y grabaciones primero para que puedan configurarse para la limpieza automática.",
+    "search_placeholder": "Buscar aplicación...",
+    "summary_title": "Carpetas con limpieza automática activa",
+    "dialog_subtitle": "Limpieza automática",
+    "search_empty": "No se encontraron carpetas",
+    "enabled_empty_title": "No hay carpetas con limpieza automática activa",
+    "enabled_empty_subtitle": "Activa la limpieza automática en alguna carpeta, o toca el contador de nuevo para ver todas las carpetas."
   },
   "stats": {
     "chart_screenshots": "Capturas Organizadas por Día",

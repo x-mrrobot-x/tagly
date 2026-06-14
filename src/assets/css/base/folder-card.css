@@ -1,0 +1,172 @@
+/* ── Shared folder card styles (organizer + cleaner) ── */
+
+/* Grid */
+.folder-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+  border-radius: var(--radius-lg);
+  padding-bottom: var(--space-sm);
+}
+
+/* Card */
+.folder-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 16rem;
+  padding: 0;
+  margin-top: 0.8rem;
+  border: 0.1rem solid hsl(var(--border));
+  border-radius: var(--radius-lg);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--card)),
+    hsl(var(--secondary) / 0.5)
+  );
+  box-shadow:
+    0 0.8rem 1.6rem -0.4rem rgb(0 0 0 / 0.12),
+    0 0.2rem 0.4rem -0.2rem rgb(0 0 0 / 0.08);
+  transition: all 0.35s var(--transition-spring);
+  overflow: hidden;
+}
+
+.folder-card:active {
+  border-color: hsl(var(--primary) / 0.3);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary) / 0.08),
+    hsl(var(--primary) / 0.04)
+  );
+}
+
+.folder-card-top {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md) var(--space-xs);
+  flex-grow: 1;
+  background: transparent;
+}
+
+.folder-card-app-icon {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 5.2rem;
+  height: 5.2rem;
+  background: transparent;
+  z-index: 1;
+  transition: all 0.4s var(--transition-spring);
+}
+
+.folder-card-app-icon .app-icon {
+  width: 4rem;
+  height: 4rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0.4rem 0.8rem rgb(0 0 0 / 0.15));
+}
+
+.folder-card-badges {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 0.08rem solid hsl(var(--primary) / 0.08);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+  background: hsl(var(--primary) / 0.06);
+  backdrop-filter: blur(0.4rem);
+}
+
+.folder-card-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: hsl(var(--muted-foreground));
+}
+
+.folder-card-badge svg {
+  width: 1rem;
+  height: 1rem;
+  color: hsl(var(--muted-foreground));
+  stroke-width: 2px;
+}
+
+.folder-card-bottom {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-sm);
+}
+
+.folder-card-bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  height: 0.06rem;
+  background: linear-gradient(
+    to right,
+    transparent,
+    hsl(var(--primary) / 0.1) 20%,
+    hsl(var(--primary) / 0.1) 80%,
+    transparent
+  );
+}
+
+.folder-card-name {
+  flex: 1;
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  letter-spacing: -0.02em;
+}
+
+.folder-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-lg);
+  min-height: 30rem;
+  margin: 0 auto;
+  border-radius: var(--radius-lg);
+  grid-column: 1 / -1;
+}
+
+.folder-empty-icon-wrapper {
+  padding: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  border: 0.05rem solid hsl(var(--border));
+  border-radius: var(--radius-lg);
+  background: hsl(var(--card));
+  box-shadow: 0 0.4rem 1.2rem hsl(var(--border) / 0.15);
+}
+
+.folder-empty-icon-wrapper svg {
+  width: var(--icon-xl);
+  height: var(--icon-xl);
+  color: hsl(var(--muted-foreground));
+}
+
+.folder-empty-title {
+  font-size: var(--font-lg);
+  font-weight: 600;
+  color: hsl(var(--foreground));
+  margin-bottom: var(--space-xs);
+}
+
+.folder-empty-subtitle {
+  font-size: var(--font-sm);
+  color: hsl(var(--muted-foreground));
+  max-width: 32rem;
+}

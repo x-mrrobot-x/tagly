@@ -2,14 +2,15 @@ import DOM from "../../lib/dom.js";
 import Icons from "../../core/ui/icons.js";
 import I18n from "../../core/services/i18n.js";
 
-const DAY_OPTIONS = [1, 7, 15, 30, 60];
 let elements = null;
 
 function queryElements() {
   elements = {
     tabContent: DOM.qs("#tab-cleaner"),
-    list: DOM.qs("#cleaner-folder-list"),
-    countText: DOM.qs("#cleaner-subtitle")
+    grid: DOM.qs("#cleaner-folders-grid"),
+    filterContainer: DOM.qs("#cleaner-filters-row"),
+    search: DOM.qs("#cleaner-search-input"),
+    infoBar: DOM.qs("#cleaner-info-bar")
   };
 }
 
@@ -18,167 +19,137 @@ function getElements() {
 }
 
 const templates = {
-  dayButton: (mediaType, days, isActive) => `
-    <button class="cleaner-day-button tap-scale ${
-      isActive ? "active" : ""
-    }" data-action="setFolderDays" data-media-type="${mediaType}" data-days="${days}">
-      ${days} ${I18n.t("cleaner.day", { n: days })}
-    </button>`,
-
-  cleanerGroup: (folder, mediaType, key, label) => {
-    if (!folder[key]?.cleaner?.on) return "";
-    const currentDays = folder[key].cleaner.days;
-    const optionsHtml = DAY_OPTIONS.map(d =>
-      templates.dayButton(mediaType, d, currentDays === d)
-    ).join("");
-    return `<div class="cleaner-group" id="cleaner-group-${
-      folder.id
-    }-${mediaType}"><p>${label} - ${I18n.t(
-      "cleaner.delete_after"
-    )}</p><div class="cleaner-day-options">${optionsHtml}</div></div>`;
+  cleanerBadge: (folder, activeFilter) => {
+    const isRecordings = activeFilter === "recordings";
+    const isOn = isRecordings ? folder.sr?.cleaner?.on : folder.ss?.cleaner?.on;
+    if (!isOn) return "";
+    return `<div class="folder-card-badges">
+      <span class="folder-card-badge cleaner-check-badge">${Icons.getSvg(
+        "circle-check-big"
+      )}</span>
+    </div>`;
   },
 
-  switchContainer: (folder, mediaType, key, label) => {
-    if (!folder[key]) return "";
-    const cleanerOn = folder[key]?.cleaner?.on;
-    return `<label class="cleaner-switch-container" data-media-type="${mediaType}"><span class="cleaner-switch-label">${label}</span><input type="checkbox" class="switch-md" data-action="toggleFolderClean" data-media-type="${mediaType}" ${
-      cleanerOn ? "checked" : ""
-    }></label>`;
-  },
-
-  buildSwitches: folder => ({
-    screenshots: templates.switchContainer(
-      folder,
-      "screenshots",
-      "ss",
-      I18n.t("common.screenshots_short")
-    ),
-    recordings: templates.switchContainer(
-      folder,
-      "screenrecordings",
-      "sr",
-      I18n.t("common.recordings_short")
-    )
-  }),
-
-  emptyState: () =>
-    `<div class="cleaner-empty-state animate-fade-in" style="animation-delay: 0.3s">
-      <div class="cleaner-empty-icon-wrapper">${Icons.getSvg("broom")}</div>
-      <p class="cleaner-empty-title">${I18n.t("cleaner.empty_title")}</p>
-      <p class="cleaner-empty-subtitle">${I18n.t("cleaner.empty_subtitle")}</p>
-    </div>`,
-
-  folderCard: (folder, index) => {
+  folderCard: (folder, index, activeFilter) => {
     if (!folder.ss && !folder.sr) return "";
-    const { screenshots, recordings } = templates.buildSwitches(folder);
-    if (!screenshots && !recordings) return "";
-    const isEnabled = folder.ss?.cleaner?.on || folder.sr?.cleaner?.on;
-    const optionsHtml = isEnabled
-      ? `<div class="cleaner-folder-options">${templates.cleanerGroup(
-          folder,
-          "screenshots",
-          "ss",
-          I18n.t("common.screenshots_label")
-        )}${templates.cleanerGroup(
-          folder,
-          "screenrecordings",
-          "sr",
-          I18n.t("common.recordings_label")
-        )}</div>`
-      : "";
-    return `<div class="cleaner-folder-card card ${
-      isEnabled ? "enabled" : ""
-    } animate-fade-in-up" style="animation-delay: ${
+    return `<div class="folder-card tap-scale animate-scale-in" style="animation-delay: ${
       0.2 + index * 0.05
     }s" data-folder-id="${folder.id}">
-      <div class="cleaner-folder-header">${Icons.getAppIcon(
-        folder
-      )}<span class="cleaner-folder-name truncate-text">${
-        folder.name
-      }</span><div class="cleaner-folder-switches">${screenshots}${recordings}</div></div>
-      ${optionsHtml}
+      <div class="folder-card-top">
+        ${templates.cleanerBadge(folder, activeFilter)}
+        <div class="folder-card-app-icon">${Icons.getAppIcon(folder)}</div>
+      </div>
+      <div class="folder-card-bottom">
+        <span class="folder-card-name truncate-text">${folder.name}</span>
+      </div>
+    </div>`;
+  },
+
+  emptyState: () =>
+    `<div class="folder-empty-state animate-fade-in" style="animation-delay: 0.3s">
+      <div class="folder-empty-icon-wrapper">${Icons.getSvg("broom")}</div>
+      <p class="folder-empty-title">${I18n.t("cleaner.empty_title")}</p>
+      <p class="folder-empty-subtitle">${I18n.t("cleaner.empty_subtitle")}</p>
+    </div>`,
+
+  searchEmptyState: () =>
+    `<div class="folder-empty-state animate-fade-in" style="animation-delay: 0.1s">
+      <div class="folder-empty-icon-wrapper">${Icons.getSvg("search")}</div>
+      <p class="folder-empty-title">${I18n.t("cleaner.search_empty")}</p>
+    </div>`,
+
+  enabledEmptyState: () =>
+    `<div class="folder-empty-state animate-fade-in" style="animation-delay: 0.1s">
+      <div class="folder-empty-icon-wrapper">${Icons.getSvg(
+        "circle-check-big"
+      )}</div>
+      <p class="folder-empty-title">${I18n.t("cleaner.enabled_empty_title")}</p>
+      <p class="folder-empty-subtitle">${I18n.t(
+        "cleaner.enabled_empty_subtitle"
+      )}</p>
+    </div>`,
+
+  countsHtml: (count, activeFilter, showEnabledOnly) => {
+    const isRecordings = activeFilter === "recordings";
+    const icon = Icons.getSvg(isRecordings ? "video" : "image");
+    const pill = `<button type="button" class="cleaner-summary-pill ${
+      showEnabledOnly ? "active" : ""
+    }" data-action="toggleEnabledFilter" aria-pressed="${String(
+      showEnabledOnly
+    )}">${icon} ${count}</button>`;
+    return `<div class="cleaner-summary-card animate-fade-in">
+      <span class="cleaner-summary-label-title">${I18n.t(
+        "cleaner.summary_title"
+      )}</span>
+      <div class="cleaner-summary-pills">${pill}</div>
     </div>`;
   }
 };
 
 const render = {
-  buildCountsHtml: (ssCount, srCount) => `
-    <div class="cleaner-subtitle-item"><span class="dot dot-screenshot"></span><span>${ssCount} ${I18n.t(
-      "cleaner.count_screenshots",
-      { n: ssCount }
-    )}</span></div>
-    <div class="cleaner-subtitle-item"><span class="dot dot-recording"></span><span>${srCount} ${I18n.t(
-      "cleaner.count_recordings",
-      { n: srCount }
-    )}</span></div>`,
+  getFiltered: (folders, activeFilter, showEnabledOnly) => {
+    let result = folders;
+    if (activeFilter === "screenshots") result = result.filter(f => f.ss);
+    else if (activeFilter === "recordings") result = result.filter(f => f.sr);
 
-  counts: folders => {
-    const ssCount = folders.filter(f => f.ss?.cleaner?.on).length;
-    const srCount = folders.filter(f => f.sr?.cleaner?.on).length;
-    const hasActive = ssCount > 0 || srCount > 0;
-    if (hasActive)
-      elements.countText.innerHTML = render.buildCountsHtml(ssCount, srCount);
-    else elements.countText.textContent = I18n.t("cleaner.no_active_folders");
+    if (showEnabledOnly) {
+      const isRecordings = activeFilter === "recordings";
+      result = result.filter(f =>
+        isRecordings ? f.sr?.cleaner?.on : f.ss?.cleaner?.on
+      );
+    }
+    return result;
   },
 
-  folderNode: (folder, index) => {
-    const html = templates.folderCard(folder, index);
+  folderNode: (folder, index, activeFilter) => {
+    const html = templates.folderCard(folder, index, activeFilter);
     if (!html) return null;
     const wrapper = document.createElement("div");
     wrapper.innerHTML = html.trim();
     return wrapper.firstChild;
-  },
-
-  cleaner: folders => {
-    render.counts(folders);
   }
 };
 
 const update = {
-  switchButtons: (card, folder) => {
-    const ssInput = DOM.qs('input[data-media-type="screenshots"]', card);
-    const srInput = DOM.qs('input[data-media-type="screenrecordings"]', card);
-    if (ssInput) ssInput.checked = !!folder.ss?.cleaner?.on;
-    if (srInput) srInput.checked = !!folder.sr?.cleaner?.on;
+  filters: activeFilter => {
+    elements.filterContainer.querySelectorAll("[data-filter]").forEach(btn => {
+      const isActive = btn.dataset.filter === activeFilter;
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-pressed", String(isActive));
+    });
   },
 
-  optionsDiv: (card, folder, isEnabled) => {
-    let optionsDiv = DOM.qs(".cleaner-folder-options", card);
-    if (isEnabled) {
-      if (!optionsDiv) {
-        optionsDiv = document.createElement("div");
-        optionsDiv.className = "cleaner-folder-options";
-        card.appendChild(optionsDiv);
-      }
-      optionsDiv.innerHTML =
-        templates.cleanerGroup(
-          folder,
-          "screenshots",
-          "ss",
-          I18n.t("common.screenshots_label")
-        ) +
-        templates.cleanerGroup(
-          folder,
-          "screenrecordings",
-          "sr",
-          I18n.t("common.recordings_label")
-        );
-    } else {
-      optionsDiv?.remove();
-    }
+  counts: (folders, activeFilter, showEnabledOnly) => {
+    const isRecordings = activeFilter === "recordings";
+    const count = isRecordings
+      ? folders.filter(f => f.sr?.cleaner?.on).length
+      : folders.filter(f => f.ss?.cleaner?.on).length;
+    elements.infoBar.innerHTML = templates.countsHtml(
+      count,
+      activeFilter,
+      showEnabledOnly
+    );
   },
 
-  card: folder => {
+  card: (folder, activeFilter) => {
     if (!folder) return;
     const card = DOM.qs(
-      `.cleaner-folder-card[data-folder-id="${folder.id}"]`,
-      elements.list
+      `.folder-card[data-folder-id="${folder.id}"]`,
+      elements.grid
     );
     if (!card) return;
-    const isEnabled = folder.ss?.cleaner?.on || folder.sr?.cleaner?.on;
-    card.classList.toggle("enabled", isEnabled);
-    update.switchButtons(card, folder);
-    update.optionsDiv(card, folder, isEnabled);
+
+    const oldBadges = DOM.qs(".folder-card-badges", card);
+    const newBadgesHtml = templates.cleanerBadge(folder, activeFilter);
+    if (newBadgesHtml) {
+      if (oldBadges) oldBadges.outerHTML = newBadgesHtml;
+      else {
+        const top = DOM.qs(".folder-card-top", card);
+        top?.insertAdjacentHTML("afterbegin", newBadgesHtml);
+      }
+    } else {
+      oldBadges?.remove();
+    }
   }
 };
 

@@ -21,6 +21,7 @@ let suppressNextRender = false;
 let currentPopupMenu = null;
 let paginator = null;
 let folderContextHandle = null;
+let isInitialized = false;
 
 function computeFolderTotals(filtered) {
   return {
@@ -91,7 +92,7 @@ function renderFolders() {
   if (!paginator) paginator = createFoldersPaginator(grid);
 
   paginator.reset(filtered);
-  OrganizerView.render.filters(state.activeFilter);
+  OrganizerView.update.filters(state.activeFilter);
 
   const { ssTotal, srTotal } = computeFolderTotals(filtered);
   OrganizerView.update.infoBar("folders", {
@@ -171,7 +172,7 @@ function searchInMedia(query, activeFilter) {
     return tagMatch.some(t => t.toLowerCase().includes(term));
   });
 
-  OrganizerView.render.searchResults([], files, activeFilter);
+  OrganizerView.update.searchResults([], files, activeFilter);
 
   if (isRecordings) enqueueThumbnailsFromGrid();
 
@@ -187,7 +188,7 @@ function searchRecordings(query) {
   const folders = OrganizerModel.searchFolders(query, "recordings");
   OrganizerModel.searchMediaByTag(query, "sr")
     .then(files => {
-      OrganizerView.render.searchResults(folders, files, "recordings");
+      OrganizerView.update.searchResults(folders, files, "recordings");
       enqueueThumbnailsFromGrid();
       OrganizerView.update.infoBar("search", {
         folderCount: folders.length,
@@ -202,7 +203,7 @@ function searchScreenshots(query) {
   const folders = OrganizerModel.searchFolders(query, "screenshots");
   OrganizerModel.searchMediaByTag(query, "ss")
     .then(screenshots => {
-      OrganizerView.render.searchResults(folders, screenshots, "screenshots");
+      OrganizerView.update.searchResults(folders, screenshots, "screenshots");
       OrganizerView.update.infoBar("search", {
         folderCount: folders.length,
         mediaCount: screenshots.length,
@@ -438,7 +439,7 @@ const handlers = {
       return;
     }
 
-    const folderCard = e.target.closest(".organizer-folder-card");
+    const folderCard = e.target.closest(".folder-card");
     if (folderCard) handleFolderCardClick(folderCard, e);
   },
   onMenuClick: async e => {
@@ -488,12 +489,14 @@ function setupMediaDetailController() {
 }
 
 function init() {
+  if (isInitialized) return;
   OrganizerView.init();
   TaggingController.init();
   MediaDetailController.init();
   setupMediaDetailController();
   renderUI();
   attachEvents();
+  isInitialized = true;
 }
 
 export default {

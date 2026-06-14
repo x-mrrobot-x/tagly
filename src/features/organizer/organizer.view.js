@@ -7,10 +7,9 @@ let elements = null;
 function queryElements() {
   elements = {
     tabContent: DOM.qs("#tab-organizer"),
-    grid: DOM.qs("#folders-grid"),
-    filterContainer: DOM.qs(".organizer-filters-row"),
-    filterBtns: DOM.qsa(".organizer-filter-button"),
-    search: DOM.qs(".organizer-search-input"),
+    grid: DOM.qs("#organizer-folders-grid"),
+    filterContainer: DOM.qs("#organizer-filters-row"),
+    search: DOM.qs("#organizer-search-input"),
     infoBar: DOM.qs("#organizer-info-bar"),
     backBtn: DOM.qs("#organizer-back-btn"),
     fab: DOM.qs("#organizer-fab")
@@ -60,7 +59,7 @@ const templates = {
     const isRecordings = activeFilter === "recordings";
     const count = isRecordings ? srCount : ssCount;
     const icon = Icons.getSvg(isRecordings ? "video" : "image");
-    return `<div class="organizer-folder-badge">${icon} <span>${count}</span></div>`;
+    return `<div class="folder-card-badge">${icon} <span>${count}</span></div>`;
   },
 
   mediaOverlay(name) {
@@ -87,24 +86,20 @@ const templates = {
   },
 
   folderCard: (folder, index, activeFilter) => `
-    <div class="organizer-folder-card card animate-scale-in" style="animation-delay: ${
+    <div class="folder-card tap-scale animate-scale-in" style="animation-delay: ${
       0.3 + index * 0.05
     }s" data-folder-id="${folder.id}">
-      <div class="organizer-folder-top">
-        <div class="organizer-folder-badges">${templates.badges(
+      <div class="folder-card-top">
+        <div class="folder-card-badges">${templates.badges(
           folder,
           activeFilter
         )}</div>
-        <div class="organizer-folder-app-icon">${Icons.getAppIcon(folder)}</div>
+        <div class="folder-card-app-icon">${Icons.getAppIcon(folder)}</div>
       </div>
-      <div class="organizer-folder-bottom">
-        <div class="organizer-folder-info-row">
-          <span class="organizer-folder-name truncate-text">${
-            folder.name
-          }</span>
-          <div class="organizer-folder-menu-dots">
-            <svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-          </div>
+      <div class="folder-card-bottom">
+        <span class="folder-card-name truncate-text">${folder.name}</span>
+        <div class="organizer-folder-menu-dots">
+          <svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
         </div>
       </div>
     </div>`,
@@ -149,22 +144,22 @@ const templates = {
       }
     };
     const { title, subtitle } = copy[activeFilter] ?? copy.screenshots;
-    return `<div class="organizer-empty-state animate-fade-in" style="animation-delay: 0.3s">
-      <div class="organizer-empty-icon-wrapper">${Icons.getSvg(
+    return `<div class="folder-empty-state animate-fade-in" style="animation-delay: 0.3s">
+      <div class="folder-empty-icon-wrapper">${Icons.getSvg(
         "folder-open"
       )}</div>
-      <p class="organizer-empty-title">${title}</p>
-      <p class="organizer-empty-subtitle">${subtitle}</p>
+      <p class="folder-empty-title">${title}</p>
+      <p class="folder-empty-subtitle">${subtitle}</p>
     </div>`;
   },
 
   emptyMedia: activeFilter => {
     const isRecordings = activeFilter === "recordings";
-    return `<div class="organizer-empty-state animate-fade-in" style="animation-delay: 0.3s">
-      <div class="organizer-empty-icon-wrapper">${Icons.getSvg(
+    return `<div class="folder-empty-state animate-fade-in" style="animation-delay: 0.3s">
+      <div class="folder-empty-icon-wrapper">${Icons.getSvg(
         isRecordings ? "video" : "image"
       )}</div>
-      <p class="organizer-empty-title">${I18n.t(
+      <p class="folder-empty-title">${I18n.t(
         isRecordings
           ? "organizer.empty_recordings_folder"
           : "organizer.empty_screenshots_folder"
@@ -236,11 +231,16 @@ const render = {
         : templates.mediaCard(file, index)
     ).trim();
     return wrapper.firstChild;
-  },
+  }
+};
 
+const update = {
   filters(activeFilter) {
-    elements.filterBtns.forEach(btn => btn.classList.remove("active"));
-    DOM.qs(`#filter-${activeFilter}`)?.classList.add("active");
+    elements.filterContainer.querySelectorAll("[data-filter]").forEach(btn => {
+      const isActive = btn.dataset.filter === activeFilter;
+      btn.classList.toggle("active", isActive);
+      btn.setAttribute("aria-pressed", String(isActive));
+    });
   },
 
   searchResults(folders, files, activeFilter) {
@@ -248,11 +248,9 @@ const render = {
     const hasFiles = files.length > 0;
 
     if (!hasFolders && !hasFiles) {
-      elements.grid.innerHTML = `<div class="organizer-empty-state animate-fade-in" style="animation-delay:0.1s">
-        <div class="organizer-empty-icon-wrapper">${Icons.getSvg(
-          "search"
-        )}</div>
-        <p class="organizer-empty-title">${I18n.t("organizer.search_empty")}</p>
+      elements.grid.innerHTML = `<div class="folder-empty-state animate-fade-in" style="animation-delay:0.1s">
+        <div class="folder-empty-icon-wrapper">${Icons.getSvg("search")}</div>
+        <p class="folder-empty-title">${I18n.t("organizer.search_empty")}</p>
       </div>`;
       return;
     }
@@ -262,10 +260,8 @@ const render = {
       html += templates.searchFoldersSection(folders, activeFilter);
     if (hasFiles) html += templates.searchFilesSection(files, activeFilter);
     elements.grid.innerHTML = html;
-  }
-};
+  },
 
-const update = {
   infoBar(mode, data) {
     if (mode === "hidden" || !mode) {
       elements.infoBar.innerHTML = "";
@@ -356,11 +352,11 @@ const update = {
 
   card(folder, activeFilter) {
     const card = DOM.qs(
-      `.organizer-folder-card[data-folder-id="${folder.id}"]`,
+      `.folder-card[data-folder-id="${folder.id}"]`,
       elements.grid
     );
     if (!card) return;
-    const badgesContainer = DOM.qs(".organizer-folder-badges", card);
+    const badgesContainer = DOM.qs(".folder-card-badges", card);
     if (badgesContainer)
       badgesContainer.innerHTML = templates.badges(folder, activeFilter);
   },

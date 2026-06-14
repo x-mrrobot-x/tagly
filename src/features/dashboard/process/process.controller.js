@@ -148,7 +148,7 @@ async function validateProcess(processType) {
   const hasConfigs = await ProcessModel.hasCleanerConfigs();
   if (!hasConfigs) {
     Toast.info(I18n.t("process.no_cleaner_folders"));
-    Navigation.navigateToAndHighlight("cleaner", ".cleaner-folder-card");
+    Navigation.navigateToAndHighlight("cleaner", ".cleaner-folders-grid");
     return false;
   }
   return true;

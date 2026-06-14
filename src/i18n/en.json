@@ -35,8 +35,6 @@
     "toggle_deactivated": "disabled"
   },
   "dashboard": {
-    "status_active": "Active",
-    "status_inactive": "Inactive",
     "page_subtitle": "Everything organized automatically",
     "summary_organized": "Organized Files",
     "summary_removed": "Removed Files",
@@ -103,17 +101,18 @@
     "dialog_description": "AI analyzes each media file and generates keywords automatically to help you search faster."
   },
   "cleaner": {
-    "no_active_folders": "No folders with active cleanup",
-    "page_subtitle": "Remove old files",
+    "page_subtitle": "Configure automatic cleanup per folder",
     "delete_after": "Delete after:",
     "day": "day",
     "day_plural": "days",
-    "count_screenshots": "folder with screenshot cleanup",
-    "count_screenshots_plural": "folders with screenshot cleanup",
-    "count_recordings": "folder with recording cleanup",
-    "count_recordings_plural": "folders with recording cleanup",
     "empty_title": "No organized folders",
-    "empty_subtitle": "Organize your screenshots and recordings first so they can be configured for automatic cleanup."
+    "empty_subtitle": "Organize your screenshots and recordings first so they can be configured for automatic cleanup.",
+    "search_placeholder": "Search app...",
+    "summary_title": "Folders with auto-clean enabled",
+    "dialog_subtitle": "Auto cleanup",
+    "search_empty": "No folders found",
+    "enabled_empty_title": "No folders with auto-clean enabled",
+    "enabled_empty_subtitle": "Enable auto-clean on a folder, or tap the counter again to see all folders."
   },
   "stats": {
     "chart_screenshots": "Organized Screenshots per Day",

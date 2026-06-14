@@ -35,8 +35,6 @@
     "toggle_deactivated": "desativada"
   },
   "dashboard": {
-    "status_active": "Ativo",
-    "status_inactive": "Inativo",
     "page_subtitle": "Tudo organizado automaticamente",
     "summary_organized": "Arquivos Organizados",
     "summary_removed": "Arquivos Removidos",
@@ -65,7 +63,6 @@
     "clear_empty": "Nenhum arquivo foi removido ou a pasta já estava vazia.",
     "clear_error": "Erro ao limpar a pasta. Tente novamente.",
     "page_subtitle": "Visualize e gerencie suas mídias por pasta",
-    "auto_desc": "Verifica periodicamente novas capturas e gravações de tela e as organiza automaticamente em pastas por aplicativo",
     "folder_action_clear": "Limpar pasta",
     "search_placeholder_tags": "Buscar pastas ou tags...",
     "back": "Voltar",
@@ -81,18 +78,18 @@
     "search_empty": "Nenhum resultado encontrado"
   },
   "cleaner": {
-    "no_active_folders": "Nenhuma pasta com limpeza ativa",
-    "page_subtitle": "Remova arquivos antigos",
-    "auto_desc": "Verifica periodicamente as pastas configuradas e remove capturas ou gravações de tela que ultrapassam o limite de dias definido",
+    "page_subtitle": "Configure a limpeza automática por pasta",
     "delete_after": "Apagar após:",
     "day": "dia",
     "day_plural": "dias",
-    "count_screenshots": "pasta com limpeza de capturas de tela",
-    "count_screenshots_plural": "pastas com limpeza de capturas de tela",
-    "count_recordings": "pasta com limpeza de gravações de tela",
-    "count_recordings_plural": "pastas com limpeza de gravações de tela",
     "empty_title": "Nenhuma pasta organizada",
-    "empty_subtitle": "Organize suas capturas e gravações primeiro para que possam ser configuradas para limpeza automática."
+    "empty_subtitle": "Organize suas capturas e gravações primeiro para que possam ser configuradas para limpeza automática.",
+    "search_placeholder": "Buscar aplicativo...",
+    "summary_title": "Pastas com limpeza automática ativa",
+    "dialog_subtitle": "Limpeza automática",
+    "search_empty": "Nenhuma pasta encontrada",
+    "enabled_empty_title": "Nenhuma pasta com limpeza automática ativa",
+    "enabled_empty_subtitle": "Ative a limpeza automática em alguma pasta ou toque novamente no contador para ver todas as pastas."
   },
   "stats": {
     "chart_screenshots": "Capturas Organizadas por Dia",
