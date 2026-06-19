@@ -23,7 +23,7 @@
 </p>
 
 <div align="center">
-  <img src=".github/assets/preview.jpg" alt="Prévia do Tagly" width="320" style="border-radius: 10px">
+  <img src=".github/assets/preview-pt.jpg" alt="Prévia do Tagly" width="320" style="border-radius: 10px">
 </div>
 
 ## 🚀 Por que o Tagly?
@@ -66,18 +66,21 @@ npm run dev
 ## 🚀 Primeiros Passos
 
 ### 1. Organizar Mídias
+
 ```txt
 Dashboard → "Organizar Capturas" ou "Organizar Gravações"
 → arquivos movidos para subpastas por app
 ```
 
 ### 2. Gerar Tags para as Mídias
+
 ```txt
 Dashboard → "Gerar Tags"  (ou Organização → Botão FAB ✦)
 → Gemini analisa cada mídia e aplica tags no nome do arquivo
 ```
 
 ### 3. Buscar Mídias por Tags
+
 ```txt
 Organização → campo de busca → digitar uma tag ou nome de app
 → resultados em pastas e arquivos individuais encontrados
@@ -139,6 +142,22 @@ A visualização principal apresenta uma grade de pastas agrupadas por aplicativ
 Ao acessar uma pasta, é possível filtrar as mídias por status (**Todas**, **Com tags**, **Pendentes** e **Ignoradas**) e visualizar imagens, vídeos e suas respectivas tags.
 
 Ao tocar em uma mídia, é aberto o diálogo **Detalhe da Mídia**, com visualização em tela cheia, exibição e remoção de tags, além da opção de gerar tags para arquivos que ainda não foram analisados.
+
+### ✅ Multisseleção de Mídias
+
+Dentro de uma pasta, mantenha o toque pressionado sobre uma mídia para ativar o modo de seleção. Toque em outras mídias para adicionar ou remover da seleção.
+
+Ao entrar no modo de seleção, uma barra flutuante de ações é exibida na parte inferior da tela:
+
+| Ação                | Comportamento                                                                                     |
+| ------------------- | ------------------------------------------------------------------------------------------------- |
+| **Selecionar Tudo** | Seleciona ou desmarca todas as mídias visíveis no momento; exibe a contagem de itens selecionados |
+| **Gerar Tags**      | Abre o diálogo de geração de tags apenas com as mídias selecionadas que ainda não possuem tags    |
+| **Compartilhar**    | Compartilha os arquivos selecionados                                                              |
+| **Apagar**          | Remove os arquivos selecionados                                                                   |
+| **Cancelar**        | Sai do modo de seleção sem executar nenhuma ação                                                  |
+
+O modo de seleção também pode ser encerrado pelo botão/gesto de voltar do Android.
 
 ### 🧹 Limpeza Automática
 

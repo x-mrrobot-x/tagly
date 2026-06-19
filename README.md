@@ -23,7 +23,7 @@
 </p>
 
 <div align="center">
-  <img src=".github/assets/preview-en.jpg" alt="Tagly Preview" width="320" style="border-radius: 10px">
+  <img src=".github/assets/preview.jpg" alt="Tagly Preview" width="320" style="border-radius: 10px">
 </div>
 
 ## 🚀 Why Tagly?
@@ -66,18 +66,21 @@ npm run dev
 ## 🚀 Getting Started
 
 ### 1. Organize Media
+
 ```txt
 Dashboard → "Organize Captures" or "Organize Recordings"
 → files moved to subfolders by app
 ```
 
 ### 2. Generate Tags for Media
+
 ```txt
 Dashboard → "Generate Tags"  (or Organization → FAB Button ✦)
 → Gemini analyzes each media file and applies tags to the filename
 ```
 
 ### 3. Search Media by Tags
+
 ```txt
 Organization → search field → type a tag or app name
 → results shown in found folders and individual files
@@ -109,13 +112,13 @@ Uses the **Gemini API** to analyze screenshots and screen recordings, automatica
 
 When clicking **Generate Tags**, a dialog displays media files that do not yet have tags, allowing them to be analyzed individually or in batches. During processing, progress indicators show how many files are pending, tagged, or skipped.
 
-| Action                    | Behavior                                                                        |
-| ------------------------- | ------------------------------------------------------------------------------- |
-| **Generate Tags**         | Analyzes the current media file and automatically adds content-related tags     |
-| **Skip**                  | Marks the current media file as skipped                                         |
-| **Generate Tags for All** | Automatically analyzes all pending media files in the queue                     |
-| **Skip All**              | Marks all pending media files as skipped                                        |
-| **Stop**                  | Interrupts batch processing while preserving completed progress                 |
+| Action                    | Behavior                                                                    |
+| ------------------------- | --------------------------------------------------------------------------- |
+| **Generate Tags**         | Analyzes the current media file and automatically adds content-related tags |
+| **Skip**                  | Marks the current media file as skipped                                     |
+| **Generate Tags for All** | Automatically analyzes all pending media files in the queue                 |
+| **Skip All**              | Marks all pending media files as skipped                                    |
+| **Stop**                  | Interrupts batch processing while preserving completed progress             |
 
 **Automatic key rotation:** when usage limits are reached, Tagly automatically switches between configured Gemini API keys and models.
 
@@ -139,6 +142,22 @@ The main view displays a grid of folders grouped by application, showing informa
 Inside a folder, media files can be filtered by status (**All**, **Tagged**, **Pending**, and **Skipped**) and images, videos, and their associated tags can be viewed.
 
 Tapping a media file opens the **Media Details** dialog, featuring full-screen preview, tag viewing and removal, and the ability to generate tags for files that have not yet been analyzed.
+
+### ✅ Media Multi-Selection
+
+Inside a folder, press and hold a media file to enter selection mode. Tap other media files to add or remove them from the selection.
+
+When selection mode is active, a floating action bar appears at the bottom of the screen:
+
+| Action            | Behavior                                                                                  |
+| ----------------- | ----------------------------------------------------------------------------------------- |
+| **Select All**    | Selects or deselects all currently visible media files; shows the count of selected items |
+| **Generate Tags** | Opens the tag generation dialog with only the selected files that don't have tags yet     |
+| **Share**         | Shares the selected files                                                                 |
+| **Delete**        | Removes the selected files                                                                |
+| **Cancel**        | Exits selection mode without performing any action                                        |
+
+Selection mode can also be exited using Android's back gesture or back button.
 
 ### 🧹 Automatic Cleanup
 
