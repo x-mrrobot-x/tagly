@@ -77,6 +77,7 @@
     "search_section_recordings": "Gravações",
     "search_empty": "Nenhum resultado encontrado",
     "selection_error": "Erro ao executar ação na seleção",
+    "selection_all_tagged": "Todas as mídias selecionadas já possuem tags",
     "delete_success": "{{count}} {{item}} {{removed}}"
   },
   "cleaner": {

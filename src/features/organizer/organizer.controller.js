@@ -489,7 +489,26 @@ async function runSelectionTaskAndExit(action) {
 }
 
 async function handleSelectionGenerate() {
-  await runSelectionTaskAndExit("generate_tags");
+  const selectedPaths = getSelectedPaths();
+  if (!selectedPaths.length) return;
+
+  const allMedia = OrganizerModel.getState().currentMedia;
+  const selectedSet = new Set(selectedPaths);
+
+  const eligible = allMedia.filter(f => {
+    if (!selectedSet.has(f.path)) return false;
+    const isPending = !f.name.includes("[");
+    const isSkipped = f.name.includes("[skip]");
+    return isPending || isSkipped;
+  });
+
+  if (!eligible.length) {
+    Toast.info(I18n.t("organizer.selection_all_tagged"));
+    return;
+  }
+
+  History.goBack();
+  await TaggingController.openTaggingDialogWithQueue(eligible);
 }
 
 async function handleSelectionShare() {
@@ -601,6 +620,12 @@ function attachEvents() {
   events.forEach(([el, event, handler]) => el.addEventListener(event, handler));
 
   EventBus.on("appstate:changed", handlers.onStateChange);
+  EventBus.on(
+    "tagging:card-updated",
+    ({ oldPath, newPath, newName, isVideo }) => {
+      handleCardUpdate(oldPath, newPath, newName, isVideo);
+    }
+  );
 }
 
 function setupMediaDetailController() {

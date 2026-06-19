@@ -48,6 +48,24 @@ async function openTaggingDialog() {
   showCurrentTaggingCard(null);
 }
 
+async function openTaggingDialogWithQueue(files) {
+  const { taggingDialog } = TaggingView.getElements();
+  History.pushDialog(taggingDialog);
+  TaggingView.update.taggingLoader(true);
+
+  taggingQueue = files;
+  taggingIndex = 0;
+  OrganizerModel.setMediaStats({
+    pending: files.length,
+    tagged: 0,
+    skipped: 0
+  });
+
+  TaggingView.update.taggingStats(OrganizerModel.getMediaStats());
+  TaggingView.update.taggingLoader(false);
+  showCurrentTaggingCard(null);
+}
+
 function handleTaggingError(err) {
   if (!(err instanceof GeminiError)) {
     Toast.error(I18n.t("tagging.error_server"));
@@ -84,13 +102,22 @@ function incrementStats(key) {
   TaggingView.update.taggingStats(OrganizerModel.getMediaStats());
 }
 
+function syncOrganizerCard(oldPath, newPath) {
+  const newName = newPath.split("/").pop();
+  const isVideo = TaggingModel.isVideoFile(oldPath);
+  EventBus.emit("tagging:card-updated", { oldPath, newPath, newName, isVideo });
+}
+
 function handleSkip() {
   const file = taggingQueue[taggingIndex];
   if (!file) return;
 
   OrganizerModel.removePendingItem(file.path);
   OrganizerModel.skipMedia(file.path)
-    .then(() => incrementStats("skipped"))
+    .then(newPath => {
+      incrementStats("skipped");
+      if (newPath) syncOrganizerCard(file.path, newPath);
+    })
     .catch(() => {});
 
   taggingIndex++;
@@ -99,8 +126,9 @@ function handleSkip() {
 
 async function applyTagsAndUpdateStats(path, tags) {
   if (!tags.length) return;
-  await OrganizerModel.applyTagsToFile(path, tags);
+  const newPath = await OrganizerModel.applyTagsToFile(path, tags);
   incrementStats("tagged");
+  if (newPath) syncOrganizerCard(path, newPath);
 }
 
 function handleGenerateTags() {
@@ -124,8 +152,9 @@ async function skipBatchItem(file, skippedCount, total) {
     TaggingModel.isVideoFile
   );
   TaggingView.update.taggingBatchLabel(skippedCount, total);
-  await OrganizerModel.skipMedia(file.path);
+  const newPath = await OrganizerModel.skipMedia(file.path);
   incrementStats("skipped");
+  if (newPath) syncOrganizerCard(file.path, newPath);
 }
 
 async function handleSkipAll() {
@@ -323,6 +352,7 @@ function init() {
 export default {
   init,
   openTaggingDialog,
+  openTaggingDialogWithQueue,
   handleSkip,
   handleGenerateTags,
   handleSkipAll,
