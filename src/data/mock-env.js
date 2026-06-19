@@ -174,7 +174,7 @@ const MOCK_COMMANDS = {
 
   delete_files_batch(args) {
     const files = parseJsonArg(args[0], []);
-    return { removed: Array.isArray(files) ? files.length : 0 };
+    return { deleted: Array.isArray(files) ? files.length : 0 };
   },
 
   find_expired_files(args) {

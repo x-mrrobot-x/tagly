@@ -75,7 +75,9 @@
     "search_section_folders": "Pastas",
     "search_section_screenshots": "Capturas de tela",
     "search_section_recordings": "Gravações",
-    "search_empty": "Nenhum resultado encontrado"
+    "search_empty": "Nenhum resultado encontrado",
+    "selection_error": "Erro ao executar ação na seleção",
+    "delete_success": "{{count}} {{item}} {{removed}}"
   },
   "cleaner": {
     "page_subtitle": "Configure a limpeza automática por pasta",

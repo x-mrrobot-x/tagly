@@ -75,7 +75,9 @@
     "search_section_folders": "Folders",
     "search_section_screenshots": "Screenshots",
     "search_section_recordings": "Recordings",
-    "search_empty": "No results found"
+    "search_empty": "No results found",
+    "selection_error": "Error performing action on selection",
+    "delete_success": "{{count}} {{item}} {{removed}}"
   },
   "tagging": {
     "dialog_title": "AI Tag Generator",

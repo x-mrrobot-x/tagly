@@ -32,8 +32,8 @@ const templates = {
 
   folderCard: (folder, index, activeFilter) => {
     if (!folder.ss && !folder.sr) return "";
-    return `<div class="folder-card tap-scale animate-scale-in" style="animation-delay: ${
-      0.2 + index * 0.05
+    return `<div class="folder-card card tap-scale animate-scale-in" style="animation-delay: ${
+      0.1 + index * 0.04
     }s" data-folder-id="${folder.id}">
       <div class="folder-card-top">
         ${templates.cleanerBadge(folder, activeFilter)}
@@ -77,7 +77,7 @@ const templates = {
     }" data-action="toggleEnabledFilter" aria-pressed="${String(
       showEnabledOnly
     )}">${icon} ${count}</button>`;
-    return `<div class="cleaner-summary-card animate-fade-in">
+    return `<div class="cleaner-summary-card card animate-fade-in">
       <span class="cleaner-summary-label-title">${I18n.t(
         "cleaner.summary_title"
       )}</span>

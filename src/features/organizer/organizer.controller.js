@@ -12,40 +12,17 @@ import Toast from "../../core/ui/toast.js";
 import I18n from "../../core/services/i18n.js";
 import Utils from "../../lib/utils.js";
 import DOM from "../../lib/dom.js";
-import ENV from "../../core/platform/env.js";
 import EventBus from "../../core/platform/event-bus.js";
 import ThumbnailQueue from "../../core/ui/thumbnail-queue.js";
 import ThumbnailCache from "../../core/ui/thumbnail-cache.js";
+import TaskQueue from "../../core/platform/task-queue.js";
 
 let suppressNextRender = false;
-let currentPopupMenu = null;
 let paginator = null;
 let folderContextHandle = null;
+let selectionContextHandle = null;
 let isInitialized = false;
-
-function computeFolderTotals(filtered) {
-  return {
-    ssTotal: filtered.reduce((s, f) => s + (f.ss?.count ?? 0), 0),
-    srTotal: filtered.reduce((s, f) => s + (f.sr?.count ?? 0), 0)
-  };
-}
-
-function computeMediaStats(allFiles) {
-  const tagged = allFiles.filter(
-    f => !f.name.includes("[skip]") && f.name.includes("[")
-  ).length;
-  const skipped = allFiles.filter(f => f.name.includes("[skip]")).length;
-  const pending = allFiles.length - tagged - skipped;
-  return { tagged, skipped, pending };
-}
-
-function getFolderPath(folder, activeFilter) {
-  const baseDir =
-    activeFilter === "recordings"
-      ? ENV.PATHS.ORGANIZED_RECORDINGS
-      : ENV.PATHS.ORGANIZED_SCREENSHOTS;
-  return `${baseDir}/${folder.name}`;
-}
+const selectedFiles = new Map();
 
 function createFoldersPaginator(grid) {
   return PaginationManager.create({
@@ -94,7 +71,7 @@ function renderFolders() {
   paginator.reset(filtered);
   OrganizerView.update.filters(state.activeFilter);
 
-  const { ssTotal, srTotal } = computeFolderTotals(filtered);
+  const { ssTotal, srTotal } = OrganizerModel.computeFolderTotals(filtered);
   OrganizerView.update.infoBar("folders", {
     folderCount: filtered.length,
     ssTotal,
@@ -117,7 +94,8 @@ function renderMedia() {
 
   paginator.reset(files);
 
-  const { tagged, skipped, pending } = computeMediaStats(allFiles);
+  const { tagged, skipped, pending } =
+    OrganizerModel.computeMediaStats(allFiles);
   OrganizerView.update.infoBar("media", {
     total: allFiles.length,
     tagged,
@@ -145,7 +123,7 @@ function updatePartial(folderId) {
     folders,
     state.activeFilter
   );
-  const { ssTotal, srTotal } = computeFolderTotals(filtered);
+  const { ssTotal, srTotal } = OrganizerModel.computeFolderTotals(filtered);
   OrganizerView.update.infoBar("folders", {
     folderCount: filtered.length,
     ssTotal,
@@ -164,13 +142,7 @@ function enqueueThumbnailsFromGrid() {
 
 function searchInMedia(query, activeFilter) {
   const isRecordings = activeFilter === "recordings";
-  const term = query.toLowerCase().replace(/\s+/g, "-");
-  const allFiles = OrganizerModel.getState().currentMedia;
-  const files = allFiles.filter(f => {
-    const tagMatch = f.name.toLowerCase().match(/\[([^\]]+)\]/g);
-    if (!tagMatch) return false;
-    return tagMatch.some(t => t.toLowerCase().includes(term));
-  });
+  const files = OrganizerModel.searchMediaInFolder(query);
 
   OrganizerView.update.searchResults([], files, activeFilter);
 
@@ -256,40 +228,18 @@ function handleSearch(value) {
 
 const debouncedSearch = Utils.debounce(handleSearch, 300);
 
-function closePopupMenu() {
-  if (currentPopupMenu) {
-    currentPopupMenu.remove();
-    currentPopupMenu = null;
-  }
-}
-
-function handlePopupMenu(card, e) {
-  e.stopPropagation();
-  closePopupMenu();
-  const popup = OrganizerView.update.actionsMenu(card.dataset.folderId, card);
-  if (popup) {
-    currentPopupMenu = popup;
-    popup.addEventListener("click", handlers.onMenuClick);
-  }
-}
-
 function setFolderCardLoading(folderCard, loading) {
   if (!folderCard) return;
   folderCard.style.opacity = loading ? "0.2" : "1";
   folderCard.style.pointerEvents = loading ? "none" : "auto";
 }
 
-function buildClearSuccessMessage(removedCount) {
-  return I18n.t("organizer.clear_success", {
-    count: removedCount,
-    item:
-      removedCount === 1
-        ? I18n.t("common.items")
-        : I18n.t("common.items_plural"),
+function buildCountMessage(key, count) {
+  return I18n.t(key, {
+    count,
+    item: count === 1 ? I18n.t("common.items") : I18n.t("common.items_plural"),
     removed:
-      removedCount === 1
-        ? I18n.t("common.removed")
-        : I18n.t("common.removed_plural")
+      count === 1 ? I18n.t("common.removed") : I18n.t("common.removed_plural")
   });
 }
 
@@ -315,7 +265,7 @@ async function handleClearAction(folderId) {
     );
     if (removedCount > 0) {
       OrganizerModel.logClearActivity(folder.name, type, removedCount);
-      Toast.success(buildClearSuccessMessage(removedCount));
+      Toast.success(buildCountMessage("organizer.clear_success", removedCount));
     } else {
       Toast.info(I18n.t("organizer.clear_empty"));
     }
@@ -337,7 +287,7 @@ async function enterFolder(folder) {
   OrganizerView.update.mode("media", activeFilter);
   OrganizerView.update.gridLoading(true);
 
-  const folderPath = getFolderPath(folder, activeFilter);
+  const folderPath = OrganizerModel.getFolderPath(folder, activeFilter);
 
   try {
     const files = await OrganizerModel.loadMediaInFolder(folderPath);
@@ -358,6 +308,13 @@ async function enterFolder(folder) {
 function exitFolder() {
   History.popContext(folderContextHandle);
   folderContextHandle = null;
+  if (isSelectionActive()) {
+    if (selectionContextHandle !== null) {
+      History.popContext(selectionContextHandle);
+      selectionContextHandle = null;
+    }
+    clearSelection();
+  }
   ThumbnailQueue.reset();
   OrganizerView.update.infoBar("hidden");
   paginator = null;
@@ -379,10 +336,6 @@ function openMediaCard(card, type) {
 }
 
 function handleFolderCardClick(card, e) {
-  if (e.target.closest(".organizer-folder-menu-dots")) {
-    handlePopupMenu(card, e);
-    return;
-  }
   const folder = AppState.getFolders().find(
     f => f.id === card.dataset.folderId
   );
@@ -399,7 +352,8 @@ function handleCardUpdate(oldPath, newPath, newName, isVideo) {
   OrganizerModel.updateMediaFile(oldPath, newPath);
 
   const allFiles = OrganizerModel.getState().currentMedia;
-  const { tagged, skipped, pending } = computeMediaStats(allFiles);
+  const { tagged, skipped, pending } =
+    OrganizerModel.computeMediaStats(allFiles);
   const { activeFilter, mediaFilter } = OrganizerModel.getState();
   OrganizerView.update.infoBar("media", {
     total: allFiles.length,
@@ -408,6 +362,163 @@ function handleCardUpdate(oldPath, newPath, newName, isVideo) {
     skipped,
     activeFilter: mediaFilter
   });
+}
+
+function isSelectionActive() {
+  return selectedFiles.size > 0;
+}
+
+function getAllMediaCards() {
+  const grid = OrganizerView.getElements().grid;
+  return Array.from(DOM.qsa(".media-card", grid));
+}
+
+function isAllSelected() {
+  const cards = getAllMediaCards();
+  return (
+    cards.length > 0 &&
+    cards.every(card => selectedFiles.has(card.dataset.filePath))
+  );
+}
+
+function updateSelectionBar() {
+  OrganizerView.update.selectionBar(
+    isSelectionActive(),
+    selectedFiles.size,
+    isAllSelected()
+  );
+}
+
+function clearSelection() {
+  selectedFiles.forEach(card => OrganizerView.update.cardSelected(card, false));
+  selectedFiles.clear();
+  updateSelectionBar();
+}
+
+function exitSelectionMode() {
+  clearSelection();
+  selectionContextHandle = null;
+}
+
+function toggleCardSelection(card) {
+  const path = card.dataset.filePath;
+  if (selectedFiles.has(path)) {
+    selectedFiles.delete(path);
+    OrganizerView.update.cardSelected(card, false);
+  } else {
+    selectedFiles.set(path, card);
+    OrganizerView.update.cardSelected(card, true);
+  }
+
+  if (selectedFiles.size === 0) {
+    if (selectionContextHandle !== null) {
+      History.popContext(selectionContextHandle);
+      selectionContextHandle = null;
+    }
+    updateSelectionBar();
+    return;
+  }
+
+  if (selectionContextHandle === null)
+    selectionContextHandle = History.pushContext(exitSelectionMode);
+
+  updateSelectionBar();
+}
+
+function startSelection(card) {
+  toggleCardSelection(card);
+}
+
+function getSelectedPaths() {
+  return Array.from(selectedFiles.keys());
+}
+
+async function runSelectionTask(action) {
+  const files = getSelectedPaths();
+  try {
+    const result = await TaskQueue.add(action, files, "default");
+    return result;
+  } catch (error) {
+    Logger.error(`[Organizer] Selection action "${action}" failed:`, error);
+    Toast.error(I18n.t("organizer.selection_error"));
+    return null;
+  }
+}
+
+async function runDeleteTask() {
+  const files = getSelectedPaths();
+  try {
+    const result = await TaskQueue.add(
+      "delete_files_batch",
+      [JSON.stringify(files)],
+      "shell"
+    );
+    return { result, files };
+  } catch (error) {
+    Logger.error("[Organizer] delete_files_batch failed:", error);
+    Toast.error(I18n.t("organizer.selection_error"));
+    return null;
+  }
+}
+
+function handleSelectionSelectAll() {
+  const cards = getAllMediaCards();
+  if (isAllSelected()) {
+    cards.forEach(card => {
+      selectedFiles.delete(card.dataset.filePath);
+      OrganizerView.update.cardSelected(card, false);
+    });
+    if (selectionContextHandle !== null) {
+      History.popContext(selectionContextHandle);
+      selectionContextHandle = null;
+    }
+  } else {
+    cards.forEach(card => {
+      selectedFiles.set(card.dataset.filePath, card);
+      OrganizerView.update.cardSelected(card, true);
+    });
+    if (selectionContextHandle === null)
+      selectionContextHandle = History.pushContext(exitSelectionMode);
+  }
+  updateSelectionBar();
+}
+
+async function runSelectionTaskAndExit(action) {
+  await runSelectionTask(action);
+  History.goBack();
+}
+
+async function handleSelectionGenerate() {
+  await runSelectionTaskAndExit("generate_tags");
+}
+
+async function handleSelectionShare() {
+  await runSelectionTaskAndExit("share_files");
+}
+
+async function handleSelectionDelete() {
+  const outcome = await runDeleteTask();
+  if (outcome === null) return;
+
+  const { result, files } = outcome;
+  const deletedCount = result?.deleted ?? files.length;
+
+  OrganizerModel.removeMediaFiles(files);
+
+  const { currentFolder, activeFilter } = OrganizerModel.getState();
+  if (currentFolder && deletedCount > 0) {
+    OrganizerModel.updateFolderCount(
+      currentFolder.id,
+      activeFilter,
+      deletedCount
+    );
+  }
+
+  clearSelection();
+  paginator = null;
+  renderMedia();
+
+  Toast.success(buildCountMessage("organizer.delete_success", deletedCount));
 }
 
 const handlers = {
@@ -427,6 +538,12 @@ const handlers = {
     renderFolders();
   },
   onGridClick: e => {
+    const mediaCardEl = e.target.closest(".media-card");
+    if (mediaCardEl && isSelectionActive()) {
+      toggleCardSelection(mediaCardEl);
+      return;
+    }
+
     const recordingCard = e.target.closest(".is-recording");
     if (recordingCard) {
       openMediaCard(recordingCard, "video");
@@ -442,39 +559,44 @@ const handlers = {
     const folderCard = e.target.closest(".folder-card");
     if (folderCard) handleFolderCardClick(folderCard, e);
   },
-  onMenuClick: async e => {
-    e.stopPropagation();
-    const actionItem = e.target.closest("[data-action]");
-    const folderId = actionItem?.closest(".organizer-folder-actions-popup")
-      ?.dataset.folderId;
-    if (!folderId) return;
-    closePopupMenu();
-    if (actionItem.dataset.action === "clear")
-      await handleClearAction(folderId);
-  },
-  onDocumentClick: e => {
-    if (currentPopupMenu && !currentPopupMenu.contains(e.target))
-      closePopupMenu();
+  onGridContextMenu: e => {
+    const card = e.target.closest(".media-card");
+    if (!card) return;
+    e.preventDefault();
+    startSelection(card);
   },
   onBackClick: () => exitFolder(),
   onFabClick: () => TaggingController.openTaggingDialog(),
+  onSelectionBarClick: e => {
+    const btn = e.target.closest("[data-action]");
+    if (!btn) return;
+    const actionMap = {
+      "select-all": handleSelectionSelectAll,
+      generate: handleSelectionGenerate,
+      share: handleSelectionShare,
+      delete: handleSelectionDelete,
+      cancel: () => History.goBack()
+    };
+    actionMap[btn.dataset.action]?.();
+  },
   onStateChange: data => {
     if (data.key === "folders" && !suppressNextRender) debouncedRender();
   }
 };
 
 function attachEvents() {
-  const { grid, search, backBtn, fab, infoBar, filterContainer } =
+  const { grid, search, backBtn, fab, infoBar, filterContainer, selectionBar } =
     OrganizerView.getElements();
 
   const events = [
     [search, "input", handlers.onSearch],
     [grid, "click", handlers.onGridClick],
+    [grid, "contextmenu", handlers.onGridContextMenu],
     [filterContainer, "click", handlers.onFilterClick],
-    [document, "click", handlers.onDocumentClick],
     [backBtn, "click", handlers.onBackClick],
     [fab, "click", handlers.onFabClick],
-    [infoBar, "click", handlers.onInfoBarClick]
+    [infoBar, "click", handlers.onInfoBarClick],
+    [selectionBar, "click", handlers.onSelectionBarClick]
   ];
   events.forEach(([el, event, handler]) => el.addEventListener(event, handler));
 

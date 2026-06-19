@@ -75,7 +75,9 @@
     "search_section_folders": "Carpetas",
     "search_section_screenshots": "Capturas de pantalla",
     "search_section_recordings": "Grabaciones",
-    "search_empty": "No se encontraron resultados"
+    "search_empty": "No se encontraron resultados",
+    "selection_error": "Error al ejecutar la acción en la selección",
+    "delete_success": "{{count}} {{item}} {{removed}}"
   },
   "cleaner": {
     "page_subtitle": "Configura la limpieza automática por carpeta",

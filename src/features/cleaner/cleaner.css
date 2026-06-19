@@ -1,6 +1,5 @@
 @import url("./folder-dialog/folder-dialog.css");
 
-/* ── Summary bar (active counts) ── */
 .cleaner-info-bar {
   margin-bottom: var(--space-sm);
 }
@@ -9,14 +8,11 @@
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  border: 0.1rem solid hsl(var(--border));
-  border-radius: var(--radius-full);
-  padding: var(--space-xs) var(--space-md);
-  background: hsl(var(--secondary) / 0.6);
+  padding: var(--space-sm) var(--space-md);
 }
 
 .cleaner-summary-label-title {
-  font-size: var(--font-xs);
+  font-size: var(--font-sm);
   font-weight: 500;
   color: hsl(var(--muted-foreground));
   white-space: nowrap;
@@ -63,7 +59,7 @@
   width: 1.2rem;
   height: 1.2rem;
   flex-shrink: 0;
-  stroke-width: 2px;
+  stroke-width: 0.2rem;
 }
 
 .cleaner-summary-sep {
@@ -73,15 +69,6 @@
   flex-shrink: 0;
 }
 
-/* Organizer folder grid */
-
-.cleaner-folders-grid .folder-card-bottom {
-  text-align: center;
-  padding-top: 0.8rem;
-  padding-bottom: 0.6rem;
-}
-
-/* ── Cleaner check badge ── */
 .cleaner-folders-grid .folder-card-badges {
   padding: 0;
   background: transparent;

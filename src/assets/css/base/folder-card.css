@@ -16,22 +16,12 @@
   min-height: 16rem;
   padding: 0;
   margin-top: 0.8rem;
-  border: 0.1rem solid hsl(var(--border));
-  border-radius: var(--radius-lg);
-  background: linear-gradient(
-    135deg,
-    hsl(var(--card)),
-    hsl(var(--secondary) / 0.5)
-  );
-  box-shadow:
-    0 0.8rem 1.6rem -0.4rem rgb(0 0 0 / 0.12),
-    0 0.2rem 0.4rem -0.2rem rgb(0 0 0 / 0.08);
   transition: all 0.35s var(--transition-spring);
   overflow: hidden;
 }
 
 .folder-card:active {
-  border-color: hsl(var(--primary) / 0.3);
+  border: 0.1rem solid hsl(var(--primary) / 0.3);
   background: linear-gradient(
     135deg,
     hsl(var(--primary) / 0.08),
@@ -102,7 +92,8 @@
   position: relative;
   display: flex;
   align-items: center;
-  padding: 0 var(--space-sm);
+  justify-content: center;
+  padding: var(--space-sm);
 }
 
 .folder-card-bottom::before {
@@ -122,7 +113,6 @@
 }
 
 .folder-card-name {
-  flex: 1;
   display: block;
   font-size: 1.3rem;
   font-weight: 700;

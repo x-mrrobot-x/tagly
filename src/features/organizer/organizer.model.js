@@ -108,6 +108,39 @@ function logClearActivity(folderName, mediaType, removedCount) {
   AppState.incrementStat("cleanedFiles", removedCount);
 }
 
+function computeMediaStats(files) {
+  const tagged = files.filter(
+    f => !f.name.includes("[skip]") && f.name.includes("[")
+  ).length;
+  const skipped = files.filter(f => f.name.includes("[skip]")).length;
+  const pending = files.length - tagged - skipped;
+  return { tagged, skipped, pending };
+}
+
+function computeFolderTotals(filtered) {
+  return {
+    ssTotal: filtered.reduce((s, f) => s + (f.ss?.count ?? 0), 0),
+    srTotal: filtered.reduce((s, f) => s + (f.sr?.count ?? 0), 0)
+  };
+}
+
+function getFolderPath(folder, activeFilter) {
+  const baseDir =
+    activeFilter === "recordings"
+      ? ENV.PATHS.ORGANIZED_RECORDINGS
+      : ENV.PATHS.ORGANIZED_SCREENSHOTS;
+  return `${baseDir}/${folder.name}`;
+}
+
+function searchMediaInFolder(query) {
+  const term = query.toLowerCase().replace(/\s+/g, "-");
+  return state.currentMedia.filter(f => {
+    const tagMatch = f.name.toLowerCase().match(/\[([^\]]+)\]/g);
+    if (!tagMatch) return false;
+    return tagMatch.some(t => t.toLowerCase().includes(term));
+  });
+}
+
 function searchFolders(query, activeFilter) {
   const term = query.toLowerCase();
   return AppState.getFolders().filter(f => {
@@ -142,6 +175,28 @@ function updateMediaFile(oldPath, newPath) {
   state.currentMedia = state.currentMedia.map(f =>
     f.path === oldPath ? { ...f, path: newPath, name: newName } : f
   );
+}
+
+function removeMediaFiles(paths) {
+  const pathSet = new Set(paths);
+  state.currentMedia = state.currentMedia.filter(f => !pathSet.has(f.path));
+}
+
+function updateFolderCount(folderId, mediaType, deletedCount) {
+  const folders = AppState.getFolders();
+  const idx = folders.findIndex(f => f.id === folderId);
+  if (idx === -1) return;
+
+  const folder = { ...folders[idx] };
+  const key = mediaType === "recordings" ? "sr" : "ss";
+
+  if (folder[key]) {
+    folder[key] = { ...folder[key] };
+    folder[key].count = Math.max(0, (folder[key].count ?? 0) - deletedCount);
+  }
+
+  folders[idx] = folder;
+  AppState.setFolders(folders);
 }
 
 function setMediaFilter(filter) {
@@ -280,11 +335,17 @@ export default {
   deleteFolder,
   clearFolderContents,
   logClearActivity,
+  computeMediaStats,
+  computeFolderTotals,
+  getFolderPath,
   searchFolders,
+  searchMediaInFolder,
   enterFolder,
   exitFolder,
   setMedia,
   updateMediaFile,
+  removeMediaFiles,
+  updateFolderCount,
   getMedia,
   setMediaFilter,
   setMediaStats,

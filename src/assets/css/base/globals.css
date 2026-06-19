@@ -24,13 +24,15 @@ input::placeholder {
 
 .card {
   padding: var(--space-md);
-  border: 0.05rem solid hsl(var(--border));
+  border: 0.1rem solid hsl(var(--border) / 0.4);
+  border-top: none;
   border-radius: var(--radius-xl);
   background: hsl(var(--card));
   box-shadow:
-    rgba(0, 0, 0, 0.05) 0rem 0.1rem 0.3rem 0rem,
-    rgba(0, 0, 0, 0.06) 0rem 0.1rem 0.2rem 0rem;
+    0 0.4rem 1.6rem -0.2rem rgb(0 0 0 / 0.1),
+    inset 0 0.1rem 0.1rem hsl(var(--primary) / 0.08);
   overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0 32, 1.275);
 }
 
 .tab-content {

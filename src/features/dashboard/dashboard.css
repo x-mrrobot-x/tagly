@@ -180,6 +180,15 @@
     box-shadow 0.2s;
 }
 
+.dashboard-action-card:active {
+  border: 0.1rem solid hsl(var(--primary) / 0.3);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--primary) / 0.08),
+    hsl(var(--primary) / 0.04)
+  );
+}
+
 .dashboard-action-icon {
   display: flex;
   justify-content: center;

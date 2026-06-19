@@ -12,7 +12,8 @@ function queryElements() {
     search: DOM.qs("#organizer-search-input"),
     infoBar: DOM.qs("#organizer-info-bar"),
     backBtn: DOM.qs("#organizer-back-btn"),
-    fab: DOM.qs("#organizer-fab")
+    fab: DOM.qs("#organizer-fab"),
+    selectionBar: DOM.qs("#organizer-selection-bar")
   };
 }
 
@@ -86,8 +87,8 @@ const templates = {
   },
 
   folderCard: (folder, index, activeFilter) => `
-    <div class="folder-card tap-scale animate-scale-in" style="animation-delay: ${
-      0.3 + index * 0.05
+    <div class="folder-card card tap-scale animate-scale-in" style="animation-delay: ${
+      0.1 + index * 0.04
     }s" data-folder-id="${folder.id}">
       <div class="folder-card-top">
         <div class="folder-card-badges">${templates.badges(
@@ -98,9 +99,6 @@ const templates = {
       </div>
       <div class="folder-card-bottom">
         <span class="folder-card-name truncate-text">${folder.name}</span>
-        <div class="organizer-folder-menu-dots">
-          <svg viewBox="0 0 24 24"><path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
-        </div>
       </div>
     </div>`,
 
@@ -166,14 +164,6 @@ const templates = {
       )}</p>
     </div>`;
   },
-
-  actionsMenu: folderId => `
-    <div class="organizer-folder-actions-popup" data-folder-id="${folderId}">
-      <div class="organizer-folder-action-item" data-action="clear">
-        ${Icons.getSvg("trash")}
-        <span>${I18n.t("organizer.folder_action_clear")}</span>
-      </div>
-    </div>`,
 
   searchFoldersSection: (folders, activeFilter) => `
     <div class="search-section">
@@ -361,31 +351,6 @@ const update = {
       badgesContainer.innerHTML = templates.badges(folder, activeFilter);
   },
 
-  actionsMenu(folderId, folderCard) {
-    const existingMenu = DOM.qs(
-      `.organizer-folder-actions-popup[data-folder-id="${folderId}"]`
-    );
-    if (existingMenu) {
-      existingMenu.remove();
-      return null;
-    }
-    const wrapper = document.createElement("div");
-    wrapper.innerHTML = templates.actionsMenu(folderId).trim();
-    const popup = wrapper.firstChild;
-    const menuDots = DOM.qs(".organizer-folder-menu-dots", folderCard);
-    if (!menuDots) return null;
-    if (getComputedStyle(folderCard).position === "static")
-      folderCard.style.position = "relative";
-    folderCard.appendChild(popup);
-    const dotsRect = menuDots.getBoundingClientRect();
-    const cardRect = folderCard.getBoundingClientRect();
-    popup.style.top = `${
-      dotsRect.top - cardRect.top - popup.offsetHeight - 20
-    }px`;
-    popup.style.display = "block";
-    return popup;
-  },
-
   mode(mode, activeFilter) {
     const isFiles = mode === "media";
     const isRecordings = isFiles && activeFilter === "recordings";
@@ -407,6 +372,29 @@ const update = {
 
   mediaCard(oldPath, newPath, newName) {
     helpers.updateCardData(".media-card", oldPath, newPath, newName);
+  },
+
+  selectionBar(visible, count, allSelected) {
+    const bar = elements.selectionBar;
+    if (visible) {
+      bar.classList.remove("is-hiding");
+      bar.classList.add("is-visible");
+      const selectAllBtn = bar.querySelector('[data-action="select-all"]');
+      const countEl = selectAllBtn?.querySelector(".organizer-selection-count");
+      if (countEl) countEl.textContent = String(count);
+      selectAllBtn?.classList.toggle("is-all-selected", !!allSelected);
+    } else if (bar.classList.contains("is-visible")) {
+      bar.classList.add("is-hiding");
+      const onEnd = () => {
+        bar.classList.remove("is-visible", "is-hiding");
+        bar.removeEventListener("animationend", onEnd);
+      };
+      bar.addEventListener("animationend", onEnd);
+    }
+  },
+
+  cardSelected(card, selected) {
+    card.classList.toggle("is-selected", selected);
   }
 };
 
