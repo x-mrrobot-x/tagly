@@ -1,10 +1,12 @@
 name: Create Release
 
 on:
-  push:
-    tags:
-      - "release-ui"    # git tag release-ui && git push origin release-ui
-      - "release-core"  # git tag release-core && git push origin release-core
+  workflow_dispatch:
+    inputs:
+      input:
+        description: "Category (ui/core/debug) for automatic versioning, OR exact tag (e.g. v1.0.0 or v1.0.0-ui) to skip the version bump. If a suffix is given, it's used only to set the category — the tag itself is always created without the suffix. Empty defaults to ui."
+        required: false
+        type: string
 
 jobs:
   release:
@@ -28,16 +30,46 @@ jobs:
           fetch-tags: true
 
       # ─────────────────────────────────────────────
-      # 1. Category is derived from the trigger tag
+      # 1. Resolve category and version source
       # ─────────────────────────────────────────────
-      - name: Extract category from trigger tag
+      - name: Resolve trigger source
         run: |
-          TRIGGER_TAG=${GITHUB_REF#refs/tags/}   # "release-ui" or "release-core"
-          CATEGORY=${TRIGGER_TAG#release-}        # "ui" or "core"
+          python3 - << 'PYEOF'
+          import os
+          import re
 
-          echo "Trigger tag : $TRIGGER_TAG"
-          echo "Category    : $CATEGORY"
-          echo "CATEGORY=$CATEGORY" >> $GITHUB_ENV
+          raw = os.environ.get("IN_INPUT", "").strip()
+
+          valid_categories = {"ui", "core", "debug"}
+          manual_tag = ""
+          category = ""
+
+          # vX.Y.Z[-ui|-core|-debug] -> tag, otherwise treat as category
+          # The suffix (if present) is used ONLY to identify the category;
+          # the tag itself is always created clean, without the suffix.
+          tag_match = re.match(r'^(v\d+\.\d+\.\d+)(?:-(ui|core|debug))?$', raw)
+
+          if tag_match:
+              manual_tag = tag_match.group(1)
+              category = tag_match.group(2) or "ui"
+          elif raw:
+              category_lower = raw.lower()
+              if category_lower not in valid_categories:
+                  print(f"::error::Invalid input '{raw}'. Expected a category (ui/core/debug) or a tag (vX.Y.Z[-ui/-core/-debug])")
+                  raise SystemExit(1)
+              category = category_lower
+          else:
+              category = "ui"
+
+          print(f"Category      : {category}")
+          print(f"Manual tag    : '{manual_tag}'")
+
+          with open(os.environ["GITHUB_ENV"], "a") as env:
+              env.write(f"CATEGORY={category}\n")
+              env.write(f"MANUAL_TAG={manual_tag}\n")
+          PYEOF
+        env:
+          IN_INPUT: ${{ github.event.inputs.input }}
 
       # ─────────────────────────────────────────────
       # 2. Collect commits since the last semantic tag
@@ -46,7 +78,7 @@ jobs:
         run: |
           git fetch --tags --force
 
-          # Latest vX.Y.Z tag — ignores "release-*" tags
+          # Latest vX.Y.Z tag
           LAST_TAG=$(git tag --sort=-version:refname \
             | grep -E '^v[0-9]+\.[0-9]+\.[0-9]+' \
             | head -1 || echo "")
@@ -65,28 +97,113 @@ jobs:
           echo "$COMMITS" > /tmp/commits.txt
 
       # ─────────────────────────────────────────────
-      # 3. Gemini: infers next version + changelog
-      #    (category already resolved in step 1)
+      # 3. Compute next semantic version from commit prefixes
       # ─────────────────────────────────────────────
-      - name: AI Version & Changelog via Gemini
+      - name: Compute next version from commit prefixes
+        if: env.MANUAL_TAG == ''
+        run: |
+          python3 - << 'PYEOF'
+          import re
+          import os
+
+          with open("/tmp/commits.txt") as f:
+              commits = [l.strip() for l in f.readlines() if l.strip()]
+
+          last_tag = os.environ.get("LAST_TAG", "").strip()
+          last_version = last_tag[1:] if last_tag.startswith("v") else (last_tag or "0.0.0")
+
+          try:
+              major, minor, patch = (int(x) for x in last_version.split("."))
+          except ValueError:
+              major, minor, patch = 0, 0, 0
+
+          bump = "patch"  # default when no recognized prefix
+
+          # Commit prefix detection
+          breaking_re = re.compile(r'^(feat|fix|refactor|perf|build|ci|chore|docs|style|test)(\([^)]*\))?!:')
+          feat_re     = re.compile(r'^feat(\([^)]*\))?:')
+
+          has_breaking = False
+          has_feat = False
+
+          for c in commits:
+              if "BREAKING CHANGE" in c or breaking_re.match(c) or re.match(r'^break(\([^)]*\))?:', c):
+                  has_breaking = True
+              elif feat_re.match(c):
+                  has_feat = True
+
+          if has_breaking:
+              bump = "major"
+          elif has_feat:
+              bump = "minor"
+          else:
+              bump = "patch"
+
+          if bump == "major":
+              major += 1
+              minor = 0
+              patch = 0
+          elif bump == "minor":
+              minor += 1
+              patch = 0
+          else:
+              patch += 1
+
+          next_version = f"{major}.{minor}.{patch}"
+
+          print(f"Last version : {last_version}")
+          print(f"Bump type    : {bump}")
+          print(f"Next version : {next_version}")
+
+          with open(os.environ["GITHUB_ENV"], "a") as env:
+              env.write(f"NEXT_VERSION={next_version}\n")
+              env.write(f"BUMP_TYPE={bump}\n")
+
+          # Also write to a temp file so THIS SAME step's bash can read it.
+          # ($GITHUB_ENV entries only become real env vars starting on the NEXT step,
+          # so reading ${NEXT_VERSION} further down in this same script was always empty
+          # -> that's why VERSION ended up being just "v")
+          with open("/tmp/next_version.txt", "w") as f:
+              f.write(next_version)
+          PYEOF
+
+          NEXT_VERSION=$(cat /tmp/next_version.txt)
+          VERSION="v${NEXT_VERSION}"
+          ZIP_NAME="tagly-${VERSION}-${{ env.CATEGORY }}.zip"
+
+          echo "✅ Next version : $VERSION"
+          echo "✅ ZIP name     : $ZIP_NAME"
+
+          echo "VERSION=$VERSION"   >> $GITHUB_ENV
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
+
+      # ─────────────────────────────────────────────
+      # 3b. Use manually provided tag
+      # ─────────────────────────────────────────────
+      - name: Use manual tag
+        if: env.MANUAL_TAG != ''
+        run: |
+          VERSION="${{ env.MANUAL_TAG }}"
+          ZIP_NAME="tagly-${VERSION}-${{ env.CATEGORY }}.zip"
+
+          echo "✅ Manual version : $VERSION"
+          echo "✅ ZIP name       : $ZIP_NAME"
+
+          echo "VERSION=$VERSION"   >> $GITHUB_ENV
+          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
+
+      # ─────────────────────────────────────────────
+      # 4. AI changelog rewrite (Gemini)
+      # ─────────────────────────────────────────────
+      - name: AI changelog rewrite via Gemini
         run: |
           COMMITS=$(cat /tmp/commits.txt)
-          LAST_TAG="${{ env.LAST_TAG }}"
-          LAST_VERSION="${LAST_TAG#v}"
-          LAST_VERSION="${LAST_VERSION:-0.0.0}"
 
-          PROMPT="You are a semantic versioning assistant. Analyze the following git commit messages and respond ONLY with a valid JSON object, no markdown, no explanation.
+          PROMPT="You are a release-notes writer. Rewrite the following git commit messages as a polished, user-facing changelog. Respond ONLY with a valid JSON object, no markdown, no explanation.
 
-          Last version: $LAST_VERSION
           Commit messages (one per line):
           $COMMITS
-          
-          Rules for next version (Semantic Versioning):
-          - MAJOR bump (x.0.0): any commit with 'BREAKING CHANGE' in the body, or prefix 'break!:' or 'feat!:'
-          - MINOR bump (0.x.0): any commit with prefix 'feat:'
-          - PATCH bump (0.0.x): commits with prefix 'fix:', 'perf:', 'refactor:', 'chore:', 'docs:', 'style:', 'test:', 'ci:', 'build:'
-          - If no recognized prefixes, do a PATCH bump
-          
+
           Changelog writing rules:
           - Rewrite each commit message as a polished, user-facing release note — do NOT copy the raw commit text
           - Use a professional release tone: clear, concise, and written for end users (not developers)
@@ -97,11 +214,9 @@ jobs:
           - Good example (release note): '- Added English README documentation'
           - Bad example (raw commit): '- exclude duplicate (N) files from source media scan'
           - Good example (release note): '- Fixed duplicate file exclusion during source media scan'
-          
+
           Respond ONLY with this exact JSON structure:
           {
-            \"next_version\": \"X.Y.Z\",
-            \"bump_reason\": \"one sentence explaining why this bump level\",
             \"changelog\": [
               \"- Improved X to do Y\",
               \"- Fixed Z issue\"
@@ -125,136 +240,84 @@ jobs:
 
           echo "Gemini raw response:"
           echo "$RESPONSE"
-
-          # ── Detect API-level errors and fail fast ─────────────────────────
-          # Saves the raw response so the Python block can inspect it cleanly
           echo "$RESPONSE" > /tmp/gemini_raw.json
 
+          # Detect API errors — STOP the workflow if Gemini failed.
+          # (Previously this only warned and let the job continue with a
+          # raw-commit fallback, which is what was producing changelogs
+          # even when the Gemini call errored out.)
           python3 - << 'PYEOF'
-          import sys, json, os
+          import json
+          import sys
 
           with open("/tmp/gemini_raw.json") as f:
               try:
                   data = json.load(f)
               except json.JSONDecodeError:
-                  print("❌ Gemini returned non-JSON response")
-                  sys.exit(1)
+                  data = {}
 
-          # Surface any API error and abort immediately
           err = data.get("error", {})
           if err:
               code    = err.get("code", "?")
               status  = err.get("status", "?")
               message = err.get("message", "unknown error")
-              print(f"❌ Gemini API error [{code}] {status}: {message}")
-              # GitHub Actions error annotation
               print(f"::error::Gemini API failed [{code}] {status} — {message}")
               sys.exit(1)
-
-          print("✅ Gemini response OK — no API errors detected")
           PYEOF
 
           AI_JSON=$(python3 -c "
-          import sys, json
-          with open('/tmp/gemini_raw.json') as f:
-              data = json.load(f)
-          text = data['candidates'][0]['content']['parts'][0]['text']
-          text = text.strip().strip('\`')
-          if text.startswith('json'):
-              text = text[4:].strip()
-          print(text)
+          import json
+          try:
+              with open('/tmp/gemini_raw.json') as f:
+                  data = json.load(f)
+              if data.get('error'):
+                  print('')
+              else:
+                  text = data['candidates'][0]['content']['parts'][0]['text']
+                  text = text.strip().strip('\`')
+                  if text.startswith('json'):
+                      text = text[4:].strip()
+                  print(text)
+          except Exception:
+              print('')
           " 2>/dev/null || echo "")
 
-          echo "AI JSON: $AI_JSON"
-
-          # Parse AI JSON fields using a temp script to avoid shell escape issues
           echo "$AI_JSON" > /tmp/ai_response.json
 
           python3 - << 'PYEOF'
           import json
-          import os
-
-          with open("/tmp/ai_response.json") as f:
-              d = json.load(f)
-
-          # Normalize changelog: ensure every item starts with "- "
-          raw_items = d.get("changelog", [])
-          normalized = []
-          for item in raw_items:
-              line = item.strip()
-              if not line:
-                  continue
-              if not line.startswith("- "):
-                  line = "- " + line.lstrip("- ").strip()
-              normalized.append(line)
-
-          with open("/tmp/changelog.txt", "w") as cl:
-              cl.write("\n".join(normalized))
-
-          with open(os.environ["GITHUB_ENV"], "a") as env:
-              env.write(f"NEXT_VERSION={d.get('next_version', '')}\n")
-
-          print(f"✅ Changelog normalized: {len(normalized)} items")
-          for l in normalized:
-              print(l)
-          PYEOF
-
-          # Read NEXT_VERSION from the file written by the Python block above.
-          # ${{ env.* }} is only available in the NEXT step, not in the same step.
-          NEXT_VERSION=$(python3 -c "
-          
-          import json
-          with open('/tmp/ai_response.json') as f:
-              print(json.load(f).get('next_version', ''))
-          ")
-
-          VERSION="v${NEXT_VERSION}"
-          ZIP_NAME="tagly-${VERSION}-${{ env.CATEGORY }}.zip"
-
-          echo "✅ Next version : $VERSION"
-          echo "✅ ZIP name     : $ZIP_NAME"
-
-          echo "VERSION=$VERSION"   >> $GITHUB_ENV
-          echo "ZIP_NAME=$ZIP_NAME" >> $GITHUB_ENV
-
-      # ─────────────────────────────────────────────
-      # 4. Validate and normalize changelog
-      #    Safety net independent of the AI response
-      # ─────────────────────────────────────────────
-      - name: Validate and normalize changelog
-        run: |
-          python3 - << 'PYEOF'
-          import os
 
           changelog_path = "/tmp/changelog.txt"
           commits_path   = "/tmp/commits.txt"
 
-          # Read current changelog (may be empty or missing)
+          normalized = []
           try:
-              with open(changelog_path) as f:
-                  lines = [l.strip() for l in f.readlines() if l.strip()]
-          except FileNotFoundError:
-              lines = []
+              with open("/tmp/ai_response.json") as f:
+                  content = f.read().strip()
+              if content:
+                  d = json.loads(content)
+                  for item in d.get("changelog", []):
+                      line = item.strip()
+                      if not line:
+                          continue
+                      if not line.startswith("- "):
+                          line = "- " + line.lstrip("- ").strip()
+                      normalized.append(line)
+          except Exception as e:
+              print(f"⚠️  Could not parse Gemini changelog ({e}) — falling back to raw commits")
 
-          # If changelog is empty, fall back to raw commits
-          if not lines:
-              print("⚠️  Changelog empty — falling back to raw commits")
+          # Fallback to raw commits
+          if not normalized:
               try:
                   with open(commits_path) as f:
                       lines = [l.strip() for l in f.readlines() if l.strip()]
               except FileNotFoundError:
                   lines = []
+              for line in lines:
+                  if not line.startswith("- "):
+                      line = "- " + line.lstrip("- ").strip()
+                  normalized.append(line)
 
-          # Normalize: every non-empty line must start with "- "
-          normalized = []
-          for line in lines:
-              if not line:
-                  continue
-              if not line.startswith("- "):
-                  line = "- " + line.lstrip("- ").strip()
-              normalized.append(line)
-
-          # Final fallback: placeholder so the section is never blank
           if not normalized:
               normalized = ["- No significant changes in this release"]
 
@@ -267,7 +330,7 @@ jobs:
           PYEOF
 
       # ─────────────────────────────────────────────
-      # 5. Create the semantic vX.Y.Z tag in the repo
+      # 5. Create the semantic vX.Y.Z tag
       # ─────────────────────────────────────────────
       - name: Create semantic version tag
         run: |
@@ -277,7 +340,7 @@ jobs:
           git tag -d "${{ env.VERSION }}" 2>/dev/null || true
           git push origin ":refs/tags/${{ env.VERSION }}" 2>/dev/null || true
 
-          # Keeps the original convention: tag annotation = category
+          # Tag annotation = category
           git tag "${{ env.VERSION }}" -m "${{ env.CATEGORY }}"
           git push origin "${{ env.VERSION }}"
           echo "✅ Tag ${{ env.VERSION }} created with annotation '${{ env.CATEGORY }}'"
@@ -347,23 +410,13 @@ jobs:
 
           CATEGORY_UPPER=$(echo "${{ env.CATEGORY }}" | tr '[:lower:]' '[:upper:]')
 
+          PRERELEASE_FLAG=""
+          if [ "${{ env.CATEGORY }}" = "debug" ]; then
+            PRERELEASE_FLAG="--prerelease"
+          fi
+
           gh release create "${{ env.VERSION }}" \
             --title "🚀 [${CATEGORY_UPPER}] ${PROJECT_NAME} ${{ env.VERSION }}" \
             --notes-file release_notes.md \
+            $PRERELEASE_FLAG \
             $ASSETS
-
-      # ─────────────────────────────────────────────
-      # 9. Delete trigger tag (release-ui / release-core)
-      #    Runs always — even on failure — so the tag
-      #    never gets stuck in the remote and blocks
-      #    the next manual push attempt.
-      # ─────────────────────────────────────────────
-      - name: Delete trigger tag
-        if: always()
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          TRIGGER_TAG="release-${{ env.CATEGORY }}"
-          git push origin ":refs/tags/${TRIGGER_TAG}" 2>/dev/null \
-            && echo "✅ Trigger tag ${TRIGGER_TAG} deleted" \
-            || echo "ℹ️  Trigger tag ${TRIGGER_TAG} already gone — skipping"
