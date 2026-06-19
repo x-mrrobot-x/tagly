@@ -217,6 +217,7 @@
     "skip_all": "Ignorar Todas",
     "generate_all": "Gerar Tags em Todas",
     "all_done": "Todas as mídias foram analisadas!",
+    "processing_remaining": "Algumas mídias ainda estão sendo processadas em segundo plano...",
     "error_quota_exceeded": "Cota diária do Gemini atingida",
     "error_rate_limit": "Muitas requisições, aguarde um momento",
     "error_overloaded": "Gemini com alta demanda, tente em breve",

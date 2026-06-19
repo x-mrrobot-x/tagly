@@ -294,6 +294,12 @@ function clearPendingItems() {
   state.pendingMedia = [];
 }
 
+function requeuePendingItem(file) {
+  if (!file) return;
+  const alreadyPending = state.pendingMedia.some(f => f.path === file.path);
+  if (!alreadyPending) state.pendingMedia.push(file);
+}
+
 async function skipMedia(filePath) {
   const result = await TaskQueue.add("skip_screenshot", [filePath], "shell");
   return result?.newPath || null;
@@ -358,6 +364,7 @@ export default {
   getPendingMedia,
   removePendingItem,
   clearPendingItems,
+  requeuePendingItem,
   skipMedia,
   applyTagsToFile,
   removeTagFromFile,

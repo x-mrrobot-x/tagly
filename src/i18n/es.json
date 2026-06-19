@@ -217,6 +217,7 @@
     "skip_all": "Omitir Todas",
     "generate_all": "Generar en Todas",
     "all_done": "¡Todos los archivos analizados!",
+    "processing_remaining": "Algunos archivos todavía se están procesando en segundo plano...",
     "error_quota_exceeded": "Cuota diaria de Gemini alcanzada",
     "error_rate_limit": "Demasiadas solicitudes, espera un momento",
     "error_overloaded": "Gemini con alta demanda, intenta pronto",

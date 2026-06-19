@@ -13,10 +13,12 @@ import EventBus from "../../../core/platform/event-bus.js";
 let taggingQueue = [];
 let taggingIndex = 0;
 let batchCancelled = false;
+let pendingGenerateCalls = 0;
 
 function buildTaggingQueue() {
   taggingQueue = OrganizerModel.getPendingMedia();
   taggingIndex = 0;
+  pendingGenerateCalls = 0;
 }
 
 function showCurrentTaggingCard(direction) {
@@ -25,7 +27,8 @@ function showCurrentTaggingCard(direction) {
     file,
     direction,
     ImageUtils.videoToThumbnailUrl,
-    TaggingModel.isVideoFile
+    TaggingModel.isVideoFile,
+    pendingGenerateCalls > 0
   );
   TaggingView.update.taggingStats(OrganizerModel.getMediaStats());
 }
@@ -55,6 +58,7 @@ async function openTaggingDialogWithQueue(files) {
 
   taggingQueue = files;
   taggingIndex = 0;
+  pendingGenerateCalls = 0;
   OrganizerModel.setMediaStats({
     pending: files.length,
     tagged: 0,
@@ -137,9 +141,24 @@ function handleGenerateTags() {
   if (!requireGeminiKey()) return;
 
   OrganizerModel.removePendingItem(file.path);
+  pendingGenerateCalls++;
+
   TaggingModel.generateTags(file.path)
     .then(tags => applyTagsAndUpdateStats(file.path, tags))
-    .catch(handleTaggingError);
+    .catch(err => {
+      handleTaggingError(err);
+      taggingQueue.push(file);
+      OrganizerModel.requeuePendingItem(file);
+      TaggingView.update.taggingStats(OrganizerModel.getMediaStats());
+      const wasAtEnd = taggingIndex === taggingQueue.length - 1;
+      if (wasAtEnd) showCurrentTaggingCard(null);
+    })
+    .finally(() => {
+      pendingGenerateCalls--;
+      if (pendingGenerateCalls === 0 && !taggingQueue[taggingIndex]) {
+        showCurrentTaggingCard(null);
+      }
+    });
 
   taggingIndex++;
   showCurrentTaggingCard("right");

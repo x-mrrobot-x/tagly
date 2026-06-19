@@ -57,11 +57,14 @@ const render = {
     }
   },
 
-  emptyState() {
+  emptyState(isProcessing) {
     elements.taggingCardArea.style.display = "none";
     elements.taggingMainActions.style.display = "none";
     elements.taggingEmpty.style.display = "block";
     elements.taggingBatchActions.style.display = "none";
+    elements.taggingEmpty.textContent = isProcessing
+      ? I18n.t("tagging.processing_remaining")
+      : I18n.t("tagging.all_done");
   },
 
   cardArea() {
@@ -121,9 +124,9 @@ const update = {
     elements.taggingStatSkipped.textContent = stats.skipped ?? 0;
   },
 
-  taggingCard(file, direction, videoToThumbnailUrl, isVideoFile) {
+  taggingCard(file, direction, videoToThumbnailUrl, isVideoFile, isProcessing) {
     if (!file) {
-      render.emptyState();
+      render.emptyState(isProcessing);
       return;
     }
     render.cardArea();
